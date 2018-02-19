@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// CSS library
+require('../node_modules/tachyons/css/tachyons.css')
+require('./assets/css/common.css')
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
