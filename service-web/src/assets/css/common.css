@@ -48,3 +48,10 @@
 .ml100- {
   margin-left: -87px;
 }
+/*-Gradient color libary*/
+.gradient-blue{
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+.gradient-blue-1{
+  background: linear-gradient(11deg, #0fb8ad 0%, #1fc8db 57%, #2cb5e8 75%);
+}
