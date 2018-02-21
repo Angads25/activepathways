@@ -1,33 +1,33 @@
-<!--<header class="cf w-100 pa3 ph6-ns bg-light-gray">-->
-  <!--<div class="cf">-->
-    <!--<div class="db dt-ns mw9-l center w-100 b&#45;&#45;black-40 bb pv3">-->
-      <!--<div class="fl w-20 tl">-->
-        <!--<router-link tag="a" :to="{ name: 'landingpage' }" class="dib f5 f4-ns fw6 mt0 mb1 link black-70" title="Home">-->
-          <!--Logo-->
-        <!--</router-link>-->
-      <!--</div>-->
-      <!--<div class="w-80 fr">-->
-        <!--<nav class="tr mt2 mt0-ns menu-header">-->
-          <!--<router-link tag="a" :to="{ name: 'dashboard' }" class="f5 fw6 link black-70 mr2 mr3-m mr4-l active">-->
-            <!--Home-->
-          <!--</router-link>-->
-          <!--<router-link tag="a" :to="{ name: 'dashboard' }" class="f5 fw6 link black-70 mr2 mr3-m mr4-l dib">-->
-            <!--About-->
-          <!--</router-link>-->
-          <!--<router-link tag="a" :to="{ name: '/' }" class="f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dib">-->
-            <!--Menu-->
-          <!--</router-link>-->
-          <!--<router-link tag="a" :to="{ name: '/' }" class="f5 fw6 link black-70 mr2 mr3-m mr4-l dib">-->
-            <!--Menu-->
-          <!--</router-link>-->
-          <!--<router-link tag="a" :to="{ name: '/' }" class="f5 fw6  link black-70 mr2 mr3-m mr4-l dn dib-l">-->
-            <!--Menu-->
-          <!--</router-link>-->
-          <!--<router-link tag="a" :to="{ name: '/' }" class="f5 fw6 link black-70 mr2 mr3-m mr4-l dn dib-l">-->
-            <!--Menu-->
-          <!--</router-link>-->
-        <!--</nav>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</header>-->
+<header class="avenir h-100" v-if="this.showHeader">
+  <div class="cover bg-left bg-center-l" style="background-image: url(http://mrmrs.github.io/photos/u/011.jpg)">
+    <div class="bg-black-80 pb5 pb6-m pb7-l relative vh-75">
+      <nav class="dt w-100 mw8 center bb b--white-50">
+        <div class="w-20 fl pa2 tl mt3 ">
+          <a href="/" class="f3 fw6 white no-underline ">
+           Logo
+          </a>
+        </div>
+        <div class="fl w-80 pa3 tr">
+          <router-link tag="a" :to="{ name: 'landingpage' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Home</router-link>
+          <router-link tag="a" :to="{ name: 'dashboard' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
+          <router-link tag="a" :to="{ name: 'dashboard' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
+          <router-link tag="a" :to="{ name: 'dashboard' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
+          <router-link tag="a" :to="{ name: 'dashboard' }" class="ff4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
+          <router-link tag="a" :to="{ name: 'dashboard' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
+        </div>
+      </nav>
+        <div class="db fr w-40-ns w-60-m w-100 center black ph3 ph0-ns absolute bottom-0 right-0 ">
+        <div class="bg-white black pv2 ph3 ph6-l ph3-m br--left br--top br4 tl">
+          <h1 class="f1 f1-ns black mb0 mt2-m">Welcome </h1>
+          <p class="lh-copy-l black mt0"> Take your first steps to become more physically active
+          </p>
+          <div class="cf">
+            <a class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="#0">Sign up here</a>
+            <a class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white bg-navy pt2 pb2 lh-copy ml2" href="#0">*Inverse</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</header>
+

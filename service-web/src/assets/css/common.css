@@ -55,3 +55,9 @@
 .gradient-blue-1{
   background: linear-gradient(11deg, #0fb8ad 0%, #1fc8db 57%, #2cb5e8 75%);
 }
+.blue-dark-color {
+  background-color: #408BC9;
+}
+.box-shadow-grey {
+  box-shadow: 0px 23px 34px 6px #e7e4e4;
+}
