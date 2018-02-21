@@ -1,33 +1,51 @@
-<header class="avenir h-100" v-if="this.showHeader">
+<header class="avenir h-100" v-if="!showHeader">
   <div class=" bg-light-gray">
-    <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-75">
+    <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-50 vh-75-l vh-100-m">
       <nav class="dt w-100 mw8 center bb b--lightest-blue
 ">
         <div class="w-20 fl pa2 tl mt3 ">
           <a href="/" class="f3 fw6 black no-underline ">
-           Logo
+            Logo
           </a>
         </div>
         <div class="fl w-80 pa3 tr">
-          <router-link tag="a" :to="{ name: '/landingpage' }" class="f4 fw6 hover-blue active no-underline washed-blue dn dib-ns pv2 ph3">Home</router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="ff4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">Menu</router-link>
+          <router-link tag="a" :to="{ name: '/landingpage' }"
+                       class="f4 fw6 hover-blue active no-underline washed-blue dn dib-ns pv2 ph3">Home
+          </router-link>
+          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+            Menu
+          </router-link>
+          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+            Menu
+          </router-link>
+          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+            Menu
+          </router-link>
+          <router-link tag="a" :to="{ name: '/' }" class="ff4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+            Menu
+          </router-link>
+          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+            Menu
+          </router-link>
         </div>
       </nav>
-        <div class="db fr w-40-ns w-60-m w-100 center black ph3 ph0-ns absolute bottom-0 right-0 ">
-        <div class="bg-white black pv2 ph3 ph6-l ph3-m br--left br--top br4 tl">
-          <h1 class="f1 f1-ns black mb0 mt2-m">Welcome </h1>
-          <p class="lh-copy-l black mt0"> Take your first steps to become more physically active
-          </p>
-          <div class="cf">
-            <router-link tag="a" :to="{ name: 'dashboard' }" class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="#0">Sign up here</router-link>
-            <a class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white bg-navy pt2 pb2 lh-copy ml2" href="#0">*Inverse</a>
+      <section class="hero ph3 w-40">
+        <div class="db fr w-40-l w-60-m w-100 center black ph3 ph0-ns absolute bottom-0 right-0 ">
+          <div class="bg-white black pv2 ph3 ph6-l ph3-m br--left-l br--left-m br--top br4 tl">
+            <h1 class="f1 f1-ns black mb0 mt2-m">Welcome </h1>
+            <p class="lh-copy-l black mt0"> Take your first steps to become more physically active
+            </p>
+            <div class="cf">
+              <router-link tag="a" :to="{ name: 'dashboard' }"
+                           class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy">Sign up here
+              </router-link>
+              <router-link tag="a" :to="{ name: 'challengestates' }"
+                           class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white bg-navy pt2 pb2 lh-copy ml2">
+                *Inverse</router-link>
+            </div>
           </div>
         </div>
-        </div>
+      </section>
     </div>
   </div>
 </header>
