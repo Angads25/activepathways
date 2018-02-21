@@ -5,7 +5,7 @@
   font: 15px 'trebuchet MS', 'lucida sans';
   padding: 0;
   margin-bottom: 4em;
-  border-left: 2px solid #418bca;
+  border-left: 2px solid #fff;
 
 }
 .numberlist ol ol{
@@ -18,7 +18,7 @@
   padding: .4em .4em .4em 1.5em;
   *padding: .4em;
   margin: 2em 0;
-  color: #444;
+  color: #fff;
   text-decoration: none;
 
 }
@@ -30,7 +30,7 @@
   left: -1.10em;
   top: 70%;
   margin-top: -1.3em;
-  background: #418bca;
+  background: #fff;
   height: 2em;
   width: 2em;
   line-height: 2em;
@@ -39,15 +39,9 @@
   -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
   border-radius: 2em;
-  color:#fefeff;
+  color:#000;
 }
 /* End css list with numeber circle background -------------- */
-.mr100- {
-  margin-right: -87px;
-}
-.ml100- {
-  margin-left: -87px;
-}
 /*-Gradient color libary*/
 .gradient-blue{
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
@@ -60,4 +54,21 @@
 }
 .box-shadow-grey {
   box-shadow: 0px 23px 34px 6px #e7e4e4;
+}
+.bggrey-light {
+  background-color: #dae8f5;
+}
+.gradient-h{
+  background: rgb(14,51,96); /* Old browsers */
+  background: -moz-linear-gradient(left, rgb(14,51,96) 2%, rgb(54,120,180) 98%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgb(14,51,96) 2%,rgb(54,120,180) 98%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgb(14,51,96) 2%,rgb(54,120,180) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e3360', endColorstr='#3678b4',GradientType=1 ); /* IE6-9 */
+}
+.gradient-right{
+  background: rgb(14,51,96); /* Old browsers */
+  background: -moz-linear-gradient(right, rgb(14,51,96) 2%, rgb(54,120,180) 98%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(right, rgb(14,51,96) 2%,rgb(54,120,180) 98%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to left, rgb(14,51,96) 2%,rgb(54,120,180) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e3360', endColorstr='#3678b4',GradientType=1 ); /* IE6-9 */
 }
