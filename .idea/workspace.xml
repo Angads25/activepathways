@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86e8058a-c0ba-48f3-9711-dabfca921ed3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-web/src/assets/images/iconmonstr-smiley-2.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-web/src/views/ChallengeStates/challenge-states.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-web/src/views/ChallengeStates/challenge-states.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-web/src/views/ChallengeStates/challenge-states.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-web/src/views/ChallengeStates/challenge-states.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/config/index.js" afterPath="$PROJECT_DIR$/service-web/config/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/components/header/header.html" afterPath="$PROJECT_DIR$/service-web/src/components/header/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/components/header/header.js" afterPath="$PROJECT_DIR$/service-web/src/components/header/header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/router/index.js" afterPath="$PROJECT_DIR$/service-web/src/router/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/views/Dashboard/dashboard.html" afterPath="$PROJECT_DIR$/service-web/src/views/Dashboard/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html" afterPath="$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html" />
-    </list>
+    <list default="true" id="86e8058a-c0ba-48f3-9711-dabfca921ed3" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,14 +15,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="challenge-states.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="challenge-states.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service-web/src/views/ChallengeStates/challenge-states.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="228" column="39" lean-forward="false" selection-start-line="228" selection-start-column="39" selection-end-line="228" selection-end-column="39" />
+            <state relative-caret-position="230">
+              <caret line="238" column="16" lean-forward="true" selection-start-line="238" selection-start-column="16" selection-end-line="238" selection-end-column="16" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#11;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/service-web/config/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -508,12 +505,12 @@
       <workItem from="1518700876275" duration="3408000" />
       <workItem from="1518717669616" duration="5272000" />
       <workItem from="1519015674691" duration="47480000" />
-      <workItem from="1519137478600" duration="48277000" />
+      <workItem from="1519137478600" duration="48546000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104437000" />
+    <option name="totallyTimeSpent" value="104706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -824,14 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service-web/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -920,11 +909,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service-web/src/views/ChallengeStates/challenge-states.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="228" column="39" lean-forward="false" selection-start-line="228" selection-start-column="39" selection-end-line="228" selection-end-column="39" />
+        <state relative-caret-position="230">
+          <caret line="238" column="16" lean-forward="true" selection-start-line="238" selection-start-column="16" selection-end-line="238" selection-end-column="16" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#11;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-web/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
