@@ -1,30 +1,30 @@
 <header class="avenir h-100" v-if="!showHeader">
   <div class=" bg-light-gray">
     <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-50 vh-75-l vh-100-m">
-      <nav class="dt w-100 mw8 center bb b--lightest-blue
+      <nav class="pt2 dt w-100 mw8 center bb nav-border-b
 ">
         <div class="w-20 fl pa2 tl mt3 ">
           <a href="/" class="f3 fw6 black no-underline ">
-            Logo
+           <img src="../../assets/images/main-logo.png"/>
           </a>
         </div>
-        <div class="fl w-80 pa3 tr">
+        <div class="fl w-80 pa3 pr0 tr menu-header">
           <router-link tag="a" :to="{ name: '/landingpage' }"
-                       class="f4 fw6 hover-blue active no-underline washed-blue dn dib-ns pv2 ph3">Home
+                       class="f3 b active dn dib-ns pv2 ml4 ">Home
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="ff4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4  ">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f4 fw6 hover-white no-underline white-70 dn dib-ns pv2 ph3">
+          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
             Menu
           </router-link>
         </div>
@@ -37,11 +37,8 @@
             </p>
             <div class="cf">
               <router-link tag="a" :to="{ name: 'dashboard' }"
-                           class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy">Sign up here
+                           class="f6 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy">Sign up here
               </router-link>
-              <router-link tag="a" :to="{ name: 'challengestates' }"
-                           class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white bg-navy pt2 pb2 lh-copy ml2">
-                *Inverse</router-link>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@
   padding: 0;
   margin-bottom: 4em;
   border-left: 2px solid #fff;
+  margin-left: 20px;
 
 }
 .numberlist ol ol{
@@ -15,7 +16,7 @@
 .numberlist li {
   position: relative;
   display: block;
-  padding: .4em .4em .4em 1.5em;
+  padding: .4em .4em .4em 3em;
   *padding: .4em;
   margin: 2em 0;
   color: #fff;
@@ -71,4 +72,7 @@
   background: -webkit-linear-gradient(right, rgb(14,51,96) 2%,rgb(54,120,180) 98%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to left, rgb(14,51,96) 2%,rgb(54,120,180) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e3360', endColorstr='#3678b4',GradientType=1 ); /* IE6-9 */
+}
+.nav-border-b {
+  border-bottom: 1px solid rgba(64, 139, 201, 0.1);
 }
