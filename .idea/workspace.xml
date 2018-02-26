@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86e8058a-c0ba-48f3-9711-dabfca921ed3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/assets/images/logo.png" afterPath="$PROJECT_DIR$/service-web/src/assets/images/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/assets/css/common.css" afterPath="$PROJECT_DIR$/service-web/src/assets/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/components/header/header.html" afterPath="$PROJECT_DIR$/service-web/src/components/header/header.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html" afterPath="$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -53,8 +55,8 @@
       <file leaf-file-name="landing-page.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="139" column="40" lean-forward="false" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="40" />
+            <state relative-caret-position="375">
+              <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -73,8 +75,8 @@
       <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service-web/src/components/header/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="39" column="38" lean-forward="false" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+            <state relative-caret-position="346">
+              <caret line="35" column="55" lean-forward="false" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -93,8 +95,8 @@
       <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service-web/src/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="76" column="49" lean-forward="false" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+            <state relative-caret-position="251">
+              <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -115,8 +117,8 @@
       <find>Flush</find>
       <find>2</find>
       <find>.b--lightest-blue</find>
-      <find>.numberlist li</find>
       <find>b--lightest-blue</find>
+      <find>.numberlist li</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,10 +146,10 @@
         <option value="$PROJECT_DIR$/service-web/src/components/header/header.js" />
         <option value="$PROJECT_DIR$/service-web/src/views/ChallengeStates/challenge-states.html" />
         <option value="$PROJECT_DIR$/service-web/config/index.js" />
-        <option value="$PROJECT_DIR$/service-web/src/assets/css/common.css" />
         <option value="$PROJECT_DIR$/service-web/src/components/header/header.css" />
-        <option value="$PROJECT_DIR$/service-web/src/components/header/header.html" />
         <option value="$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.css" />
+        <option value="$PROJECT_DIR$/service-web/src/components/header/header.html" />
+        <option value="$PROJECT_DIR$/service-web/src/assets/css/common.css" />
         <option value="$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html" />
       </list>
     </option>
@@ -562,12 +564,12 @@
       <workItem from="1518717669616" duration="5272000" />
       <workItem from="1519015674691" duration="47480000" />
       <workItem from="1519137478600" duration="49030000" />
-      <workItem from="1519659559811" duration="9987000" />
+      <workItem from="1519659559811" duration="13724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115177000" />
+    <option name="totallyTimeSpent" value="118914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -942,26 +944,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service-web/src/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="76" column="49" lean-forward="false" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service-web/src/components/header/header.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-web/src/components/header/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="39" column="38" lean-forward="false" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -974,10 +960,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service-web/src/components/header/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="35" column="55" lean-forward="false" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-web/src/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/service-web/src/views/LandingPage/landing-page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="139" column="40" lean-forward="false" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="40" />
+        <state relative-caret-position="375">
+          <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
           <folding />
         </state>
       </provider>

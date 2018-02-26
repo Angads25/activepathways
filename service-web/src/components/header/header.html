@@ -1,18 +1,18 @@
 <header class="avenir h-100" v-if="!showHeader">
   <div class=" bg-light-gray">
     <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-50 vh-75-l vh-100-m">
-      <nav class="pt2 dt w-100 mw8 center bb nav-border-b
+      <nav class="pt3 dt w-100 mw8 center bb nav-border-b
 ">
-        <div class="w-20 fl pa2 tl mt3 ">
+        <div class="w-20 fl pa2 tl ">
           <a href="/" class="f3 fw6 black no-underline ">
-           <img src="../../assets/images/main-logo.png"/>
+           <img src="../../assets/images/logo.png"/>
           </a>
         </div>
         <div class="fl w-80 pa3 pr0 tr menu-header">
           <router-link tag="a" :to="{ name: '/landingpage' }"
                        class="f3 b active dn dib-ns pv2 ml4 ">Home
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
+          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4">
             Menu
           </router-link>
           <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
@@ -33,11 +33,11 @@
         <div class="db fr w-40-l w-60-m w-100 center black ph3 ph0-ns absolute bottom-0 right-0 ">
           <div class="bg-white black pv2 ph3 ph6-l ph3-m br--left-l br--left-m br--top br4 tl">
             <h1 class="f1 f1-ns black mb0 mt2-m">Welcome </h1>
-            <p class="lh-copy-l black mt0"> Take your first steps to become more physically active
+            <p class="lh-copy-l f5 fw5 black mt0 avenir"> Take your first steps<br> to become more physically active
             </p>
             <div class="cf">
               <router-link tag="a" :to="{ name: 'dashboard' }"
-                           class="f6 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy">Sign up here
+                           class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir">Sign up here
               </router-link>
             </div>
           </div>
