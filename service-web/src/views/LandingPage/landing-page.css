@@ -19,3 +19,38 @@
   border-radius: 100px;
   margin-left: 20px;
 }
+.circle-whit span {
+  height: 2em;
+  width: 2em;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #001b44;
+  text-align: center;
+  display: block;
+  position: relative;
+  z-index:3;
+  clear: both;
+  margin-right: 29px;
+  float: right;
+  line-height: 2em;
+  font-weight: 500;
+  font-family: 'Avenir';
+  margin-bottom: 45px;
+}
+.circle-whit span:after {
+  content: '';
+  border-right: 5px solid #fff;
+  height: 10vh;
+  display: inherit;
+  margin-right: 14px;
+  text-align: center;
+  z-index: 1;
+}
+.circle-whit span:last-child:after {
+  content:'';
+  border-right: transparent;
+  height: auto;
+}
+.circle-whit span:last-child {
+  margin-bottom: 0;
+}
