@@ -40,6 +40,12 @@
 .bggrey-light {
   background-color: #dae8f5;
 }
+.bg-light-grey-moon {
+  background-color: #f4f7fc;
+}
+.height-480 {
+  height: 480px;
+}
 .gradient-h{
   background: rgb(14,51,96); /* Old browsers */
   background: -moz-linear-gradient(left, rgb(14,51,96) 2%, rgb(54,120,180) 98%); /* FF3.6-15 */
@@ -59,4 +65,7 @@
 }
 .box-shadow {
   box-shadow: 0px 0px 19px 3px #c5dbf0;
+}
+.shadow-default {
+  box-shadow: 0px 0px 28px 3px #00000033;
 }

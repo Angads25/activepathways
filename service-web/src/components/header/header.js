@@ -8,7 +8,7 @@ export default {
   computed : {
     showHeader(){
       // return this.$route.name !== "dashboard ?? challengestates"
-      return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard')
+      return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard') || (this.$route.name === 'challenge-page')
     }
   }
 }
