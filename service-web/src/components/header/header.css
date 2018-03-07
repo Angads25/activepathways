@@ -32,3 +32,11 @@
   margin-bottom: -25px;
   border-radius: 100px;
 }
+
+.header-baner {
+  background-image: url(../../assets/images/Stretching_V2.png);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+}

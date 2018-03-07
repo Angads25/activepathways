@@ -54,3 +54,9 @@
 .circle-whit span:last-child {
   margin-bottom: 0;
 }
+.stretching-img-small {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../../assets/images/Stretching_V1.png);
+}
