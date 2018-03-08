@@ -48,6 +48,7 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	'Users': ['AdminUser', 'User'],
+	'Content': ['AppUser']
 });
 
 if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
