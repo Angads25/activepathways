@@ -20,4 +20,6 @@ Challenge.defaultColumns = 'name, taskDescription, track';
 
 Challenge.relationship({path: 'programmes', ref: 'Programme', refPath: 'challenges'});
 
+Challenge.relationship({path: 'userchallengeslabs', ref: 'UserChallengeSlab', refPath: 'challenge'});
+
 Challenge.register();
