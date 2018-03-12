@@ -18,7 +18,7 @@ Challenge.add({
 /**
  * Registration
  */
-Challenge.defaultColumns = 'illustration, name, taskDescription, createdAt, updatedAt, createdBy, updatedBy';
+Challenge.defaultColumns = 'name, illustration, taskDescription, createdAt, updatedAt, createdBy, updatedBy';
 
 // Challenge.relationship({path: 'programmes', ref: 'Programme', refPath: 'challenges'});
 
