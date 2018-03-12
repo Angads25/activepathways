@@ -25,6 +25,12 @@ keystone.init({
 
 	'emails': 'templates/emails',
 
+	'cloudinary config': {
+		cloud_name: 'http-www-albertpinto-co',
+		api_key: '877329691525398',
+		api_secret: 'PFHCTgkuibiA5yUR3ts_Tc1-GLw'
+	},
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -48,6 +54,7 @@ keystone.set('nav', {
 	'Content': ['Challenge', 'Programme'],
 	'Tracks': 'UserChallengeState'
 });
+
 
 if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
 	console.log('----------------------------------------'

@@ -9,13 +9,16 @@ var Challenge = new keystone.List('Challenge', {track: true});
 
 Challenge.add({
 	name: {type: Types.Text, required: true, index: true, initial: true, label: 'Name'},
-	taskDescription: {type: Types.Textarea, initial: true, required: true}
+	description: {type: Types.Textarea, initial: true, required: true},
+	shortDescription: {type: Types.Textarea, initial: true, required: true},
+	highlightedContent: {type: Types.Textarea, initial: true, required: false},
+	illustration: {type: Types.CloudinaryImage, initial: true, required: false}
 });
 
 /**
  * Registration
  */
-Challenge.defaultColumns = 'name, taskDescription, createdAt, updatedAt, createdBy, updatedBy';
+Challenge.defaultColumns = 'illustration, name, taskDescription, createdAt, updatedAt, createdBy, updatedBy';
 
 // Challenge.relationship({path: 'programmes', ref: 'Programme', refPath: 'challenges'});
 
