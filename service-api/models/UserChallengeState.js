@@ -5,14 +5,19 @@ var Types = keystone.Field.Types;
  * UserChallengeState Model
  * ==========
  */
-var UserChallengeState = new keystone.List('UserChallengeState');
+var UserChallengeState = new keystone.List('UserChallengeState', {track: true});
 
 UserChallengeState.add({
 	user: {type: Types.Relationship, ref: 'AppUser', required: true, initial: true},
 	programme: {type: Types.Relationship, ref: 'Programme', initial: true, required: true},
 	challenge: {type: Types.Relationship, ref: 'Challenge', initial: true, required: true},
 	notes: {type: Types.Text, initial: true, required: true},
-	status: {type: Types.Text, initial: true, required: true},
+	status: {
+		type: Types.Select,
+		options: ['PENDING', 'STARTED', 'COMPLETED', 'SKIPPED'],
+		initial: true,
+		required: true
+	},
 	track: {type: Types.Text, initial: true, required: true}
 });
 

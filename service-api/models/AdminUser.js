@@ -5,7 +5,7 @@ var Types = keystone.Field.Types;
  * AdminUser Model
  * ==========
  */
-var AdminUser = new keystone.List('AdminUser');
+var AdminUser = new keystone.List('AdminUser', {track: true});
 
 AdminUser.add({
 	name: { type: Types.Name, required: true, index: true },
