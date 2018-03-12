@@ -10,15 +10,12 @@ var UserProgrammeEnrollment = new keystone.List('UserProgrammeEnrollment', {trac
 UserProgrammeEnrollment.add({
 	user: {type: Types.Relationship, ref: 'AppUser', required: true, initial: true},
 	programme: {type: Types.Relationship, ref: 'Programme', initial: true, required: true},
-	challenge: {type: Types.Relationship, ref: 'Challenge', initial: true, required: true},
-	notes: {type: Types.Text, initial: true, required: true},
 	status: {
 		type: Types.Select,
-		options: ['PENDING', 'STARTED', 'COMPLETED', 'SKIPPED'],
+		options: ['JOINED', 'EXITED'],
 		initial: true,
 		required: true
 	},
-	track: {type: Types.Text, initial: true, required: true}
 });
 
 /**

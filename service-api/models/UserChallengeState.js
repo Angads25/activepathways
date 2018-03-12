@@ -17,8 +17,7 @@ UserChallengeState.add({
 		options: ['PENDING', 'STARTED', 'COMPLETED', 'SKIPPED'],
 		initial: true,
 		required: true
-	},
-	track: {type: Types.Text, initial: true, required: true}
+	}
 });
 
 /**
