@@ -9,9 +9,6 @@ const Agenda = require('agenda');
 keystone.init({
 	'name': 'Active Pathways',
 	'brand': ' The Active Pathways Admin',
-
-	'admin path': 'dashboard',
-
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
