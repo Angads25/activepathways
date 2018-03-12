@@ -2,12 +2,12 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * UserChallengeSlab Model
+ * UserChallengeState Model
  * ==========
  */
-var UserChallengeSlab = new keystone.List('UserChallengeSlab');
+var UserChallengeState = new keystone.List('UserChallengeState');
 
-UserChallengeSlab.add({
+UserChallengeState.add({
 	user: {type: Types.Relationship, ref: 'AppUser', required: true, initial: true},
 	programme: {type: Types.Relationship, ref: 'Programme', initial: true, required: true},
 	challenge: {type: Types.Relationship, ref: 'Challenge', initial: true, required: true},
@@ -19,5 +19,5 @@ UserChallengeSlab.add({
 /**
  * Registration
  */
-UserChallengeSlab.defaultColumns = 'user, programme, challenge, notes, status, track';
-UserChallengeSlab.register();
+UserChallengeState.defaultColumns = 'user, programme, challenge, notes, status, track';
+UserChallengeState.register();

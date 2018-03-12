@@ -47,8 +47,9 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	'Users': ['AdminUser', 'User'],
-	'Content': ['AppUser']
+	'Users': ['AdminUser', 'AppUser'],
+	'Content': ['Challenge', 'Programme'],
+	'Tracks': 'UserChallengeState'
 });
 
 if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
