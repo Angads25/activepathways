@@ -52,7 +52,7 @@ keystone.set('routes', require('./routes'));
 keystone.set('nav', {
 	'Users': ['AdminUser', 'AppUser'],
 	'Content': ['Challenge', 'Programme'],
-	'Tracks': 'UserChallengeState'
+	'Tracks': ['UserChallengeState', 'UserProgrammeEnrollment']
 });
 
 
