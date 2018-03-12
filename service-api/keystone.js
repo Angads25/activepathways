@@ -26,9 +26,9 @@ keystone.init({
 	'emails': 'templates/emails',
 
 	'cloudinary config': {
-		cloud_name: 'http-www-albertpinto-co',
-		api_key: '877329691525398',
-		api_secret: 'PFHCTgkuibiA5yUR3ts_Tc1-GLw'
+		cloud_name: 'drj4dg734',
+		api_key: '499668317317476',
+		api_secret: 'w4LeUlrSyY_UqVsh7uyQ7ITq118'
 	},
 
 	'auto update': true,
