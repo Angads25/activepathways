@@ -4,27 +4,27 @@
       <nav class="pt3 dt w-100 mw8 center bb nav-border-b
 ">
         <div class="w-20 fl pa2 tl ">
-          <a href="/" class="no-underline">
+          <router-link :to="{ name: 'landingpage' }" class="no-underline">
            <img src="../../assets/images/site-logo.png"/>
-          </a>
+          </router-link>
         </div>
         <div class="fl w-80 pa3 pr0 tr menu-header">
-          <router-link tag="a" :to="{ name: '/landingpage' }"
+          <router-link tag="a" :to="{ name: 'landingpage' }"
                        class="f3 b active dn dib-ns pv2 ml4 ">Home
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4">
+          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
+          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
+          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4  ">
+          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4  ">
             Menu
           </router-link>
-          <router-link tag="a" :to="{ name: '/' }" class="f3 b dn dib-ns pv2 ml4 ">
+          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
             Menu
           </router-link>
         </div>
@@ -36,14 +36,15 @@
             <p class="lh-copy-l f5 fw5 black mt0 avenir"> Take your first steps<br> to become more physically active
             </p>
             <div class="cf">
-              <router-link tag="a" :to="{ name: 'dashboard' }"
-                           class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir">Sign up here
-              </router-link>
+              <a class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir" @click.prevent="activeModal = 'signup'">Sign up here
+              </a>
             </div>
           </div>
         </div>
       </section>
     </div>
   </div>
+  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()" @openSignUp="activeModal = 'signup'"></SignIn>
+  <SignUp v-else-if="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'"></SignUp>
 </header>
 

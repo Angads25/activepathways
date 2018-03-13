@@ -23,6 +23,12 @@
   text-decoration: none;
 
 }
+input:focus{
+  outline: none;
+}
+input::-webkit-input-placeholder{
+  color: #6e7d92;
+}
 /* End css list with numeber circle background -------------- */
 /*-Gradient color libary*/
 .gradient-blue{

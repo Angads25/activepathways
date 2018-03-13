@@ -1,0 +1,9 @@
+<section class="modal-frame fixed top-0 right-0 bottom-0 left-0 z-2 w-100" :style="{'display': status ? 'block' : 'none'}" @click.prevent="closeModal($event)">
+  <section class="cf w-100 ph0 ph6-l pt5 relative z-4">
+    <div class="dt w-100 mw7 ph3 ph3-m ph3-l center">
+      <div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default">
+          <component :is="activeComponent"></component>
+      </div>
+    </div>
+  </section>
+</section>
