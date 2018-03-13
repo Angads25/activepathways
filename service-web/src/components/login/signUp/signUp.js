@@ -5,8 +5,7 @@ export default {
       fname: '',
       lname: '',
       email: '',
-      password: '',
-      cpassword: ''
+      password: ''
     }
   },
   methods: {
@@ -25,6 +24,7 @@ export default {
           if (result) {
             this.$store.dispatch('signup', this.getSignUpData())
               .then(resp => {
+                console.log('>>>>>>>>>>', resp)
                 this.closeModal(event)
               })
           } else {

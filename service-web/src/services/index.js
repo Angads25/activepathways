@@ -8,7 +8,7 @@ export const HTTP = axios.create({
   baseURL: API_URL
 })
 
-HTTP.defaults.headers.post['Content-Type'] = 'application/json'
+HTTP.defaults.headers.post['Accept'] = 'application/json'
 
 const _responseHandler = (response, name, resolve, reject) => {
   const body = response.data
@@ -43,7 +43,7 @@ export const _getHeaders = () => {
 
 export const postRequest = (url, name, headers = true) => {
   return new Promise((resolve, reject) => {
-    HTTP.post(`graph?query=${url}`, {}, headers ? _getHeaders() : {})
+    HTTP.post(`graph?query=${encodeURIComponent(url)}`, '', headers ? _getHeaders() : {})
       .then((response) => {
         _responseHandler(response, name, resolve, reject)
       })

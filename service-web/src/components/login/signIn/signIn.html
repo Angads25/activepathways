@@ -15,19 +15,32 @@
                 <fieldset id="sign_up" class="ba b--transparent ph0 mh0 pb0">
                   <div class="mt3">
                     <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy" type="email"
-                           name="email-address" id="email-address" placeholder="Username or e-mail"/>
+                           name="email-address"
+                           id="email-address"
+                           v-validate="'required|email'"
+                           data-vv-as="email"
+                           v-model="email"
+                           placeholder="Username or e-mail"/>
+                    <span v-show="errors.has('email-address')" class="help is-danger">{{ errors.first('email-address') }}</span>
                   </div>
                   <div class="mt4">
                     <input
                       class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
-                      type="password" name="password" id="password" placeholder="Password"/>
+                      type="password"
+                      v-validate="'required|alpha_num'"
+                      data-vv-as="password"
+                      v-model="password"
+                      name="password"
+                      id="password"
+                      placeholder="Password"/>
+                    <span v-show="errors.has('password')" class="help is-danger">{{ errors.first('password') }}</span>
                   </div>
                 </fieldset>
                 <div class="lh-copy pt0 avenir">
                   <a href="#0" class="f6 fw6 link dim blue db tr">FORGOT PASSWORD</a>
                 </div>
                 <div class="cf w-100 mt5">
-                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" href="#0">LOGIN</a>
+                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" href="#0" @click.prevent="signIn($event)">LOGIN</a>
                 </div>
                 <div class="cf w-100 mt2">
                   <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK CONNECT</a>
