@@ -8,6 +8,7 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
+var AuthService = require('../services/AuthService');
 /**
  Initialises the standard view locals
 
@@ -90,6 +91,7 @@ exports.tokenAuth = function (req, res, next) {
 	} catch (c) {
 		console.log(c);
 	}
+	
 	if (token) {
 		token = token.trim().replace(/^Bearer /, '').trim();
 		var session = AuthService.decrypt(token);
@@ -97,10 +99,7 @@ exports.tokenAuth = function (req, res, next) {
 			console.log(session)
 		}
 		req._user = session;
-
-		
 	}
-
+	
 	next();
-
 }

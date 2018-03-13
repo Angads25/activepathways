@@ -10,6 +10,15 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		email: {
 			type: graphql.GraphQLString
+		},
+		password: {
+			type: graphql.GraphQLString
+		},
+		role: {
+			type: graphql.GraphQLString
+		},
+		isEnabled: {
+			type: graphql.GraphQLBoolean
 		}
 	})
 });
