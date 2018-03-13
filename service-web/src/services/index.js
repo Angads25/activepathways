@@ -1,0 +1,62 @@
+import axios from 'axios'
+import store from '@/store'
+import Convert2GraphQL from 'convert2graphql'
+
+const API_URL = process.env.BASE_API_URL
+
+export const HTTP = axios.create({
+  baseURL: API_URL
+})
+
+HTTP.defaults.headers.post['Content-Type'] = 'application/json'
+
+const _responseHandler = (response, name, resolve, reject) => {
+  const body = response.data
+  if (body.data && body.data[name]) {
+    resolve(body.data[name])
+  } else {
+    errorHandler('', reject)
+  }
+}
+
+export const errorHandler = (err, reject) => {
+  console.log('error >>>>>>>>>>>>>>>>>>>>>>>>>>', err, err.response)
+  store.commit('setResponseError', err.response ? (err.response.data || 'Something went wrong, Please try again!!!') : err)
+  reject(err)
+}
+
+export const convertToFormData = (obj) => {
+  let formData = new FormData()
+  Object.keys(obj).forEach(function (key) {
+    formData.append(key, obj[key])
+  })
+  return formData
+}
+
+export const _getHeaders = () => {
+  return {
+    headers: {
+      Authorization: store.state.auth.authToken
+    }
+  }
+}
+
+export const postRequest = (url, name, headers = true) => {
+  return new Promise((resolve, reject) => {
+    HTTP.post(`graph?query=${url}`, {}, headers ? _getHeaders() : {})
+      .then((response) => {
+        _responseHandler(response, name, resolve, reject)
+      })
+      .catch((err) => {
+        errorHandler(err, reject)
+      })
+  })
+}
+
+export const createQuery = () => {
+  return new Convert2GraphQL()
+}
+
+export const createMutation = () => {
+  return new Convert2GraphQL('mutation')
+}

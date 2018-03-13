@@ -1,7 +1,13 @@
 export default {
   name: 'SignUp',
   data () {
-    return {}
+    return {
+      fname: '',
+      lname: '',
+      email: '',
+      password: '',
+      cpassword: ''
+    }
   },
   methods: {
     closeModal(event) {
@@ -11,6 +17,23 @@ export default {
     openSignIn(event) {
       event.stopPropagation()
       this.$emit('openSignIn')
+    },
+    signUp (event) {
+      event.stopPropagation()
+      this.$store.dispatch('signup', this.getSignUpData())
+        .then(resp => {
+          this.closeModal(event)
+        })
+    },
+    getSignUpData() {
+      return {
+        name: {
+          first: this.fname,
+          last: this.lname
+        },
+        email: this.email,
+        password: this.password
+      }
     }
   }
 }
