@@ -1,0 +1,5 @@
+<div>
+  <b-modal hide-footer hide-header v-model="modalStatus" >
+    <component :is="$store.state.ui.modal_content"></component>
+  </b-modal>
+</div>
