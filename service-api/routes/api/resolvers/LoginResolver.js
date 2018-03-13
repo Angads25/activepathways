@@ -53,21 +53,11 @@ authorizeUser = (email, pass, cb) => {
 					if (result == false) {
 						callback(new Error('Password Does not match !'));
 					}
-					else callback(null, passwordMatch = true);
+					else callback()
 				})
 			}
 			else callback();
 		},
-		callback => {
-			//Now add the fcmToken to the user current login if password and email matches
-			if (user && passwordMatch) {
-				AppUser.update({email: email}, user).exec((err, status) => {
-					if (err) return callback(err);
-					else callback();
-				})
-			}
-			else callback()
-		}
 	], (err) => {
 		if (err) return cb(err);
 		cb(null, user);
