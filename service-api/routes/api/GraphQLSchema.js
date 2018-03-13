@@ -21,6 +21,7 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 		fields: () => ({
 			user: UserQueryField.userQuery,
 			login: LoginQueryField.login,
+			logout: LoginQueryField.logout,
 		}),
 	}),
 	 /**
