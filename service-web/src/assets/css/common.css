@@ -75,3 +75,39 @@ input::-webkit-input-placeholder{
 .shadow-default {
   box-shadow: 0px 0px 28px 3px #00000033;
 }
+/*---modal--Libray-----*/
+.animation {
+  position: relative;
+  animation: animatetop 0.4s;
+  -webkit-animation: animatetop 0.4s;
+  -moz-animation: animatetop 0.4s;
+  transition: all .75s ease;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -200px;
+    opacity: 0
+  }
+  to {
+    top: -200px;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -200px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@media (max-width:480px) {
+  .welcome-bg {
+    background-color: rgba(255, 255, 255, 0.85);
+  }
+}
