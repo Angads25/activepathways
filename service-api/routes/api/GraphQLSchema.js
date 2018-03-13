@@ -45,7 +45,6 @@ exports.get = graphqlExpress({
 });
 
 exports.post = graphqlExpress({
-
 	schema: ProjectNameGraphQLSchema,
 	graphiql: false
 });
