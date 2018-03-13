@@ -14,41 +14,22 @@
               <form class="measure center">
                 <fieldset id="sign_up" class="ba b--transparent ph0 mh0 pb0 mt0 pt0">
                   <div class="mt3">
-                    <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy"
-                           name="fname"
-                           v-model="fname"
-                           placeholder="First Name"/>
-                    <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy"
-                           name="lname"
-                           v-model="lname"
-                           placeholder="Last Name"/>
-                  </div>
-                  <div class="mt3">
                     <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy" type="email"
-                           name="email-address" id="email-address"
-                           v-model="email"
-                           placeholder="email"/>
+                           name="email-address" id="email-address" placeholder="Username or e-mail"/>
                   </div>
                   <div class="mt4">
                     <input
                       class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
-                      type="password" name="password"
-                      id="password"
-                      v-model="password"
-                      placeholder="Password"/>
+                      type="password" name="password" id="password" placeholder="Password"/>
                   </div>
                   <div class="mt4">
                     <input
                       class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
-                      type="password"
-                      name="password"
-                      id="cpassword"
-                      v-model="cpassword"
-                      placeholder="Confirm Password"/>
+                      type="password" name="password" id="cpassword" placeholder="Confirm Password"/>
                   </div>
                 </fieldset>
                 <div class="cf w-100 mt4">
-                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" @click.prevent="signUp($event)">SIGN UP</a>
+                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" href="#0">SIGN UP</a>
                 </div>
                 <div class="cf w-100 mt2">
                   <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK CONNECT</a>

@@ -11,12 +11,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "convert2graphql": "^1.0.6",
     "tachyons": "^4.9.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
