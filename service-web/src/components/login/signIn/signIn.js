@@ -11,7 +11,7 @@ export default {
       event.stopPropagation()
       this.$emit('closeModal')
     },
-    openSignUp(event) {
+    openSignUp (event) {
       event.stopPropagation()
       this.$emit('openSignUp')
     },
@@ -28,7 +28,9 @@ export default {
           if (result) {
             this.$store.dispatch('signin', this.getSignInData())
               .then(resp => {
-                console.log('>>>>>>>>>>', resp)
+                this.$router.push({
+                  name: 'challengestates'
+                })
                 this.closeModal(event)
               })
           } else {
