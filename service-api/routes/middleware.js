@@ -44,7 +44,7 @@ exports.flashMessages = function (req, res, next) {
 exports.requireUser = function (req, res, next) {
 	if (!req.user) {
 		req.flash('error', 'Please sign in to access this page.');
-		res.redirect('/keystone/signin');
+		res.redirect('/admin/signin');
 	} else {
 		next();
 	}
@@ -58,7 +58,6 @@ exports.tokenAuthCommon = function (req, res, next) {
 	req.loginUser = function (user) {
 		req._isAuthenticated = true;
 		var token = AuthService.encrypt(user);
-
 		if (token instanceof Error) {
 			return res.status(500).send(token);
 		}
