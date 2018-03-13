@@ -113,6 +113,7 @@ upsertUser = (args, request, cb) => {
 				role: user.role
 			};
 			request.loginUser(authInfo);
+			user.token = request.token;
 			cb(null, user)
 		}
 	)
