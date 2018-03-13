@@ -35,6 +35,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
+	app.all('/graph*', keystone.middleware.cors);
 	// app.get('/', routes.views.index);
 	app.get('/graph',middleware.tokenAuthCommon,middleware.tokenAuth, routes.api.GraphQLSchema.get);
 	app.post('/graph',middleware.tokenAuthCommon,middleware.tokenAuth, routes.api.GraphQLSchema.post);
