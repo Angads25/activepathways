@@ -42,6 +42,9 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		isEnabled: {
 			type: graphql.GraphQLBoolean
+		},
+		token: {
+			type: graphql.GraphQLString
 		}
 	})
 });

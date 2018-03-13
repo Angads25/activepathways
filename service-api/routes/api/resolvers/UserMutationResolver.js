@@ -6,6 +6,7 @@ const keystone = require('keystone'),
 	ObjectId = mongoose.Types.ObjectId;
 
 const UserType = require('../types/UserType');
+const EmailService = require('../../../services/EmailService');
 
 module.exports = {
 	upsertUser: {
@@ -32,10 +33,7 @@ module.exports = {
 			},
 			password: {
 				type: new graphql.GraphQLNonNull(graphql.GraphQLString)
-			},
-			role: {
-				type: new graphql.GraphQLNonNull(graphql.GraphQLString)
-			},
+			}
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
 				upsertUser(args, request, (err, results) => {
@@ -78,13 +76,10 @@ upsertUser = (args, request, cb) => {
 				if (user) return callback();
 				// Validate create minimum fields
 				if (!args.name) return callback(new Error('Name is required!'));
-				if ((!args.email)) return callback(new Error('Email is required!'));
-				if (!args.role) return callback(new Error('Role is required!'));
+				if (!args.email) return callback(new Error('Email is required!'));
 				if (!args.password) return callback(new Error('Password is required!'));
-				else {
-					user = new User();
-					callback();
-				}
+				user = new User({role: 'APP_USER'});
+				callback();
 			},
 			// Validate for new user creation
 			callback => {
@@ -92,27 +87,33 @@ upsertUser = (args, request, cb) => {
 				user.isEnabled = true;
 				if (args.name) user.name = args.name;
 				if (args.email) user.email = args.email;
-				if (args.role) user.role = args.role;
 				if (args.password) user.password = args.password;
+
 				user.save(function (err) {
 					if (err) callback(err);
-					else {
-						user.save(function (err) {
-							if (err) callback(err);
-							else callback(null, user);
-						})
-					}
+					else callback();
+				})
+			},
+			// Send welcome email to user
+			callback => {
+				if (!user) return callback();
+				EmailService.sendMail(user.email, 'Welcome', user, function (err, _result) {
+					if (err) console.log(err);
+					console.log(err, _result)
+					callback()
 				})
 			}
 		],
 		(err, results) => {
 			if (err) return cb(err);
-			request.loginUser({
+			authInfo = {
 				_id: user._id,
 				name: user.name,
 				email: user.email,
 				role: user.role
-			});
+			};
+			request.loginUser(authInfo);
+			user.token = request.token;
 			cb(null, user)
 		}
 	)
