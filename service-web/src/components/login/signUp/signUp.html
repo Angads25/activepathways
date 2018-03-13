@@ -16,35 +16,51 @@
                   <div class="mt3">
                     <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy"
                            name="fname"
+                           data-vv-as="first name"
+                           v-validate="'required|alpha'"
                            v-model="fname"
                            placeholder="First Name"/>
                     <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy"
                            name="lname"
+                           data-vv-as="last name"
+                           v-validate="'required|alpha'"
                            v-model="lname"
                            placeholder="Last Name"/>
+                    <span v-show="errors.has('fname') || errors.has('lname')" class="help is-danger">{{ errors.first('fname') || errors.first('lname') }}</span>
                   </div>
                   <div class="mt3">
                     <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy" type="email"
-                           name="email-address" id="email-address"
+                           name="email-address"
+                           id="email-address"
+                           v-validate="'required|email'"
+                           data-vv-as="email"
                            v-model="email"
                            placeholder="email"/>
-                  </div>
-                  <div class="mt4">
-                    <input
-                      class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
-                      type="password" name="password"
-                      id="password"
-                      v-model="password"
-                      placeholder="Password"/>
+                    <span v-show="errors.has('email-address')" class="help is-danger">{{ errors.first('email-address') }}</span>
                   </div>
                   <div class="mt4">
                     <input
                       class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
                       type="password"
+                      v-validate="'required|alpha_num'"
+                      data-vv-as="password"
                       name="password"
+                      id="password"
+                      v-model="password"
+                      placeholder="Password"/>
+                    <span v-show="errors.has('password')" class="help is-danger">{{ errors.first('password') }}</span>
+                  </div>
+                  <div class="mt4">
+                    <input
+                      class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
+                      type="password"
+                      v-validate="'required|confirmed:password'"
+                      name="cpassword"
                       id="cpassword"
+                      data-vv-as="password"
                       v-model="cpassword"
                       placeholder="Confirm Password"/>
+                    <span v-show="errors.has('cpassword')" class="help is-danger">{{ errors.first('cpassword') }}</span>
                   </div>
                 </fieldset>
                 <div class="cf w-100 mt4">

@@ -10,22 +10,32 @@ export default {
     }
   },
   methods: {
-    closeModal(event) {
+    closeModal (event) {
       event.stopPropagation()
       this.$emit('closeModal')
     },
-    openSignIn(event) {
+    openSignIn (event) {
       event.stopPropagation()
       this.$emit('openSignIn')
     },
     signUp (event) {
       event.stopPropagation()
-      this.$store.dispatch('signup', this.getSignUpData())
-        .then(resp => {
-          this.closeModal(event)
+      this.$validator.validateAll()
+        .then(result => {
+          if (result) {
+            this.$store.dispatch('signup', this.getSignUpData())
+              .then(resp => {
+                this.closeModal(event)
+              })
+          } else {
+            console.log('form not validated')
+          }
+        })
+        .catch(err => {
+          console.log(err)
         })
     },
-    getSignUpData() {
+    getSignUpData () {
       return {
         name: {
           first: this.fname,

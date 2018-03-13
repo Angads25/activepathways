@@ -26,7 +26,6 @@ export const AuthService = {
         token: 'token'
       }
     })
-    console.log(mutation.getGraphQLString())
     return postRequest(mutation.getGraphQLString(), 'upsertUser', false)
   }
 }
