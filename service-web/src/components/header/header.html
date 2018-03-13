@@ -36,14 +36,14 @@
             <p class="lh-copy-l f5 fw5 black mt0 avenir"> Take your first steps<br> to become more physically active
             </p>
             <div class="cf">
-              <router-link tag="a" :to="{ name: 'dashboard' }"
-                           class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir">Sign up here
-              </router-link>
+              <a class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir" @click.prevent="modalStatus = true">Sign up here
+              </a>
             </div>
           </div>
         </div>
       </section>
     </div>
   </div>
+  <Modal :status="modalStatus" :activeComponent="SignInComponent" @closeModal="modalStatus = false"></Modal>
 </header>
 
