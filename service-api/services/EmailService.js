@@ -12,7 +12,7 @@ var nodemailer = require('nodemailer'),
 			user: process.env.MAILGUN_DOMAIN,
 			pass: process.env.MAILGUN_PASS
 		},
-		fromEmail: 'postmaster@sandboxf9591270771646e38d54736abb2e6df0.mailgun.org',
+		fromEmail: process.env.MAILGUN_DOMAIN,
 		subject: 'Welcome'
 	});
 

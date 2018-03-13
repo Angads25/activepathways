@@ -97,7 +97,7 @@ upsertUser = (args, request, cb) => {
 			// Send welcome email to user
 			callback => {
 				if (!user) return callback();
-				EmailService.sendMail(user.email, 'welcome', user, function (err, _result) {
+				EmailService.sendMail(user.email, 'Welcome', user, function (err, _result) {
 					if (err) console.log(err);
 					console.log(err, _result)
 					callback()
