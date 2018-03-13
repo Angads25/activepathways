@@ -21,7 +21,7 @@ module.exports = {
 				let authInfo;
 				authorizeUser(args.email, args.password, (err, results) => {
 					if (err) return reject(err);
-					// request.loginUser({_id: results._id, email: results.email, role: results.role});
+					request.loginUser({_id: results._id, email: results.email, role: results.role});
 					authInfo = {
 						id: results._id,
 						token: request.token
@@ -35,7 +35,7 @@ module.exports = {
 };
 
 authorizeUser = (email, pass, cb) => {
-	let user, passwordMatch;
+	let user;
 	async.series([
 		callback => {
 			// Check whether the email is present or not
