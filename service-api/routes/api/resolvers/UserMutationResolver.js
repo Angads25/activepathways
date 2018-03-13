@@ -16,7 +16,16 @@ module.exports = {
 				type: graphql.GraphQLString
 			},
 			name: {
-				type: new graphql.GraphQLNonNull(graphql.GraphQLString)
+				type: new graphql.GraphQLInputObjectType({
+					name: 'user_name_mutation',
+					description: 'Name node.',
+					fields: {
+						first: {type: graphql.GraphQLString, description: 'First name.'},
+						last: {type: graphql.GraphQLString, description: 'Last name.'},
+						full: {type: graphql.GraphQLString, description: 'Full name.'}
+					}
+				}),
+				description: 'Name of the user'
 			},
 			email: {
 				type: new graphql.GraphQLNonNull(graphql.GraphQLString)
@@ -36,11 +45,12 @@ module.exports = {
 				})
 			}
 		))
+
 	},
 };
 
 upsertUser = (args, request, cb) => {
-	let user;
+	let user, authInfo;
 	async.series([
 			// fetch user
 			callback => {
@@ -52,6 +62,15 @@ upsertUser = (args, request, cb) => {
 					if (err) callback(err);
 					else if (_user) callback(null, user = _user);
 					else callback(new Error('No user by provided id.'));
+				});
+			},
+			// already exits or not
+			callback => {
+				if (user) return callback();
+				User.findOne({email: args.email}).exec((err, _user) => {
+					if (err) callback(err);
+					else if (_user) callback(new Error('Email id already register.'));
+					else callback();
 				});
 			},
 			// Validate for new user creation
@@ -66,38 +85,35 @@ upsertUser = (args, request, cb) => {
 					user = new User();
 					callback();
 				}
-			}
-		],
-		(err, results) => {
-			if (err) return cb(err);
-			if (user) {
+			},
+			// Validate for new user creation
+			callback => {
+				if (!user) return callback();
 				user.isEnabled = true;
 				if (args.name) user.name = args.name;
 				if (args.email) user.email = args.email;
 				if (args.role) user.role = args.role;
 				if (args.password) user.password = args.password;
-
-				//	console.log("USER",user);
 				user.save(function (err) {
-					if (err) cb(err);
+					if (err) callback(err);
 					else {
-						request.loginUser({
-							_id: user._id,
-							email: user.email,
-							role: user.role
-						});
-						user.token = request.token;
 						user.save(function (err) {
-							if (err) cb(err);
-							else cb(null, user);
+							if (err) callback(err);
+							else callback(null, user);
 						})
-
 					}
 				})
 			}
-			else {
-				cb(new Error('Some Error Occurred'));
-			}
+		],
+		(err, results) => {
+			if (err) return cb(err);
+			request.loginUser({
+				_id: user._id,
+				name: user.name,
+				email: user.email,
+				role: user.role
+			});
+			cb(null, user)
 		}
 	)
 };
