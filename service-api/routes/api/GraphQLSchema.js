@@ -4,6 +4,8 @@ const keystone = require('keystone'),
 
 // Query Fields
 const UserQueryField = require('./resolvers/UserGetResolver');
+const LoginQueryField = require('./resolvers/LoginResolver');
+const UserMutationField = require('./resolvers/UserMutationResolver');
 	
 //Mutation Fields
 
@@ -17,19 +19,20 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 		name: 'Query',
 		description: 'The root of all queries',
 		fields: () => ({
-			user: UserQueryField.userQuery
+			user: UserQueryField.userQuery,
+			login: LoginQueryField.login,
 		}),
 	}),
-	// /**
-	//  * Data modification queries
-	//  * */
-	// mutation: new graphql.GraphQLObjectType({
-	// 	name: 'Mutation',
-	// 	description: 'Root of all data modification queries.',
-	// 	fields: () => ({
-
-	// 	})
-	// }),
+	 /**
+	  * Data modification queries
+	  * */
+	mutation: new graphql.GraphQLObjectType({
+		name: 'Mutation',
+		description: 'Root of all data modification queries.',
+		fields: () => ({
+			upsertUser: UserMutationField.upsertUser,
+		})
+	}),
 });
 
 /**
