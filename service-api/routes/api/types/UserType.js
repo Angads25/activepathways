@@ -9,7 +9,27 @@ exports = module.exports = new graphql.GraphQLObjectType({
 			type: graphql.GraphQLString
 		},
 		name: {
-			type: graphql.GraphQLString
+			type: new graphql.GraphQLObjectType({
+				name: 'userName',
+				description: 'Name node.',
+				fields: {
+					first: {
+						type: graphql.GraphQLString,
+						description: 'First name.'
+					},
+					last: {
+						type: graphql.GraphQLString,
+						description: 'Last name.'
+					},
+					full: {
+						type: graphql.GraphQLString,
+						description: 'Full name.',
+						resolve: name => `${name.first || ''} ${name.last || ''}`.trim()
+					}
+				}
+			}),
+			description: 'Name of the user',
+			resolve: user => user.name
 		},
 		email: {
 			type: graphql.GraphQLString

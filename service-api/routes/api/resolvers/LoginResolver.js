@@ -3,11 +3,11 @@ const keystone = require('keystone'),
 	async = require('async'),
 	graphql = require('graphql');
 
-const UserType = require('../types/UserType');
+const AuthType = require('../types/AuthType');
 
 module.exports = {
 	login: {
-		type: UserType,
+		type: AuthType,
 		description: 'Login user',
 		args: {
 			email: {
@@ -21,7 +21,7 @@ module.exports = {
 				let authInfo;
 				authorizeUser(args.email, args.password, (err, results) => {
 					if (err) return reject(err);
-					request.loginUser({_id: results._id, email: results.email, role: results.role});
+					// request.loginUser({_id: results._id, email: results.email, role: results.role});
 					authInfo = {
 						id: results._id,
 						token: request.token
