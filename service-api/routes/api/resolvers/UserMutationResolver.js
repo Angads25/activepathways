@@ -6,6 +6,7 @@ const keystone = require('keystone'),
 	ObjectId = mongoose.Types.ObjectId;
 
 const UserType = require('../types/UserType');
+const EmailService = require('../../../services/EmailService');
 
 module.exports = {
 	upsertUser: {
@@ -75,12 +76,10 @@ upsertUser = (args, request, cb) => {
 				if (user) return callback();
 				// Validate create minimum fields
 				if (!args.name) return callback(new Error('Name is required!'));
-				if ((!args.email)) return callback(new Error('Email is required!'));
+				if (!args.email) return callback(new Error('Email is required!'));
 				if (!args.password) return callback(new Error('Password is required!'));
-				else {
-					user = new User({role: 'APP_USER'});
-					callback();
-				}
+				user = new User({role: 'APP_USER'});
+				callback();
 			},
 			// Validate for new user creation
 			callback => {
@@ -92,12 +91,16 @@ upsertUser = (args, request, cb) => {
 
 				user.save(function (err) {
 					if (err) callback(err);
-					else {
-						user.save(function (err) {
-							if (err) callback(err);
-							else callback(null, user);
-						})
-					}
+					else callback();
+				})
+			},
+			// Send welcome email to user
+			callback => {
+				if (!user) return callback();
+				EmailService.sendMail(user.email, 'Welcome', user, function (err, _result) {
+					if (err) console.log(err);
+					console.log(err, _result)
+					callback()
 				})
 			}
 		],
@@ -110,6 +113,7 @@ upsertUser = (args, request, cb) => {
 				role: user.role
 			};
 			request.loginUser(authInfo);
+			user.token = request.token;
 			cb(null, user)
 		}
 	)

@@ -21,6 +21,7 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 		fields: () => ({
 			user: UserQueryField.userQuery,
 			login: LoginQueryField.login,
+			logout: LoginQueryField.logout,
 		}),
 	}),
 	 /**
@@ -44,7 +45,6 @@ exports.get = graphqlExpress({
 });
 
 exports.post = graphqlExpress({
-
 	schema: ProjectNameGraphQLSchema,
 	graphiql: false
 });
