@@ -1,36 +1,46 @@
-<div class="w-100">
-  <div class="fl w-100 w-50-l w-50-m pa4 avenir">
-    <div class="cf w-100">
-      <div class="w-50 fl f4 fw5 navy tl">Sign In</div>
-      <div class="w-50 fr f6 fw6 blue tr mt2">SIGN UP</div>
-    </div>
-    <div class="w-100 cf"><p class="f6 f5-ns lh-copy measure tl navy avenir">Lorem ipsum dolor sit amet,
-      consectetur adipiscing.</p></div>
-    <form class="measure center">
-      <fieldset id="sign_up" class="ba b--transparent ph0 mh0 pb0">
-        <div class="mt3">
-          <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy" type="email"
-                 name="email-address" id="email-address" placeholder="Username or e-mail"/>
+<section class="modal-frame fixed top-0 right-0 bottom-0 left-0 z-2 w-100" @click.prevent="closeModal($event)">
+  <section class="cf w-100 ph0 ph6-l pt5 relative z-4">
+    <div class="dt w-100 mw7 ph3 ph3-m ph3-l center">
+      <div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default" @click.prevent="$event.stopPropagation()">
+        <div class="w-100">
+          <div class="cf db o-90">
+            <div class="fl w-100 w-50-l w-50-m pa4 avenir">
+              <div class="cf w-100">
+                <div class="w-50 fl f4 fw5 navy tl">Sign In</div>
+                <div class="w-50 fr f6 fw6 blue tr mt2" @click.prevent="openSignUp($event)">SIGN UP</div>
+              </div>
+              <div class="w-100 cf"><p class="f6 f5-ns lh-copy measure tl navy avenir">Lorem ipsum dolor sit amet,
+                consectetur adipiscing.</p></div>
+              <form class="measure center">
+                <fieldset id="sign_up" class="ba b--transparent ph0 mh0 pb0">
+                  <div class="mt3">
+                    <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy" type="email"
+                           name="email-address" id="email-address" placeholder="Username or e-mail"/>
+                  </div>
+                  <div class="mt4">
+                    <input
+                      class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
+                      type="password" name="password" id="password" placeholder="Password"/>
+                  </div>
+                </fieldset>
+                <div class="lh-copy pt0 avenir">
+                  <a href="#0" class="f6 fw6 link dim blue db tr">FORGOT PASSWORD</a>
+                </div>
+                <div class="cf w-100 mt5">
+                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" href="#0">LOGIN</a>
+                </div>
+                <div class="cf w-100 mt2">
+                  <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK CONNECT</a>
+                </div>
+              </form>
+            </div>
+            <div class="fl w-100 w-50-l w-50-m blue-dark-color pa5 br--right br3 dn db-l db-m">
+              <div class=" br-100 pa1 bg-light-blue h5 w5 o-20 center pa5 ma5">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mt4">
-          <input
-            class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
-            type="password" name="password" id="password" placeholder="Password"/>
-        </div>
-      </fieldset>
-      <div class="lh-copy pt0 avenir">
-        <a href="#0" class="f6 fw6 link dim blue db tr">FORGOT PASSWORD</a>
       </div>
-      <div class="cf w-100 mt5">
-        <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" href="#0">LOGIN</a>
-      </div>
-      <div class="cf w-100 mt2">
-        <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK CONNECT</a>
-      </div>
-    </form>
-  </div>
-  <div class="fl w-100 w-50-l w-50-m blue-dark-color pa5 br--right br3 dn db-l db-m">
-    <div class=" br-100 pa1 bg-light-blue h5 w5 o-20 center pa5 ma5">
     </div>
-  </div>
-</div>
+  </section>
+</section>
