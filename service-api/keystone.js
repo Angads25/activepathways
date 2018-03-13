@@ -49,6 +49,8 @@ keystone.set('locals', {
 
 keystone.set('routes', require('./routes'));
 
+keystone.set('cors allow origin', true);
+
 keystone.set('nav', {
 	'Users': ['AdminUser', 'AppUser'],
 	'Content': ['Challenge', 'Programme'],
