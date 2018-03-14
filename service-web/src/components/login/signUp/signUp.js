@@ -30,6 +30,9 @@ export default {
             this.$store.dispatch('signup', this.getSignUpData())
               .then(resp => {
                 console.log('>>>>>>>>>>', resp)
+                this.$router.push({
+                  name: 'challengestates'
+                })
                 this.closeModal(event)
               })
           } else {

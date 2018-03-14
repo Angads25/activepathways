@@ -13,5 +13,11 @@ export default {
   },
   setResponseError: (state, payload) => {
     state.responseError = payload
+  },
+  showLoader: (state) => {
+    state.show_loader = true
+  },
+  hideLoader: (state) => {
+    state.show_loader = false
   }
 }
