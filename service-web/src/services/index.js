@@ -34,6 +34,7 @@ export const convertToFormData = (obj) => {
 }
 
 export const _getHeaders = () => {
+  console.log('>>>>>', store.state.auth, store.state.auth.authToken)
   return {
     headers: {
       Authorization: store.state.auth.authToken

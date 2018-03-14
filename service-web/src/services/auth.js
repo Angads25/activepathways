@@ -38,17 +38,36 @@ export const AuthService = {
       },
       nodes: {
         id: 'id',
-        // name: {
-        //   first: 'first',
-        //   last: 'last'
-        // },
-        // email: 'email',
-        // role: 'role',
-        // isEnabled: 'isEnabled',
+        name: {
+          first: 'first',
+          last: 'last'
+        },
+        email: 'email',
+        role: 'role',
+        isEnabled: 'isEnabled',
         token: 'token'
       }
     })
-    console.log(query.getGraphQLString())
     return postRequest(query.getGraphQLString(), 'login', false)
+  },
+  myProfile () {
+    const query = createQuery()
+    query.addQuery({
+      name: 'user',
+      args: {
+        id: 'me'
+      },
+      nodes: {
+        id: 'id',
+        name: {
+          first: 'first',
+          last: 'last'
+        },
+        email: 'email',
+        role: 'role',
+        isEnabled: 'isEnabled'
+      }
+    })
+    return postRequest(query.getGraphQLString(), 'user')
   }
 }
