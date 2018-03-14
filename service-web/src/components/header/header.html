@@ -44,7 +44,7 @@
       </section>
     </div>
   </div>
-  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()" @openSignUp="activeModal = 'signup'"></SignIn>
-  <SignUp v-else-if="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'"></SignUp>
+  <SignIn v-show="activeModal === 'signin'" @closeModal="closeModal()" @openSignUp="activeModal = 'signup'" :activeStatus="activeModal === 'signin'"></SignIn>
+  <SignUp v-show="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'" :activeStatus="activeModal === 'signup'"></SignUp>
 </header>
 

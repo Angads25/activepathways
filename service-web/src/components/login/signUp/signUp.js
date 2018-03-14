@@ -8,6 +8,11 @@ export default {
       password: ''
     }
   },
+  props: {
+    activeStatus: {
+      default: false
+    }
+  },
   methods: {
     closeModal (event) {
       event.stopPropagation()
