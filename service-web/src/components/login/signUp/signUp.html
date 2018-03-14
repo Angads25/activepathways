@@ -1,7 +1,8 @@
-<section class="modal-frame fixed top-0 right-0 bottom-0 left-0 z-2 w-100" @click.prevent="closeModal($event)">
+<section class="modal-frame fixed top-0 right-0 bottom-0 left-0 z-2 w-100 modal-active" @click.prevent="closeModal($event)">
   <section class="cf w-100 ph0 ph6-l pt2 pt5-m pt5-l relative z-4">
     <div class="dt w-100 mw7 ph3 ph3-m ph3-l center">
-      <div class="w-100 bg-white animation  black br3 mb5 z-3 relative shadow-default" @click.prevent="$event.stopPropagation()">
+      <div class="w-100 bg-white animation  black br3 mb5 z-3 relative shadow-default"
+           @click.prevent="$event.stopPropagation()">
         <div class="w-100">
           <div class="cf db o-90">
             <div class="fl  w-100 w-50-l w-50-m pa4 avenir">
@@ -12,61 +13,62 @@
               <div class="w-100 cf"><p class="f6 f5-ns lh-copy measure tl navy avenir">Lorem ipsum dolor sit amet,
                 consectetur adipiscing.</p></div>
               <form class="measure center">
-                <fieldset id="sign_up" class="ba b--transparent ph0 mh0 pb0 mt0 pt0">
-                  <div class="mt3">
-                    <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy"
-                           name="fname"
-                           data-vv-as="first name"
-                           v-validate="'required|alpha'"
-                           v-model="fname"
-                           placeholder="First Name"/>
-                    <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy"
-                           name="lname"
-                           data-vv-as="last name"
-                           v-validate="'required|alpha'"
-                           v-model="lname"
-                           placeholder="Last Name"/>
-                    <span v-show="errors.has('fname') || errors.has('lname')" class="help is-danger">{{ errors.first('fname') || errors.first('lname') }}</span>
+                <fieldset class="ba b--transparent ph0 mh0 pb0 mt0 pt0">
+                  <div class="mt3 w-100 tl">
+                    <div class="cf w-100">
+                      <input class="pa2 input-reset fl bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-40 navy"
+                             name="fname"
+                             data-vv-as="first name"
+                             v-validate="'required|alpha'"
+                             v-model="fname"
+                             placeholder="First Name"/>
+                      <input class="pa2 fr input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-40 navy"
+                             name="lname"
+                             data-vv-as="last name"
+                             v-validate="'required|alpha'"
+                             v-model="lname"
+                             placeholder="Last Name"/>
+                    </div>
+                    <span v-show="errors.has('fname') || errors.has('lname')" class="help is-danger absolute left-2 mt1">{{ errors.first('fname') || errors.first('lname') }}</span>
                   </div>
-                  <div class="mt3">
+                  <div class="mt3 tl">
                     <input class="pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 w-100 navy" type="email"
                            name="email-address"
-                           id="email-address"
                            v-validate="'required|email'"
                            data-vv-as="email"
                            v-model="email"
                            placeholder="email"/>
                     <span v-show="errors.has('email-address')" class="help is-danger">{{ errors.first('email-address') }}</span>
                   </div>
-                  <div class="mt4">
+                  <div class="mt4 tl">
                     <input
                       class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
                       type="password"
                       v-validate="'required|alpha_num'"
                       data-vv-as="password"
                       name="password"
-                      id="password"
                       v-model="password"
                       placeholder="Password"/>
                     <span v-show="errors.has('password')" class="help is-danger">{{ errors.first('password') }}</span>
                   </div>
-                  <div class="mt4">
+                  <div class="mt4 tl">
                     <input
                       class=" pa2 input-reset bb b--black-20 bg-transparent br-0 bl-0 bt-0 bg-transparent w-100"
                       type="password"
                       v-validate="'required|confirmed:password'"
                       name="cpassword"
-                      id="cpassword"
                       data-vv-as="password"
                       placeholder="Confirm Password"/>
                     <span v-show="errors.has('cpassword')" class="help is-danger">{{ errors.first('cpassword') }}</span>
                   </div>
                 </fieldset>
                 <div class="cf w-100 mt4">
-                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" @click.prevent="signUp($event)">SIGN UP</a>
+                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100"
+                     @click.prevent="signUp($event)">SIGN UP</a>
                 </div>
                 <div class="cf w-100 mt2">
-                  <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK CONNECT</a>
+                  <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK
+                    CONNECT</a>
                 </div>
               </form>
             </div>

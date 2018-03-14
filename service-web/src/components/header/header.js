@@ -13,15 +13,18 @@ export default {
     SignIn,
     SignUp
   },
-  computed : {
-    showHeader(){
+  computed: {
+    showHeader () {
       // return this.$route.name !== "dashboard ?? challengestates"
       return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard') || (this.$route.name === 'challenge-page')
     }
   },
   methods: {
-    closeModal() {
-      this.activeModal = ''
+    closeModal () {
+      const __self = this
+      setTimeout(() => {
+        __self.activeModal = ''
+      }, 300)
     }
   }
 }
