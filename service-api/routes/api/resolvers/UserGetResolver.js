@@ -9,12 +9,17 @@ module.exports = {
 		description: 'Fetches a perticular user by ID!',
 		args: {
 			id: {
-				type: new graphql.GraphQLNonNull(graphql.GraphQLString),
+				type: graphql.GraphQLString,
 				description: 'Id for the user.'
 			}
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
-				AppUser.findOne({_id: args['id'], isEnabled: true}, {password: 0, __v: 0}).exec((err, _user) => {
+				let query = {};
+				query.isEnabled = true;
+				if (args['id'] === 'me') query._id = request._user._id;
+				else query._id = args['id'];
+				if (!args['id']) reject(new Error('Id or token required'));
+				AppUser.findOne(query, {password: 0, __v: 0}).exec((err, _user) => {
 					if (err) return reject(err);
 					if (_user) return resolve(_user);
 					reject(new Error('Invalid id!'));
