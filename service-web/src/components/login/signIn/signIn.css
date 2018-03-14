@@ -1,3 +1,8 @@
 .modal-frame {
   background-color: rgba(0, 0, 0, 0.62);
 }
+
+.is-danger {
+  color: red;
+  font-size: small;
+}
