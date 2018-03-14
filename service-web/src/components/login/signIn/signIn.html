@@ -1,8 +1,11 @@
-<section class="modal-signin fade " :class="{'show': activeStatus, 'd-block': activeStatus}" @click.prevent="closeModal($event)">
+<section class="modal-signin fade " :class="{'show': activeStatus, 'd-block': activeStatus}"
+         @click.prevent="closeModal($event)">
   <section class="modal-frame h-100 dt">
     <div class="w-100 modal-dialog dtc v-mid ph2">
       <div class="w-100  mb5 z-3 relative" @click.prevent="$event.stopPropagation()">
         <div class="w-100 bg-white  black br3 shadow-default animation">
+          <i class="bg-white h1 w1 absolute top-0 top--1-m top--1-l br-100 right-0 right--1-l right--1-m pa1 z-4 br5 cr"
+             @click.prevent="closeModal($event)"><img src="../../../assets/images/close-icon.png"/></i>
           <div class="cf db o-90">
             <div class="fl w-100 w-50-l w-50-m pa4 avenir">
               <div class="cf w-100">
@@ -40,10 +43,12 @@
                   <a href="#0" class="f6 fw6 link dim blue db tr">FORGOT PASSWORD</a>
                 </div>
                 <div class="cf w-100 mt4">
-                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" href="#0" @click.prevent="signIn($event)">LOGIN</a>
+                  <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100" href="#0"
+                     @click.prevent="signIn($event)">LOGIN</a>
                 </div>
                 <div class="cf w-100 mt2">
-                  <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK CONNECT</a>
+                  <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK
+                    CONNECT</a>
                 </div>
               </form>
             </div>
