@@ -21,10 +21,11 @@ export default {
   },
   methods: {
     closeModal () {
-      const __self = this
-      setTimeout(() => {
-        __self.activeModal = ''
-      }, 300)
+      // const __self = this
+      // setTimeout(() => {
+      //   __self.activeModal = ''
+      // }, 300)
+      this.activeModal = ''
     }
   }
 }

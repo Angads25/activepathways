@@ -10,7 +10,7 @@ export default {
   },
   props: {
     activeStatus: {
-      default: false
+      default: true
     }
   },
   methods: {

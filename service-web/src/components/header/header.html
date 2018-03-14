@@ -1,11 +1,11 @@
 <header class="avenir h-100 " v-if="!showHeader">
   <div class=" header-baner">
-    <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-50 vh-75-l vh-100-m">
+    <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-75 vh-100-m vh-100-l">
       <nav class="pt3 dt w-100 mw8 center bb nav-border-b
 ">
         <div class="w-20 fl pa2 tl ">
           <router-link :to="{ name: 'landingpage' }" class="no-underline">
-           <img src="../../assets/images/site-logo.png"/>
+            <img src="../../assets/images/site-logo.png"/>
           </router-link>
         </div>
         <div class="fl w-80 pa3 pr0 tr menu-header">
@@ -36,7 +36,8 @@
             <p class="lh-copy-l f5 fw5 black mt0 avenir"> Take your first steps<br> to become more physically active
             </p>
             <div class="cf">
-              <a class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir" @click.prevent="activeModal = 'signup'">Sign up here
+              <a class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir"
+                 @click.prevent="activeModal = 'signup'">Sign up here
               </a>
             </div>
           </div>
@@ -44,7 +45,8 @@
       </section>
     </div>
   </div>
-  <SignIn v-show="activeModal === 'signin'" @closeModal="closeModal()" @openSignUp="activeModal = 'signup'" :activeStatus="activeModal === 'signin'"></SignIn>
-  <SignUp v-show="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'" :activeStatus="activeModal === 'signup'"></SignUp>
+  <SignIn v-show="activeModal === 'signin'" @closeModal="closeModal()" @openSignUp="activeModal = 'signup'"
+          :activeStatus="activeModal === 'signin'"></SignIn>
+  <SignUp v-show="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'"
+          :activeStatus="activeModal === 'signup'"></SignUp>
 </header>
-
