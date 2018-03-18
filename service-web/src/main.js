@@ -6,6 +6,7 @@ import VeeValidate from 'vee-validate'
 import router from './router'
 import store from './store'
 import './mixins'
+import 'sweetalert2/dist/sweetalert2.css'
 
 Vue.use(VeeValidate)
 

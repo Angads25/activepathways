@@ -12,6 +12,8 @@ export default {
             LocalData.set.authToken(resp['token'])
             resolve(resp)
           }
+        }).catch(err => {
+          reject(err)
         })
     })
   },
@@ -25,6 +27,8 @@ export default {
             LocalData.set.authToken(resp['token'])
             resolve(resp)
           }
+        }).catch(err => {
+          reject(err)
         })
     })
   },

@@ -31,12 +31,16 @@ export default {
       this.$validator.validateAll()
         .then(result => {
           if (result) {
+            this.$loader.show()
             this.$store.dispatch('signin', this.getSignInData())
               .then(resp => {
                 this.$router.push({
                   name: 'challengestates'
                 })
+                this.$loader.hide()
                 this.closeModal(event)
+              }).catch(err => {
+                this.$loader.hide()
               })
           } else {
             console.log('form not validated')

@@ -15,13 +15,15 @@ const _responseHandler = (response, name, resolve, reject) => {
   if (body.data && body.data[name]) {
     resolve(body.data[name])
   } else {
-    errorHandler('', reject)
+    errorHandler(response.data.errors, reject)
   }
 }
 
 export const errorHandler = (err, reject) => {
-  console.log('error >>>>>>>>>>>>>>>>>>>>>>>>>>', err, err.response)
-  store.commit('setResponseError', err.response ? (err.response.data || 'Something went wrong, Please try again!!!') : err)
+  console.log('error -> ', err)
+  store.commit('setResponseError', {
+    error: err.message || err[0].message || 'Something went wrong, Please try again!!!' || err
+  })
   reject(err)
 }
 

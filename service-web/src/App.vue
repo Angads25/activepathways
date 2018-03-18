@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import swal from 'sweetalert2'
 import Header from '@/components/header/header.vue'
 import Loader from '@/components/loader/loader.vue'
 export default {
@@ -33,6 +34,9 @@ export default {
     isLoggedIn () {
       return !!this.$store.state.auth.authToken
     },
+    responseError () {
+      return this.$store.state.ui.responseError
+    },
     showLoader () {
       return this.$store.state.ui.show_loader
     }
@@ -49,6 +53,14 @@ export default {
           name: 'dashboard'
         })
       }
+    },
+    responseError () {
+      console.log(this.responseError)
+      swal({
+        type: 'error',
+        title: 'Error',
+        text: this.responseError.error
+      })
     }
   }
 }
