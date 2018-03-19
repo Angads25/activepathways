@@ -32,6 +32,16 @@ export default {
         })
     })
   },
+  openForgetPassword ({commit}, payload) {
+    return new Promise((resolve, reject) => {
+      AuthService.forgetPassword(payload)
+        .then(resp => {
+          resolve(resp)
+        }).catch(err => {
+          reject(err)
+        })
+    })
+  },
   fetchAuthFromLocal ({commit, dispatch}) {
     return new Promise((resolve, reject) => {
       const auth = LocalData.fetch.authToken()

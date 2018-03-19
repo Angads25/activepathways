@@ -45,8 +45,9 @@
       </section>
     </div>
   </div>
-  <SignIn v-show="activeModal === 'signin'" @closeModal="closeModal()" @openSignUp="activeModal = 'signup'"
+  <SignIn v-show="activeModal === 'signin'" @closeModal="closeModal()"  @openForgetPassword="activeModal = 'forgetPassword'" @openSignUp="activeModal = 'signup'"
           :activeStatus="activeModal === 'signin'"></SignIn>
   <SignUp v-show="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'"
           :activeStatus="activeModal === 'signup'"></SignUp>
+  <ForgetPassword v-show="activeModal === 'forgetPassword'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'" :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
 </header>

@@ -18,7 +18,6 @@ module.exports = {
 			},
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
-				let authInfo;
 				authorizeUser(args.email, args.password, (err, results) => {
 					if (err) return reject(err);
 					request.loginUser({_id: results._id, email: results.email, role: results.role});
@@ -56,7 +55,7 @@ authorizeUser = (email, pass, cb) => {
 			AppUser.findOne({email: email}).exec((err, _user) => {
 				if (err) return callback(err);
 				if (_user) return callback(null, user = _user);
-				callback(new Error('Please provide the valid email!'));
+				callback(new Error('No user found with email!'));
 			})
 		},
 		callback => {

@@ -50,6 +50,19 @@ export const AuthService = {
     })
     return postRequest(query.getGraphQLString(), 'login', false)
   },
+  forgetPassword (data) {
+    const query = createQuery()
+    query.addQuery({
+      name: 'forgetPassword',
+      args: {
+        email: data.email
+      },
+      nodes: {
+        success: 'success'
+      }
+    })
+    return postRequest(query.getGraphQLString(), 'forgetPassword', false)
+  },
   myProfile () {
     const query = createQuery()
     query.addQuery({

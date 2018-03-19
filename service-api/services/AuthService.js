@@ -1,6 +1,3 @@
-/**
- * Created by sonumalik on 17/05/17.
- */
 var crypto = require('crypto');
 
 module.exports = {
@@ -34,7 +31,7 @@ module.exports = {
 	 *
 	 * @param {Object} data the data token has to carry
 	 *
-	 * @return {String|Error} The access token or Error obaject
+	 * @return {String|Error} The access token or Error object
 	 * */
 	encrypt: function (data) {
 		var json = JSON.stringify({payload: data});

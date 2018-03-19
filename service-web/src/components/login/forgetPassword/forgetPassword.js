@@ -1,9 +1,10 @@
+import swal from 'sweetalert2'
+
 export default {
-  name: 'SignIn',
+  name: 'ForgetPassword',
   data () {
     return {
-      email: '',
-      password: ''
+      email: ''
     }
   },
   props: {
@@ -12,37 +13,35 @@ export default {
     }
   },
   methods: {
-    closeModal(event) {
+    closeModal (event) {
       event.stopPropagation()
       this.$emit('closeModal')
     },
-    openSignUp (event) {
+    openSignIn (event) {
       event.stopPropagation()
-      this.$emit('openSignUp')
+      this.$emit('openSignIn')
     },
-    openForgetPassword (event) {
-      event.stopPropagation()
-      this.$emit('openForgetPassword')
-    },
-    getSignInData () {
+    getData () {
       return {
-        email: this.email,
-        password: this.password
+        email: this.email
       }
     },
-    signIn (event) {
+    forgetPassword (event) {
       event.stopPropagation()
       this.$validator.validateAll()
         .then(result => {
           if (result) {
             this.$loader.show()
-            this.$store.dispatch('signin', this.getSignInData())
+            this.$store.dispatch('openForgetPassword', this.getData())
               .then(resp => {
-                this.$router.push({
-                  name: 'challengestates'
-                })
                 this.$loader.hide()
-                this.closeModal(event)
+                if (resp.success) {
+                  swal({
+                    type: 'success',
+                    title: 'Success',
+                    text: 'Email sent to your email'
+                  })
+                }
               }).catch(err => {
                 this.$loader.hide()
               })

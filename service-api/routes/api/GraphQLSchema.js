@@ -6,7 +6,8 @@ const keystone = require('keystone'),
 const UserQueryField = require('./resolvers/UserGetResolver');
 const LoginQueryField = require('./resolvers/LoginResolver');
 const UserMutationField = require('./resolvers/UserMutationResolver');
-	
+const ForgetPasswordField = require('./resolvers/ForgetPassword');
+
 //Mutation Fields
 
 
@@ -22,11 +23,12 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 			user: UserQueryField.userQuery,
 			login: LoginQueryField.login,
 			logout: LoginQueryField.logout,
+			forgetPassword: ForgetPasswordField.forgetPassword
 		}),
 	}),
-	 /**
-	  * Data modification queries
-	  * */
+	/**
+	 * Data modification queries
+	 * */
 	mutation: new graphql.GraphQLObjectType({
 		name: 'Mutation',
 		description: 'Root of all data modification queries.',
