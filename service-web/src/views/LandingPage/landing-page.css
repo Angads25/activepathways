@@ -1,7 +1,6 @@
 .read-more {
   color: #408BC9;
-  padding-bottom: 21px;
-  margin-bottom: -18px;
+ position: relative;
 }
 .read-more a {
   color: #408BC9;
@@ -10,14 +9,19 @@
 .read-more a:hover {
   color: #408BC9;
 }
-.read-more a:after {
- content: "";
+.read-more:after {
+  content: "";
   display: inline-block;
-  background-color:#408BC9;
+  background-color: #408BC9;
   width: 28px;
   height: 7px;
   border-radius: 100px;
-  margin-left: 20px;
+  position: absolute;
+  right: 20px;
+  top: 25px;
+}
+.read-more.mid-outbox:after {
+  left: 20px;
 }
 .circle-whit span {
   height: 2em;
@@ -59,4 +63,9 @@
   background-repeat: no-repeat;
   background-position: center;
   /*background-image: url(../../assets/images/Stretching_V1.png);*/
+}
+@media screen and (max-width: 30em) {
+  .read-more:after {
+    display: none;
+  }
 }
