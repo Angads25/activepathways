@@ -4,6 +4,10 @@ const keystone = require('keystone'),
 
 // Query Fields
 const UserQueryField = require('./resolvers/UserGetResolver');
+const ChallengeQueryField = require('./resolvers/ChallengeGetResolver');
+const ProgrammeQueryField = require('./resolvers/ProgrammeGetResolver');
+const UserChallengeStateQueryField = require('./resolvers/UserChallengeStateGetResolver');
+const UserProgrammeEnrollmentQueryField = require('./resolvers/UserProgrammeEnrollmentGetResolver');
 const LoginQueryField = require('./resolvers/LoginResolver');
 const UserMutationField = require('./resolvers/UserMutationResolver');
 const ForgetPasswordField = require('./resolvers/ForgetPassword');
@@ -21,6 +25,10 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 		description: 'The root of all queries',
 		fields: () => ({
 			user: UserQueryField.userQuery,
+			challenge: ChallengeQueryField.challengeQuery,
+			programme: ProgrammeQueryField.programmeQuery,
+			userChallengeState: UserChallengeStateQueryField.userChallengeStateQuery,
+			userProgrammeEnrollment: UserProgrammeEnrollmentQueryField.userProgrammeEnrollmentQuery,
 			login: LoginQueryField.login,
 			logout: LoginQueryField.logout,
 			forgetPassword: ForgetPasswordField.forgetPassword
