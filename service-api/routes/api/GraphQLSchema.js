@@ -10,6 +10,7 @@ const UserChallengeStateQueryField = require('./resolvers/UserChallengeStateGetR
 const UserProgrammeEnrollmentQueryField = require('./resolvers/UserProgrammeEnrollmentGetResolver');
 const LoginQueryField = require('./resolvers/LoginResolver');
 const UserMutationField = require('./resolvers/UserMutationResolver');
+const ChallengeMutationField = require('./resolvers/ChallengeMutationResolver');
 const ForgetPasswordField = require('./resolvers/ForgetPassword');
 
 //Mutation Fields
@@ -42,6 +43,7 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 		description: 'Root of all data modification queries.',
 		fields: () => ({
 			upsertUser: UserMutationField.upsertUser,
+			upsertChallenge: ChallengeMutationField.upsertChallenge,
 		})
 	}),
 });
