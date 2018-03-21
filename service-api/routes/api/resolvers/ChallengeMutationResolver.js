@@ -27,33 +27,36 @@ module.exports = {
 			},
 			illustration: {
 				type: new graphql.GraphQLInputObjectType({
-					public_id: {
-						type: graphql.GraphQLString
-					},
-					version: {
-						type: graphql.GraphQLInt
-					},
-					signature: {
-						type: graphql.GraphQLString
-					},
-					width: {
-						type: graphql.GraphQLInt
-					},
-					height: {
-						type: graphql.GraphQLInt
-					},
-					format: {
-						type: graphql.GraphQLString
-					},
-					resource_type: {
-						type: graphql.GraphQLString,
-					},
-					url: {
-						type: graphql.GraphQLString
-					},
-					secure_url: {
-						type: graphql.GraphQLString
-					}
+					name: 'IllustrationInputType',
+					fields: () => ({
+						public_id: {
+							type: graphql.GraphQLString
+						},
+						version: {
+							type: graphql.GraphQLInt
+						},
+						signature: {
+							type: graphql.GraphQLString
+						},
+						width: {
+							type: graphql.GraphQLInt
+						},
+						height: {
+							type: graphql.GraphQLInt
+						},
+						format: {
+							type: graphql.GraphQLString
+						},
+						resource_type: {
+							type: graphql.GraphQLString,
+						},
+						url: {
+							type: graphql.GraphQLString
+						},
+						secure_url: {
+							type: graphql.GraphQLString
+						}
+					})
 				})
 			}
 		},
