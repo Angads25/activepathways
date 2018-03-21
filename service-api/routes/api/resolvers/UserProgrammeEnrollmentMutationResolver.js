@@ -44,11 +44,7 @@ module.exports = {
 						if (!args.user) return callback(new Error('User is required!'));
 						if (!args.programme) return callback(new Error('Programme is required!'));
 						if (!args.status) return callback(new Error('Status is required!'));
-						challenge = new UserProgrammeEnrollment({
-							user: args.user,
-							programme: args.programme,
-							status: args.status
-						});
+						challenge = new UserProgrammeEnrollment();
 						callback();
 					},
 					// update if exits

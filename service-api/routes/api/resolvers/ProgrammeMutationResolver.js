@@ -6,7 +6,7 @@ const keystone = require('keystone'),
 const ProgrammeType = require('../types/ProgrammeType');
 
 module.exports = {
-	upsertChallenge: {
+	upsertProgramme: {
 		type: ProgrammeType,
 		description: 'Programme',
 		args: {
@@ -47,11 +47,7 @@ module.exports = {
 						if (!args.name) return callback(new Error('Name is required!'));
 						if (!args.description) return callback(new Error('Description is required!'));
 						if (!args.durationDays) return callback(new Error('Duration Days is required!'));
-						programme = new Programme({
-							name: args.name,
-							description: args.description,
-							durationDays: args.durationDays
-						});
+						programme = new Programme();
 						callback();
 					},
 					// update if exits

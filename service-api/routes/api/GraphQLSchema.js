@@ -11,6 +11,9 @@ const UserProgrammeEnrollmentQueryField = require('./resolvers/UserProgrammeEnro
 const LoginQueryField = require('./resolvers/LoginResolver');
 const UserMutationField = require('./resolvers/UserMutationResolver');
 const ChallengeMutationField = require('./resolvers/ChallengeMutationResolver');
+const ProgrammeMutationField = require('./resolvers/ProgrammeMutationResolver');
+const ChallengeStateMutationField = require('./resolvers/UserChallengeStateMutationResolver');
+const UserProgrammeEnrollmentField = require('./resolvers/UserProgrammeEnrollmentMutationResolver');
 const ForgetPasswordField = require('./resolvers/ForgetPassword');
 
 //Mutation Fields
@@ -44,6 +47,9 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 		fields: () => ({
 			upsertUser: UserMutationField.upsertUser,
 			upsertChallenge: ChallengeMutationField.upsertChallenge,
+			upsertUserChallengeState: ChallengeStateMutationField.upsertChallengeState,
+			upsertUserProgrammeEnrollment: UserProgrammeEnrollmentField.UserProgrammeEnrollment,
+			upsertProgramme: ProgrammeMutationField.upsertProgramme,
 		})
 	}),
 });

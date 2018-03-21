@@ -52,13 +52,7 @@ module.exports = {
 						if (!args.challenge) return callback(new Error('Challenge is required!'));
 						if (!args.notes) return callback(new Error('Notes is required!'));
 						if (!args.status) return callback(new Error('Status is required!'));
-						challenge = new UserChallengeState({
-							user: args.user,
-							programme: args.programme,
-							challenge: args.challenge,
-							notes: args.notes,
-							status: args.status
-						});
+						challenge = new UserChallengeState();
 						callback();
 					},
 					// update if exits
@@ -67,6 +61,7 @@ module.exports = {
 						if (args.user) challenge.user = args.user;
 						if (args.programme) challenge.programme = args.programme;
 						if (args.challenge) challenge.challenge = args.challenge;
+						if (args.notes) challenge.status = args.notes;
 						if (args.status) challenge.status = args.status;
 						challenge.save(function (err) {
 							if (err) callback(err);

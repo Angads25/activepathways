@@ -24,6 +24,37 @@ module.exports = {
 			},
 			highlightedContent: {
 				type: graphql.GraphQLString
+			},
+			illustration: {
+				type: new graphql.GraphQLInputObjectType({
+					public_id: {
+						type: graphql.GraphQLString
+					},
+					version: {
+						type: graphql.GraphQLInt
+					},
+					signature: {
+						type: graphql.GraphQLString
+					},
+					width: {
+						type: graphql.GraphQLInt
+					},
+					height: {
+						type: graphql.GraphQLInt
+					},
+					format: {
+						type: graphql.GraphQLString
+					},
+					resource_type: {
+						type: graphql.GraphQLString,
+					},
+					url: {
+						type: graphql.GraphQLString
+					},
+					secure_url: {
+						type: graphql.GraphQLString
+					}
+				})
 			}
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
@@ -47,11 +78,7 @@ module.exports = {
 						if (!args.name) return callback(new Error('Name is required!'));
 						if (!args.description) return callback(new Error('Description is required!'));
 						if (!args.shortDescription) return callback(new Error('Short description is required!'));
-						challenge = new Challenge({
-							name: args.name,
-							description: args.description,
-							shortDescription: args.shortDescription
-						});
+						challenge = new Challenge();
 						callback();
 					},
 					// update if exits
@@ -61,6 +88,7 @@ module.exports = {
 						if (args.description) challenge.description = args.description;
 						if (args.shortDescription) challenge.shortDescription = args.shortDescription;
 						if (args.highlightedContent) challenge.highlightedContent = args.highlightedContent;
+						if (args.illustration) challenge.illustration = args.illustration;
 						challenge.save(function (err) {
 							if (err) callback(err);
 							else callback();

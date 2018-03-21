@@ -18,7 +18,35 @@ exports = module.exports = new graphql.GraphQLObjectType({
 			type: graphql.GraphQLString
 		},
 		illustration: {
-			type: graphql.GraphQLString
+			type: new graphql.GraphQLObjectType({
+				public_id: {
+					type: graphql.GraphQLString
+				},
+				version: {
+					type: graphql.GraphQLInt
+				},
+				signature: {
+					type: graphql.GraphQLString
+				},
+				width: {
+					type: graphql.GraphQLInt
+				},
+				height: {
+					type: graphql.GraphQLInt
+				},
+				format: {
+					type: graphql.GraphQLString
+				},
+				resource_type: {
+					type: graphql.GraphQLString,
+				},
+				url: {
+					type: graphql.GraphQLString
+				},
+				secure_url: {
+					type: graphql.GraphQLString
+				}
+			})
 		}
 	})
 });
