@@ -10,17 +10,19 @@ export default {
   },
   props: {
     activeStatus: {
-      default: true
+      default: false
     }
   },
   methods: {
     closeModal (event) {
       event.stopPropagation()
       this.$emit('closeModal')
+      // document.body.classList.remove('modal-closed')
     },
     openSignIn (event) {
       event.stopPropagation()
       this.$emit('openSignIn')
+      // document.body.classList.add('modal-open')
     },
     signUp (event) {
       event.stopPropagation()
