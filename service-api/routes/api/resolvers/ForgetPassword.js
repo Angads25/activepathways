@@ -26,10 +26,8 @@ module.exports = {
 		resolve: (parent, args, request) => (
 			new Promise((resolve, reject) => {
 					let user,
-						token,
-						mailMergeParams,
-						pushNotificationParams,
-						subject;
+						token;
+					
 					async.series([
 						// find user
 						callback => {

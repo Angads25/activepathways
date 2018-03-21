@@ -78,7 +78,7 @@ upsertUser = (args, request, cb) => {
 				if (!args.name) return callback(new Error('Name is required!'));
 				if (!args.email) return callback(new Error('Email is required!'));
 				if (!args.password) return callback(new Error('Password is required!'));
-				user = new User({role: 'APP_USER'});
+				user = new User({role: 'APP_USER', isEnabled: true});
 				callback();
 			},
 			// Validate for new user creation
