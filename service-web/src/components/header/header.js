@@ -27,7 +27,11 @@ export default {
       // setTimeout(() => {
       //   __self.activeModal = ''
       // }, 300)
+      document.body.classList.remove('modal-open')
       this.activeModal = ''
+    },
+    openModal () {
+      document.body.classList.add('modal-open')
     }
   }
 }

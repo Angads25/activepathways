@@ -62,6 +62,7 @@ input::-webkit-input-placeholder {
 .color-light {
   color: #1f436f;
 }
+
 .dark-light {
   color: #cae3f1;
 }
@@ -163,14 +164,12 @@ input::-webkit-input-placeholder {
   outline: 0;
   -webkit-transition: all .25s linear;
   -o-transition: all .25s linear;
-  transition: all .25s linear;
 }
 
 .modal-signin {
   background-color: rgba(0, 0, 0, 0.62);
   -webkit-transition: all .25s linear;
   -o-transition: all .25s linear;
-  transition: all .25s linear;
 }
 
 .fade {
@@ -178,7 +177,6 @@ input::-webkit-input-placeholder {
   transition: opacity .15s linear;
   -webkit-transition: all .25s linear;
   -o-transition: all .25s linear;
-  transition: all .25s linear;
 }
 
 .d-block {
@@ -189,7 +187,6 @@ input::-webkit-input-placeholder {
   opacity: 1;
   -webkit-transition: all .25s linear;
   -o-transition: all .25s linear;
-  transition: all .25s linear;
 
 }
 
@@ -225,12 +222,7 @@ input::-webkit-input-placeholder {
 }
 
 body.modal-open {
-  overflow: hidden !important;
-}
-
-body.modal-closed {
-  overflow: scroll !important;
-  height: 100%;
+  overflow: hidden;
 }
 
 .vCalender .vdp-datepicker__calendar {
@@ -260,6 +252,7 @@ body.modal-closed {
   border: transparent;
   width: 14.285714285714286%;
 }
+
 .vCalender .vdp-datepicker__calendar .cell {
   color: #868895;
   font-size: 14px;
@@ -267,16 +260,16 @@ body.modal-closed {
   border: transparent;
 }
 
-
 .vCalender .vdp-datepicker__calendar header .next {
   width: 30px;
   height: 30px;
   text-indent: -10000px;
   position: absolute;
-  right:22px;
+  right: 22px;
   background: #edf0f5;
   border-radius: 50%;
 }
+
 .vCalender .vdp-datepicker__calendar header .prev {
   width: 30px;
   height: 30px;
@@ -286,6 +279,7 @@ body.modal-closed {
   background: #edf0f5;
   border-radius: 50%;
 }
+
 .vCalender .vdp-datepicker__calendar header .prev:after {
   border: solid #2e69a5;
   border-width: 0 2px 2px 0;
@@ -293,10 +287,11 @@ body.modal-closed {
   width: 3px;
   height: 3px;
   padding: 3px;
-  margin:auto;
+  margin: auto;
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
+
 .vCalender .vdp-datepicker__calendar header .next:after {
   border: solid #2e69a5;
   border-width: 0 2px 2px 0;
@@ -308,36 +303,24 @@ body.modal-closed {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
-/*.vCalender .vdp-datepicker__calendar header .next:after,*/
-/*.vCalender .vdp-datepicker__calendar header .prev:after{*/
-  /*content: "";*/
-  /*position: absolute;*/
-  /*left: 0;*/
-  /*top: 0;*/
-  /*right: 0;*/
-  /*bottom: 0;*/
-  /*!*-webkit-transform: translateX(-50%) translateY(-50%);*!*/
-  /*!*transform: translateX(-50%) translateY(-50%);*!*/
-  /*border: 2px solid transparent;*/
-/*}*/
+
 .vdp-datepicker__calendar header .next:after, .vdp-datepicker__calendar header .prev:after {
   content: "";
   position: absolute;
-  left: 0!important;
-  top: 0!important;
-  right: 0!important;
+  left: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
   bottom: 0;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  border: 6px solid transparent;
 }
+
 .vCalender .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
 .vCalender .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
-.vCalender .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{
+.vCalender .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
   border: transparent;
-  background-color:#001c44;
+  background-color: #001c44;
   color: #fff;
 }
+
 .vCalender .vdp-datepicker__calendar header .up {
   float: left;
   width: auto;
@@ -346,10 +329,12 @@ body.modal-closed {
   font-size: 1.5rem;
   color: #001b44;
 }
+
 .vCalender .vdp-datepicker__calendar header .up:hover {
-  background: transparent!important;
+  background: transparent !important;
 }
+
 .vCalender .vdp-datepicker__calendar header .prev:hover,
-.vCalender .vdp-datepicker__calendar header .next:hover{
-  background: transparent!important;
+.vCalender .vdp-datepicker__calendar header .next:hover {
+  background: transparent !important;
 }

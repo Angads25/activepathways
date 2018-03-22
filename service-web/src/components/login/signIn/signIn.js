@@ -15,12 +15,10 @@ export default {
     closeModal (event) {
       event.stopPropagation()
       this.$emit('closeModal')
-      // document.body.classList.remove('modal-closed')
     },
     openSignUp (event) {
       event.stopPropagation()
       this.$emit('openSignUp')
-      // document.body.classList.add('modal-open')
     },
     openForgetPassword (event) {
       event.stopPropagation()

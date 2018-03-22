@@ -37,7 +37,7 @@
             </p>
             <div class="cf">
               <a class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir"
-                 @click.prevent="activeModal = 'signup'">Sign up here
+                 @click.prevent="activeModal = 'signup'; openModal()">Sign up here
               </a>
             </div>
           </div>
@@ -45,9 +45,9 @@
       </section>
     </div>
   </div>
-  <SignIn v-show="openModal === 'signin'" @closeModal="closeModal()"  @openForgetPassword="activeModal = 'forgetPassword'" @openSignUp="activeModal = 'signup'"
+  <SignIn v-show="activeModal === 'signin'" @closeModal="closeModal()"  @openForgetPassword="activeModal = 'forgetPassword'; openModal()" @openSignUp="activeModal = 'signup'; openModal()"
           :activeStatus="activeModal === 'signin'"></SignIn>
-  <SignUp v-show="openModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'"
+  <SignUp v-show="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()"
           :activeStatus="activeModal === 'signup'"></SignUp>
-  <ForgetPassword v-show="activeModal === 'forgetPassword'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'" :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
+  <ForgetPassword v-show="activeModal === 'forgetPassword'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()" :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
 </header>

@@ -17,12 +17,13 @@ export default {
     closeModal (event) {
       event.stopPropagation()
       this.$emit('closeModal')
-      // document.body.classList.remove('modal-closed')
+      // document.body.classList.remove('modal-open')
     },
     openSignIn (event) {
       event.stopPropagation()
       this.$emit('openSignIn')
       // document.body.classList.add('modal-open')
+      // document.body.style.overflow = 'hidden'
     },
     signUp (event) {
       event.stopPropagation()
