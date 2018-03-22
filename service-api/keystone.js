@@ -6,6 +6,14 @@ const process = require('process');
 const fs = require('fs');
 const path = require('path');
 const Agenda = require('agenda');
+
+const agenda = new Agenda({
+	db: {address: 'localhost:27017/activepathways'},
+	defaultConcurrency: 1,
+	defaultLockLifetime: 10000
+});
+addSafeReadOnlyGlobal('_agenda', agenda);
+
 keystone.init({
 	'name': 'Active Pathways',
 	'brand': ' The Active Pathways Admin',
@@ -70,12 +78,6 @@ if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
 
 let list = fs.readdirSync(path.join('./', 'jobs'));
 
-const agenda = new Agenda({
-	db: {address: 'localhost:27017/activepathways'},
-	defaultConcurrency: 1,
-	defaultLockLifetime: 10000
-});
-
 agenda.on('ready', () => {
 	async.mapSeries(list, (item, callback) => {
 		if (item.search(/.js$/) !== -1) {
@@ -90,6 +92,17 @@ agenda.on('ready', () => {
 		else agenda.start();
 	});
 });
+
+function addSafeReadOnlyGlobal(prop, val) {
+	Object.defineProperty(global, prop, {
+		get: function () {
+			return val;
+		},
+		set: function () {
+			console.log('You are trying to set the READONLY GLOBAL variable `', prop, '`. This is not permitted. Ignored!');
+		}
+	});
+}
 
 agenda.on('error', err => console.log(err));
 

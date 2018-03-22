@@ -21,6 +21,7 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
+const Agendash = require('agendash');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -36,15 +37,21 @@ var routes = {
 exports = module.exports = function (app) {
 
 	app.all('/*', keystone.middleware.cors);
-	app.options('/*', function(req, res) {
+	app.options('/*', function (req, res) {
 		res.sendStatus(200);
 	});
 	// Views
 	// app.get('/', routes.views.index);
-	app.get('/graph',middleware.tokenAuthCommon,middleware.tokenAuth, routes.api.GraphQLSchema.get);
-	app.post('/graph',middleware.tokenAuthCommon,middleware.tokenAuth, routes.api.GraphQLSchema.post);
+	app.get('/graph', middleware.tokenAuthCommon, middleware.tokenAuth, routes.api.GraphQLSchema.get);
+	app.post('/graph', middleware.tokenAuthCommon, middleware.tokenAuth, routes.api.GraphQLSchema.post);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
+	// agenda dash 
+	app.use('/dash', middleware.tokenAuthCommon, middleware.tokenAuth, function (req, res, next) {
+		if (req._user)
+			next();
+		else res.send(401);
+	}, Agendash(_agenda));
 };

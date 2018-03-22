@@ -1,7 +1,7 @@
 module.exports = class EveryMorningJob {
 
 	static get trigger() {
-		return "*/5 * * * * *";
+		return "3 minutes";
 	}
 
 	static task() {
