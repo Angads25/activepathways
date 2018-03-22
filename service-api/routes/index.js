@@ -40,7 +40,6 @@ exports = module.exports = function (app) {
 	app.options('/*', function (req, res) {
 		res.sendStatus(200);
 	});
-	app.use('/dash', middleware.tokenAuthCommon, middleware.tokenAuth, Agendash(_agenda));
 	// Views
 	// app.get('/', routes.views.index);
 	app.get('/graph', middleware.tokenAuthCommon, middleware.tokenAuth, routes.api.GraphQLSchema.get);
@@ -49,4 +48,10 @@ exports = module.exports = function (app) {
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
+	// agenda dash 
+	app.use('/dash', middleware.tokenAuthCommon, middleware.tokenAuth, function (req, res, next) {
+		if (req._user)
+			next();
+		else res.send(401);
+	}, Agendash(_agenda));
 };
