@@ -72,7 +72,15 @@
         </div>
         <div class="fl w-100 w-50-ns pl0 pl2-ns  ">
           <div class="bg-white br3 box-shadow-grey vCalender pt4 pb3">
-            <datepicker :inline="true"></datepicker>
+            <!--<datepicker :inline="true"></datepicker>-->
+            <v-date-picker
+              mode='range'
+              tint-color='#f142f4'
+              v-model='selectedDate'
+              :theme-styles='themeStyles'
+              is-single-paned
+              is-inline>
+            </v-date-picker>
           </div>
         </div>
 
@@ -118,9 +126,9 @@
     </div>
   </section>
   <footer class="cf w-100 bg-light-gray mt5">
-    <div class="w-80 center tc pv4-ns">
+    <div class="w-80 center tc pv3 pv4-ns">
       <div class="cf">
-        <div class="f2 f3-ns b dark-light">FOOTER</div>
+        <div class="f3 f3-ns b dark-light">FOOTER</div>
       </div>
     </div>
   </footer>

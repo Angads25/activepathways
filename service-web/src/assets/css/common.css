@@ -32,7 +32,9 @@ input:focus {
 input::-webkit-input-placeholder {
   color: #6e7d92;
 }
-
+.v-tb {
+  vertical-align: text-bottom;
+}
 /* End css list with numeber circle background -------------- */
 /*-Gradient color libary*/
 .gradient-blue {
@@ -137,16 +139,8 @@ input::-webkit-input-placeholder {
     opacity: 1
   }
 }
-
-@media (max-width: 480px) {
-  .welcome-bg {
-    background-color: rgba(255, 255, 255, 0.85);
-  }
-}
-
 /*-------modal-frame----*/
 .modal-frame {
-  /*height: 480px;*/
   max-width: 720px;
   margin: auto;
   position: relative;
@@ -197,7 +191,6 @@ input::-webkit-input-placeholder {
 .modal-dialog {
   position: relative;
   width: auto;
-  /*margin: 0.5rem;*/
   transition: 1s linear;
 
 }
@@ -220,121 +213,131 @@ input::-webkit-input-placeholder {
   transition: all .25s linear;
   visibility: visible;
 }
-
 body.modal-open {
   overflow: hidden;
 }
 
-.vCalender .vdp-datepicker__calendar {
-  width: 100%;
-  border: transparent;
+.vCalender .c-pane-container {
+  min-width: 100% !important;
 }
 
-.vCalender .vdp-datepicker__calendar header {
-  display: block;
-  line-height: normal;
-  padding-bottom: 50px;
+.vCalender .c-weeks {
+  border: transparent !important;
+  padding: 5px 0 7px;
 }
 
-.vCalender .vdp-datepicker__calendar .cell.day-header {
-  font-size: 100%;
-  white-space: nowrap;
-  cursor: inherit;
-  color: #bec1c6;
-  font-weight: 500;
-  /*margin-bottom: 50px;*/
-}
-
-.vCalender .vdp-datepicker__calendar span {
-  color: #868895;
-  font-size: 14px;
-  font-weight: 500;
-  border: transparent;
-  width: 14.285714285714286%;
-}
-
-.vCalender .vdp-datepicker__calendar .cell {
-  color: #868895;
-  font-size: 14px;
-  font-weight: 500;
-  border: transparent;
-}
-
-.vCalender .vdp-datepicker__calendar header .next {
-  width: 30px;
-  height: 30px;
-  text-indent: -10000px;
-  position: absolute;
-  right: 22px;
-  background: #edf0f5;
-  border-radius: 50%;
-}
-
-.vCalender .vdp-datepicker__calendar header .prev {
-  width: 30px;
-  height: 30px;
-  text-indent: -10000px;
-  position: absolute;
-  right: 70px;
-  background: #edf0f5;
-  border-radius: 50%;
-}
-
-.vCalender .vdp-datepicker__calendar header .prev:after {
-  border: solid #2e69a5;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  width: 3px;
-  height: 3px;
-  padding: 3px;
-  margin: auto;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
-.vCalender .vdp-datepicker__calendar header .next:after {
-  border: solid #2e69a5;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
-  width: 3px;
-  height: 3px;
-  margin: auto;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.vdp-datepicker__calendar header .next:after, .vdp-datepicker__calendar header .prev:after {
-  content: "";
-  position: absolute;
-  left: 0 !important;
-  top: 0 !important;
-  right: 0 !important;
-  bottom: 0;
-}
-
-.vCalender .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
-.vCalender .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
-.vCalender .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
-  border: transparent;
-  background-color: #001c44;
+.vCalender .c-day-content:hover {
+  background-color: #001c44 !important;
   color: #fff;
 }
 
-.vCalender .vdp-datepicker__calendar header .up {
-  float: left;
-  width: auto;
-  padding-left: 22px;
-  font-weight: bold;
+.vCalender .c-day-content:active {
+  background-color: #001c44 !important;
+  color: #fff;
+}
+
+.vCalender .c-day-background {
+  background-color: #41c9c5 !important;
+  color: #fff;
+}
+
+.vCalender .c-day-content {
+  font-size: .875rem;
+  color: #878694;
+  font-weight: 600;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+.vCalender .c-header {
+  background-color: transparent !important;
+  margin-bottom: 15px;
+  padding-top: 0;
+}
+.vCalender .c-weekdays {
+  background-color: transparent !important;
+}
+.vCalender .c-weekday {
+  color: #bebfc3;
+  font-size: 16px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+.vCalender .c-header .c-title-layout .c-title-popover .c-title-anchor .c-title {
+  color: #001c44;
   font-size: 1.5rem;
-  color: #001b44;
+  font-weight: bold;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
-.vCalender .vdp-datepicker__calendar header .up:hover {
-  background: transparent !important;
+.vCalender .c-header .c-title-layout {
+  display: block;
+  float: left;
+  flex-grow: initial;
+  position: absolute;
+  left: 28px;
+  margin-top: -2px;
 }
 
-.vCalender .vdp-datepicker__calendar header .prev:hover,
-.vCalender .vdp-datepicker__calendar header .next:hover {
-  background: transparent !important;
+ .vCalender .c-header .c-arrow-layout {
+  color: #2e69a5;
+  position: relative;
+  right: -82%;
+  margin-top: 0;
+}
+.vCalender .c-header .c-arrow-layout .c-arrow {
+  background-color: #edf0f5;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+.vCalender .svg-icon svg {
+  width: 22px;
+  height: 22px;
+}
+label 				 {
+  color:#8693a4;
+  position:absolute;
+  pointer-events:none;
+  left:0px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+input:focus ~ label, input:valid ~ label 		{
+  top:-10px;
+  /*font-size:12px;*/
+  /*color:#001d46;*/
+  opacity: 0;
+}
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:1px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#001d46;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+@media (max-width: 480px) {
+  .welcome-bg {
+    background-color: rgba(255, 255, 255, 0.85);
+
+  }
+  .vCalender .c-header .c-arrow-layout {
+    right: -76%;
+  }
+
 }
