@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "agenda": "^1.0.3",
+    "agendash": "^0.4.0",
     "async": "2.1.4",
     "babel": "^6.23.0",
     "cli-table": "^0.3.1",

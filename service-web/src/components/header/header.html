@@ -45,9 +45,9 @@
       </section>
     </div>
   </div>
-  <SignIn v-show="activeModal === 'signin'" @closeModal="closeModal()"  @openForgetPassword="activeModal = 'forgetPassword'; openModal()" @openSignUp="activeModal = 'signup'; openModal()"
+  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()"  @openForgetPassword="activeModal = 'forgetPassword'; openModal()" @openSignUp="activeModal = 'signup'; openModal()"
           :activeStatus="activeModal === 'signin'"></SignIn>
-  <SignUp v-show="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()"
+  <SignUp v-if="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()"
           :activeStatus="activeModal === 'signup'"></SignUp>
-  <ForgetPassword v-show="activeModal === 'forgetPassword'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()" :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
+  <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()" :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
 </header>

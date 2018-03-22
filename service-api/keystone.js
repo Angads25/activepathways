@@ -68,4 +68,29 @@ if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
 		+ '\nset up your mailgun integration');
 }
 
+let list = fs.readdirSync(path.join('./', 'jobs'));
+
+const agenda = new Agenda({
+	db: {address: 'localhost:27017/activepathways'},
+	defaultConcurrency: 1,
+	defaultLockLifetime: 10000
+});
+
+agenda.on('ready', () => {
+	async.mapSeries(list, (item, callback) => {
+		if (item.search(/.js$/) !== -1) {
+			let name = item.toString().replace(/\.js$/, '');
+			const job = require('./' + path.join('./', 'jobs', item.toString()));
+			agenda.define(name, job.task.bind(job));
+			agenda.every(job.trigger, name);
+		}
+		callback();
+	}, err => {
+		if (err) console.log(err);
+		else agenda.start();
+	});
+});
+
+agenda.on('error', err => console.log(err));
+
 keystone.start();
