@@ -1,4 +1,3 @@
-// import Datepicker from 'vuejs-datepicker'
 export default {
   name: 'Dashboard',
   components: {
@@ -33,6 +32,16 @@ export default {
           border: '1px solid #dadada'
         }
       }
+    }
+  },
+  methods: {
+    logout () {
+      this.$loader.show()
+      this.$store.dispatch('logout')
+      this.$router.push({
+        name: 'landingpage'
+      })
+      this.$loader.hide()
     }
   }
 }
