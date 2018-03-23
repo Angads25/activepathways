@@ -15,7 +15,7 @@ module.exports = {
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
 				let query = {};
-				if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
+				// if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
 				query.isEnabled = true;
 				if (args['id'] === 'me') query._id = request._user._id;
 				else query._id = args['id'];

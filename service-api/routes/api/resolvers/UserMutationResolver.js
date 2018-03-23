@@ -38,7 +38,7 @@ module.exports = {
 			}
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
-				if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
+				// if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
 				upsertUser(args, request, (err, results) => {
 					if (err) return reject(err);
 					// return fulfill and  user data in promise

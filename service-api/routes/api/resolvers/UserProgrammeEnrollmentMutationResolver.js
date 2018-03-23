@@ -29,7 +29,7 @@ module.exports = {
 				async.series([
 					// fetch challenge
 					callback => {
-						if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
+						// if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
 						if (!args.id) return callback();
 						let challengeId = convertToObjectId(args['id']);
 						if (!challengeId) return callback(new Error('Invalid ID passed!'));
