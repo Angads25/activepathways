@@ -4,5 +4,8 @@ export default {
   },
   setAuthToken (state, payload) {
     state.authToken = payload
+  },
+  setUserChallengeState (state, payload) {
+    state.userChallengeStateList = payload
   }
 }

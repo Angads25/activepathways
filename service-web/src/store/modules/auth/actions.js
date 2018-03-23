@@ -1,4 +1,5 @@
 import {AuthService} from '../../../services/auth'
+import {UserService} from '../../../services/user'
 import {LocalData} from '../../../services/localData'
 
 export default {
@@ -27,6 +28,18 @@ export default {
             LocalData.set.authToken(resp['token'])
             resolve(resp)
           }
+        }).catch(err => {
+          reject(err)
+        })
+    })
+  },
+  fetchUserChallengeStateList ({commit}, payload) {
+    return new Promise((resolve, reject) => {
+      UserService.userChallengeStateList(payload)
+        .then(resp => {
+          console.log(resp)
+          commit('userChallengeStateList', resp)
+          resolve(resp)
         }).catch(err => {
           reject(err)
         })

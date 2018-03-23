@@ -4,6 +4,7 @@ export default {
   },
   data () {
     return {
+      userChallengeStateList: [],
       selectedDate: null,
       themeStyles: {
         wrapper: {
@@ -43,5 +44,9 @@ export default {
       })
       this.$loader.hide()
     }
+  },
+  created () {
+    this.$store.dispatch('fetchUserChallengeStateList')
+    this.userChallengeStateList = this.$store.userChallengeStateList
   }
 }
