@@ -48,5 +48,6 @@ export default {
   created () {
     this.$store.dispatch('fetchUserChallengeStateList')
     this.userChallengeStateList = this.$store.userChallengeStateList
+    console.log(this.userChallengeStateList , "asdasdhasdhjsadhlasjdhklashdjasdhl")
   }
 }
