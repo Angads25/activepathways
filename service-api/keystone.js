@@ -8,7 +8,7 @@ const path = require('path');
 const Agenda = require('agenda');
 
 const agenda = new Agenda({
-	db: {address: 'localhost:27017/activepathways'},
+	db: {address: 'localhost:27017/active-pathways'},
 	defaultConcurrency: 1,
 	defaultLockLifetime: 10000
 });

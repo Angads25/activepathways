@@ -15,6 +15,7 @@ module.exports = {
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
 				let query = {};
+				if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
 				query._id = args['id'];
 				if (!args['id']) reject(new Error('Id is required'));
 				UserProgrammeEnrollment.findOne(query).exec((err, _programme) => {

@@ -1,5 +1,7 @@
 const keystone = require('keystone'),
 	User = keystone.list('AppUser').model,
+	UserProgrammeEnrollment = keystone.list('UserProgrammeEnrollment').model,
+	Programme = keystone.list('Programme').model,
 	async = require('async'),
 	mongoose = require('mongoose'),
 	graphql = require('graphql'),
@@ -36,6 +38,7 @@ module.exports = {
 			}
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
+				if (!request._user && !request._user._id) return reject(new Error('Permission denied!'));
 				upsertUser(args, request, (err, results) => {
 					if (err) return reject(err);
 					// return fulfill and  user data in promise
@@ -48,7 +51,7 @@ module.exports = {
 };
 
 upsertUser = (args, request, cb) => {
-	let user, authInfo;
+	let user, authInfo, newUser = false, userProgrammeEnrollment, programme;
 	async.series([
 			// fetch user
 			callback => {
@@ -79,6 +82,7 @@ upsertUser = (args, request, cb) => {
 				if (!args.email) return callback(new Error('Email is required!'));
 				if (!args.password) return callback(new Error('Password is required!'));
 				user = new User({role: 'APP_USER', isEnabled: true});
+				newUser = true;
 				callback();
 			},
 			// Validate for new user creation
@@ -96,11 +100,32 @@ upsertUser = (args, request, cb) => {
 			},
 			// Send welcome email to user
 			callback => {
-				if (!user) return callback();
+				if (!user || args.id) return callback();
 				EmailService.sendMail(user.email, 'Welcome', user, function (err, _result) {
 					if (err) console.log(err);
-					console.log(err, _result)
 					callback()
+				})
+			},
+			// 
+			callback => {
+				if (!user || args.id) return callback();
+				Programme.findOne({name: /.*Starter.*/}, (err, _programme) => {
+					if (err) callback(err);
+					else if (_programme) callback(null, programme = _programme);
+					else callback(new Error("Unable to find any starter program!"));
+				});
+			},
+			// 
+			callback => {
+				if (!user || args.id || !programme) return callback();
+				userProgrammeEnrollment = new UserProgrammeEnrollment();
+				userProgrammeEnrollment.user = user._id;
+				userProgrammeEnrollment.programme = programme._id;
+				userProgrammeEnrollment.status = "JOINED";
+
+				userProgrammeEnrollment.save(function (err) {
+					if (err) callback(err);
+					else callback();
 				})
 			}
 		],

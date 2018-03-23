@@ -7,6 +7,7 @@ const UserQueryField = require('./resolvers/UserGetResolver');
 const ChallengeQueryField = require('./resolvers/ChallengeGetResolver');
 const ProgrammeQueryField = require('./resolvers/ProgrammeGetResolver');
 const UserChallengeStateQueryField = require('./resolvers/UserChallengeStateGetResolver');
+const UserChallengeStateListResolver = require('./resolvers/UserChallengeStateListResolver');
 const UserProgrammeEnrollmentQueryField = require('./resolvers/UserProgrammeEnrollmentGetResolver');
 const LoginQueryField = require('./resolvers/LoginResolver');
 const UserMutationField = require('./resolvers/UserMutationResolver');
@@ -32,6 +33,7 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 			challenge: ChallengeQueryField.challengeQuery,
 			programme: ProgrammeQueryField.programmeQuery,
 			userChallengeState: UserChallengeStateQueryField.userChallengeStateQuery,
+			userChallengeStateList: UserChallengeStateListResolver.userChallengeStateList,
 			userProgrammeEnrollment: UserProgrammeEnrollmentQueryField.userProgrammeEnrollmentQuery,
 			login: LoginQueryField.login,
 			logout: LoginQueryField.logout,
