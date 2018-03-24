@@ -9,24 +9,21 @@
           </router-link>
         </div>
         <div class="fl w-80 pa3 pr0 tr menu-header">
-          <router-link tag="a" :to="{ name: 'landingpage' }"
-                       class="f3 b active dn dib-ns pv2 ml4 ">Home
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4  ">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
-            Menu
-          </router-link>
+          <a href="" class="f3 b dn dib-ns pv2 ml4 active">
+            Home
+          </a>
+          <a href="#features"
+             class="f3 b dn dib-ns pv2 ml4 ">How it works
+          </a>
+          <a href="#saying" class="f3 b dn dib-ns pv2 ml4">
+            Testimonials
+          </a>
+          <a class="f3 b dn dib-ns pv2 ml4 pointer" @click.prevent="activeModal = 'signup'; openModal()">
+            Sign up
+          </a>
+          <a class="f3 b dn dib-ns pv2 ml4 pointer">
+            Sign in
+          </a>
         </div>
       </nav>
       <section class="hero ph3 w-40">
@@ -45,9 +42,13 @@
       </section>
     </div>
   </div>
-  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()"  @openForgetPassword="activeModal = 'forgetPassword'; openModal()" @openSignUp="activeModal = 'signup'; openModal()"
+  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()"
+          @openForgetPassword="activeModal = 'forgetPassword'; openModal()"
+          @openSignUp="activeModal = 'signup'; openModal()"
           :activeStatus="activeModal === 'signin'"></SignIn>
   <SignUp v-if="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()"
           :activeStatus="activeModal === 'signup'"></SignUp>
-  <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()" :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
+  <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()"
+                  @openSignIn="activeModal = 'signin'; openModal()"
+                  :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
 </header>
