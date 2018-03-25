@@ -96,7 +96,9 @@ input::-webkit-input-placeholder {
   background: linear-gradient(to left, rgb(14, 51, 96) 2%, rgb(54, 120, 180) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e3360', endColorstr='#3678b4', GradientType=1); /* IE6-9 */
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
 .nav-border-b {
   border-bottom: 1px solid rgba(64, 139, 201, 0.1);
 }
@@ -163,6 +165,8 @@ body.modal-open .bg-overlay, body.modal-open .mobile-expanded-nav {
   outline: 0;
   -webkit-transition: all .25s linear;
   -o-transition: all .25s linear;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .modal-signin {

@@ -18,6 +18,7 @@
     "v-calendar": "^0.8.0",
     "vee-validate": "^2.0.5",
     "vue": "^2.5.2",
+    "vue-multiple-back-top": "^1.0.2",
     "vue-router": "^3.0.1",
     "vue-scrollto": "^2.11.0",
     "vuejs-datepicker": "^0.9.29",
