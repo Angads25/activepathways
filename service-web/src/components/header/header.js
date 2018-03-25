@@ -7,7 +7,8 @@ export default {
   data () {
     return {
       type: 0,
-      activeModal: ''
+      activeModal: '',
+      isOpen: false
     }
   },
   components: {
@@ -23,10 +24,6 @@ export default {
   },
   methods: {
     closeModal () {
-      // const __self = this
-      // setTimeout(() => {
-      //   __self.activeModal = ''
-      // }, 300)
       document.body.classList.remove('modal-open')
       this.activeModal = ''
     },

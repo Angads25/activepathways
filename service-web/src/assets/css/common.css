@@ -183,6 +183,9 @@ input::-webkit-input-placeholder {
   -o-transition: all .25s linear;
 
 }
+.dt-ca {
+  display: table-caption;
+}
 
 .fade.show ~ body {
   overflow: hidden;
@@ -331,7 +334,7 @@ input:focus ~ label, input:valid ~ label 		{
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .welcome-bg {
     background-color: rgba(255, 255, 255, 0.85);
 
