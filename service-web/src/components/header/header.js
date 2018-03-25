@@ -8,7 +8,8 @@ export default {
     return {
       type: 0,
       activeModal: '',
-      isOpen: false
+      isOpen: false,
+      openerText: 'Open'
     }
   },
   components: {
@@ -29,6 +30,23 @@ export default {
     },
     openModal () {
       document.body.classList.add('modal-open')
+    },
+    open () {
+      this.openerText = 'Close'
+      this.isOpen = true
+      document.body.classList.add('modal-open')
+    },
+    close () {
+      this.openerText = 'Open'
+      this.isOpen = false
+      document.body.classList.remove('modal-open')
+    },
+    toggle () {
+      if (this.isOpen) {
+        this.close()
+      } else {
+        this.open()
+      }
     }
   }
 }
