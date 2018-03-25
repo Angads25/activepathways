@@ -34,12 +34,12 @@ export default {
     open () {
       this.openerText = 'Close'
       this.isOpen = true
-      document.body.classList.add('modal-open')
+      document.body.classList.add('overlay-bg')
     },
     close () {
       this.openerText = 'Open'
       this.isOpen = false
-      document.body.classList.remove('modal-open')
+      document.body.classList.remove('overlay-bg')
     },
     toggle () {
       if (this.isOpen) {
