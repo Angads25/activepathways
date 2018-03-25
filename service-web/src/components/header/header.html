@@ -9,19 +9,19 @@
           </router-link>
         </div>
         <div class="fl w-80 pa3 pr0 tr menu-header">
-          <a href="" class="f3 b dn dib-ns pv2 ml4 active">
+          <a class="f4 f5-m f3-l b dn dib-ns pv2 pt2-m ml4 mt1-m active">
             Home
           </a>
-          <a href="#features"
-             class="f3 b dn dib-ns pv2 ml4 ">How it works
+          <a href=""
+             class="f4 f5-m f3-l b dn dib-ns pv2 ml4 " v-scroll-to="'#features'">How it works
           </a>
-          <a href="#saying" class="f3 b dn dib-ns pv2 ml4">
+          <a href="" v-scroll-to="'#saying'" class="f4 f5-m f3-l b dn dib-ns pv2 ml4 pointer">
             Testimonials
           </a>
-          <a class="f3 b dn dib-ns pv2 ml4 pointer" @click.prevent="activeModal = 'signup'; openModal()">
+          <a class="f4 f5-m f3-l b dn dib-ns pv2 ml4 pointer" @click.prevent="activeModal = 'signup'; openModal()">
             Sign up
           </a>
-          <a class="f3 b dn dib-ns pv2 ml4 pointer">
+          <a class="f4 f5-m f3-l b dn dib-ns pv2 ml4 pointer">
             Sign in
           </a>
         </div>
