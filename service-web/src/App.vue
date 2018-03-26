@@ -74,4 +74,9 @@ export default {
     color: #2c3e50;
     background-color: #fff;
   }
+
+  .moonGrey {
+    color: #dfe9f5;
+  }
+
 </style>
