@@ -15,11 +15,11 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		user: {
 			type: userType,
-			resolve: (userProgrammeEnrollment) => userGetResolver.userQuery.resolve(null, {id: userProgrammeEnrollment.user})
+			resolve: (userProgrammeEnrollment, args, request) => userGetResolver.userQuery.resolve(null, {id: userProgrammeEnrollment.user}, request)
 		},
 		programme: {
 			type: programmeType,
-			resolve: (userProgrammeEnrollment) => programmeGetResolver.programmeQuery.resolve(null, {id: userProgrammeEnrollment.programme}),
+			resolve: (userProgrammeEnrollment, args, request) => programmeGetResolver.programmeQuery.resolve(null, {id: userProgrammeEnrollment.programme}, request),
 		},
 		status :{
 			type: graphql.GraphQLString

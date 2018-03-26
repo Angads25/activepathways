@@ -19,7 +19,7 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		challenges: {
 			type: challengeType,
-			resolve: (programme) => challengeGetResolver.challengeQuery.resolve(null, {id: programme.challenges}),
+			resolve: (programme, args, request) => challengeGetResolver.challengeQuery.resolve(null, {id: programme.challenges}, request),
 		},
 		description: {
 			type: graphql.GraphQLString

@@ -1,6 +1,6 @@
-const challengeType  = require('./ChallengeType');
-const programmeType  = require('./ProgrammeType');
-const userType  = require('./UserType');
+const challengeType = require('./ChallengeType');
+const programmeType = require('./ProgrammeType');
+const userType = require('./UserType');
 const challengeGetResolver = require('../resolvers/ChallengeGetResolver');
 const programmeGetResolver = require('../resolvers/ProgrammeGetResolver');
 const userGetResolver = require('../resolvers/UserGetResolver');
@@ -17,23 +17,23 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		user: {
 			type: userType,
-			resolve: (challengeState) => userGetResolver.userQuery.resolve(null, {id: challengeState.user}),
+			resolve: (challengeState, args, request) => userGetResolver.userQuery.resolve(null, {id: challengeState.id}, request)
 		},
 		programme: {
 			type: programmeType,
-			resolve: (challengeState) => programmeGetResolver.programmeQuery.resolve(null, {id: challengeState.programme}),
+			resolve: (challengeState, args, request) => programmeGetResolver.programmeQuery.resolve(null, {id: challengeState.programme}, request),
 		},
 		challenge: {
 			type: challengeType,
-			resolve: (challengeState) => challengeGetResolver.challengeQuery.resolve(null, {id: challengeState.challenge}),
+			resolve: (challengeState, args, request) => challengeGetResolver.challengeQuery.resolve(null, {id: challengeState.challenge}, request),
 		},
-		notes :{
+		notes: {
 			type: graphql.GraphQLString
 		},
-		status :{
+		status: {
 			type: graphql.GraphQLString
 		},
-		createdAt :{
+		createdAt: {
 			type: graphql.GraphQLString
 		}
 	})
