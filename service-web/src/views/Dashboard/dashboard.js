@@ -4,7 +4,6 @@ export default {
   },
   data () {
     return {
-      userChallengeStateList: [],
       selectedDate: null,
       themeStyles: {
         wrapper: {
@@ -35,6 +34,16 @@ export default {
       }
     }
   },
+  computed: {
+    userChallengeStateList () {
+      return this.$store.state.auth.userChallengeStateList
+    },
+    userChallengeStatePending () {
+      return (this.$store.state.auth.userChallengeStateList.filter(function (x) {
+        return x.status === 'PENDING'
+      })[0])
+    }
+  },
   methods: {
     logout () {
       this.$loader.show()
@@ -47,6 +56,5 @@ export default {
   },
   created () {
     this.$store.dispatch('fetchUserChallengeStateList')
-    this.userChallengeStateList = this.$store.userChallengeStateList
   }
 }

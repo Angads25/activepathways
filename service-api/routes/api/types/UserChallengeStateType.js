@@ -32,6 +32,9 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		status :{
 			type: graphql.GraphQLString
+		},
+		createdAt :{
+			type: graphql.GraphQLString
 		}
 	})
 });

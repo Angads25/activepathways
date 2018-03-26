@@ -37,8 +37,7 @@ export default {
     return new Promise((resolve, reject) => {
       UserService.userChallengeStateList(payload)
         .then(resp => {
-          console.log(resp)
-          commit('userChallengeStateList', resp)
+          commit('setUserChallengeState', resp)
           resolve(resp)
         }).catch(err => {
           reject(err)

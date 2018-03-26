@@ -9,7 +9,12 @@ export const UserService = {
         id: 'id',
         notes: 'notes',
         status: 'status',
+        createdAt: 'createdAt',
+        programme: {
+          description: 'description'
+        },
         challenge: {
+          name: 'name',
           shortDescription: 'shortDescription'
         }
       }

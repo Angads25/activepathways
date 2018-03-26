@@ -9,6 +9,7 @@ import './mixins'
 import 'sweetalert2/dist/sweetalert2.css'
 import VCalendar from 'v-calendar'
 import 'v-calendar/lib/v-calendar.min.css'
+import moment from 'moment'
 
 Vue.use(VeeValidate)
 Vue.use(VCalendar)
@@ -18,7 +19,9 @@ require('../node_modules/tachyons/css/tachyons.css')
 require('./assets/css/common.css')
 
 Vue.config.productionTip = false
-
+Vue.filter('parseDate', function (value, format) {
+  if (value) return moment(value).format(format)
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -5,7 +5,7 @@ const graphql = require('graphql'),
 
 module.exports = {
 	userChallengeStateList: {
-		type: UserChallengeStateType,
+		type: new graphql.GraphQLList(UserChallengeStateType),
 		description: 'UserChallengeState List of user',
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
 				let query = {};
@@ -14,7 +14,7 @@ module.exports = {
 				UserChallengeState.find(query).exec((err, _programme) => {
 					if (err) return reject(err);
 					if (_programme) return resolve(_programme);
-					resolve({})
+					else resolve()
 				})
 			}
 		))
