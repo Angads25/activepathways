@@ -1,32 +1,58 @@
 <header class="avenir h-100 " v-if="!showHeader">
   <div class=" header-baner">
     <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-75 vh-100-m vh-100-l">
-      <nav class="pt3 dt w-100 mw8 center bb nav-border-b
+      <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt3-ns dt w-100 mw8 center bb nav-border-b
 ">
-        <div class="w-20 fl pa2 tl ">
-          <router-link :to="{ name: 'landingpage' }" class="no-underline">
+        <div class="w-20 fl ml3 ml0-ns tl pa2-ns">
+          <a href="" class="no-underline">
             <img src="../../assets/images/site-logo.png"/>
-          </router-link>
+          </a>
         </div>
-        <div class="fl w-80 pa3 pr0 tr menu-header">
-          <router-link tag="a" :to="{ name: 'landingpage' }"
-                       class="f3 b active dn dib-ns pv2 ml4 ">Home
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4  ">
-            Menu
-          </router-link>
-          <router-link tag="a" :to="{ name: 'landingpage' }" class="f3 b dn dib-ns pv2 ml4 ">
-            Menu
-          </router-link>
+        <div class="fl w-80 pa3 pr0 tr menu-header desktop-menu">
+          <div class="">
+            <a class="f4 f5-m f3-l b dib-ns pv2 pt2-m ml0-m ml4-l mt1-m">
+              Home
+            </a>
+            <a href=""
+               class="f4 f5-m f3-l b dib-ns pv2 ml3-m ml4-l mt1-m " v-scroll-to="'#features'">How it works
+            </a>
+            <a href="" v-scroll-to="'#saying'" class="f4 f5-m f3-l b dib-ns pv2 ml4 pointer">
+              Testimonials
+            </a>
+            <a class="f4 f5-m f3-l b dib-ns pv2 ml4 pointer" @click.prevent="activeModal = 'signup'; openModal()">
+              Sign up
+            </a>
+            <a class="f4 f5-m f3-l b dib-ns pv2 ml4 pointer">
+              Sign in
+            </a>
+          </div>
+        </div>
+        <div class="mobile-expanded">
+          <div class="mobile-expanded-nav"
+               :class="{ isOpen: isOpen }">
+            <div class="hamburger-toggle" v-bind:class="{active: isOpen}"
+                 @click="toggle"><span class="top"></span><span class="middle"></span><span
+              class="bottom"></span></div>
+            <div class="ml3 pl1 mb5"><img src="../../assets/images/logo-icon.png" class="fl"/><span
+              class="f5 fw7 white dt-ca mt2">Active Pathways</span></div>
+            <a href="" class="w-100 f4 fw5 db white no-underline tl pb3">
+              Home
+            </a>
+            <a href=""
+               class="w-100 f4 fw5 db white no-underline tl pb3" v-scroll-to="'#features'">How it works
+            </a>
+            <a href="" v-scroll-to="'#saying'" class="w-100 f4 fw5 db pb3 white no-underline tl">
+              Testimonials
+            </a>
+            <a class="w-100 f4 fw5 db white no-underline pb3 tl"
+               @click.prevent="activeModal = 'signup'; openModal()">
+              Sign up
+            </a>
+            <a class="w-100 f4 fw5 db white no-underline pb2 tl">
+              Sign in
+            </a>
+          </div>
+          <div class="bg-overlay"></div>
         </div>
       </nav>
       <section class="hero ph3 w-40">
@@ -45,9 +71,13 @@
       </section>
     </div>
   </div>
-  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()"  @openForgetPassword="activeModal = 'forgetPassword'; openModal()" @openSignUp="activeModal = 'signup'; openModal()"
+  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()"
+          @openForgetPassword="activeModal = 'forgetPassword'; openModal()"
+          @openSignUp="activeModal = 'signup'; openModal()"
           :activeStatus="activeModal === 'signin'"></SignIn>
   <SignUp v-if="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()"
           :activeStatus="activeModal === 'signup'"></SignUp>
-  <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()" :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
+  <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()"
+                  @openSignIn="activeModal = 'signin'; openModal()"
+                  :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
 </header>

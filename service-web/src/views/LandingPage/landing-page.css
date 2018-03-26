@@ -62,10 +62,35 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  /*background-image: url(../../assets/images/Stretching_V1.png);*/
 }
-@media screen and (max-width: 30em) {
+.back-to-top-btn .vm-back-top {
+  bottom: 10%!important;
+  width: 30px;
+  height: 26px;
+  border-radius: 3px;
+  box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.19);
+}
+.back-to-top-btn .vm-back-top .up-arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  vertical-align: sub;
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+}
+@media screen and (max-width: 27em) {
   .read-more:after {
     display: none;
+  }
+  .back-to-top-btn .vm-back-top {
+    bottom: 10%!important;
+    width: 20px;
+    height: 20px;
+    right: 17px!important;
+  }
+  .back-to-top-btn .vm-back-top .up-arrow {
+    vertical-align: middle;
+    margin-top: 3px;
   }
 }

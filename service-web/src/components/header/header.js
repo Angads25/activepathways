@@ -7,7 +7,9 @@ export default {
   data () {
     return {
       type: 0,
-      activeModal: ''
+      activeModal: '',
+      isOpen: false,
+      openerText: 'Open'
     }
   },
   components: {
@@ -23,15 +25,28 @@ export default {
   },
   methods: {
     closeModal () {
-      // const __self = this
-      // setTimeout(() => {
-      //   __self.activeModal = ''
-      // }, 300)
       document.body.classList.remove('modal-open')
       this.activeModal = ''
     },
     openModal () {
       document.body.classList.add('modal-open')
+    },
+    open () {
+      this.openerText = 'Close'
+      this.isOpen = true
+      document.body.classList.add('overlay-bg')
+    },
+    close () {
+      this.openerText = 'Open'
+      this.isOpen = false
+      document.body.classList.remove('overlay-bg')
+    },
+    toggle () {
+      if (this.isOpen) {
+        this.close()
+      } else {
+        this.open()
+      }
     }
   }
 }

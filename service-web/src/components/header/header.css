@@ -4,9 +4,11 @@
   margin-bottom: -18px;
   text-decoration: none;
 }
+
 .menu-header a:hover {
   color: #408BC9;
 }
+
 .menu-header a:hover:after {
   color: #408BC9;
   content: "";
@@ -18,9 +20,11 @@
   margin-bottom: -25px;
   border-radius: 100px;
 }
+
 .menu-header a.active {
   color: #408BC9;
 }
+
 .menu-header a.active:after {
   color: #408BC9;
   content: "";
@@ -39,4 +43,103 @@
   background-size: cover;
   width: 100%;
   background-repeat: no-repeat;
+}
+
+.desktop-menu {
+  display: block;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu a:hover:after {
+  background-color: transparent;
+}
+body.overlay-bg .bg-overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2222;
+  padding: 30px;
+  background-color: rgba(0, 27, 68, 0.22);
+  transition: all 0.7s ease;
+}
+.mobile-expanded-nav {
+  position: fixed;
+  width: 240px;
+  top: 0;
+  bottom: 0;
+  left: -240px;
+  z-index: 3333;
+  padding: 30px;
+  background-color: #001b44;
+  transition: all 0.4s ease;
+}
+.mobile-expanded-nav.isOpen {
+  left: 0;
+}
+.hamburger-toggle span:nth-of-type(2) {
+  top: 6px;
+}
+.hamburger-toggle span:nth-of-type(3) {
+  top: 12px;
+}
+.hamburger-toggle.active .bottom {
+  transform: translateY(-11px) translateX(0) rotate(-45deg);
+  background: #001b44;
+}
+.hamburger-toggle.active .top {
+  transform: translateY(1px) translateX(0) rotate(45deg);
+  background: #001b44;
+}
+.hamburger-toggle.active .middle {
+  opacity: 0;
+}
+.hamburger-toggle {
+  position: fixed;
+  top: 4%;
+  right: 5%;
+  height: 14px;
+  width: 20px;
+  display: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity 0.25s ease;
+}
+.hamburger-toggle span {
+  background: #001b44;
+  border: none;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .35s ease;
+  cursor: pointer;
+}
+
+@media (max-width: 588px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-expanded-nav {
+    display: block;
+  }
+  .hamburger-toggle {
+    display: block;
+  }
+
+  .fixed-header-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 66;
+    background-color: rgba(255, 255, 255, 0.9882352941176471);
+  }
 }
