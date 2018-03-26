@@ -45,7 +45,7 @@ module.exports = {
 						// build params
 						callback => {
 							user = user.toObject();
-							user.link = 'http://localhost:3000/' + token;
+							user.link = process.env.WEBSITE_URL + token;
 							EmailService.sendMail(user.email, 'ForgetPassword', user, (err, resp) => {
 								if (err) return callback(err);
 								callback();
