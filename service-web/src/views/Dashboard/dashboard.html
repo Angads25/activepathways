@@ -20,10 +20,10 @@
                 Day 3 - {{userChallengeStatePending.createdAt | parseDate('DD/MM')}}
               </h2>
               <h1 class="b f4 f2-ns navy lh-title w-90-l ph1 ph3-l ph3-m mt0 mb3 center">
-                {{userChallengeStatePending.challenge.name}}
+                {{(userChallengeStatePending.challenge || {}).name}}
               </h1>
               <p class="lh-copy mt0 mb3 w-100 w-90-l ph2 w-90-m center color-light">
-                {{userChallengeStatePending.challenge.shortDescription}}
+                {{(userChallengeStatePending.challenge || {}).shortDescription}}
               </p>
               <div>
                 <a class="small-font fw6 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy">

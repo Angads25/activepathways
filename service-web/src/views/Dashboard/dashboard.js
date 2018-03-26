@@ -41,7 +41,7 @@ export default {
     userChallengeStatePending () {
       return (this.$store.state.auth.userChallengeStateList.filter(function (x) {
         return x.status === 'PENDING'
-      })[0])
+      })[0] || {})
     }
   },
   methods: {
