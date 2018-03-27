@@ -4,10 +4,11 @@
   <!--<h3 class="f3 fw2 dark-blue pt2 pb2">DASHBOARD PROPOSAL</h3>-->
   <!--</div>-->
   <!--</header>-->
-  <span style="position: absolute;display: block;right: 20px;"><a
-    class="small-font fw6 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" style="cursor: pointer" @click="logout()">logout</a></span>
-  <section class="cf w-100 ph0 ph6-l pt5 gradient-blue">
+  <section class="cf w-100 ph0 ph6-l pt4 gradient-blue">
     <div class="dt w-100 mw8 ph3 ph3-m ph3-l center">
+      <div class="w-100 tr">
+      <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
+         style="cursor: pointer" @click="logout()">Logout</a></div>
       <div class="w-100 bg-white black br3 mb4">
         <span class="w-100 db bg-washed-blue br4 br--top bt3">
           <span class="w-30 db br4 blue-dark-color pa1"></span>
@@ -44,28 +45,57 @@
       <div class="gradient-blue-1 w-100 left-0 right-0 absolute h4 z-0"></div>
       <div class="cf relative">
         <div class="fl w-100 w-50-ns pl0 pr0 pr2-ns  ">
-          <div class="bg-white br3 box-shadow-grey">
-            <ul class="list pl0 tl mt0">
+          <div class="bg-white br3 box-shadow-grey mb4 mb0-ns">
+            <ul class="list pl0 tl mt0 mb0">
               <li class="pa3 pa4-ns bb b--black-05 pb5 pb5-l">
                 <b class="db f3 mb1 w-50 w-70-l fl navy">My journal</b>
                 <div class="db f6 mb1 tr fw6 fr w-50 w-30-l pt2 pt0-l pt0-m pr3 color-light-blue">SEE ALL NOTES</div>
               </li>
-              <li class="pa3 pa3-ns bb b--black-05">
+              <!-- <li class="pa3 pa3-ns bb b&#45;&#45;black-05">
+                 <span class="f5 db lh-copy measure color-light">
+                   <span class="fw5">Enjoy a short walk to power your brain</span>
+                   <span class="fw3 db truncate w5 w-100-l w-100-m">Fermentum a, ullamcorper eget velt. In non bibendum ante</span></span>
+               </li>
+               <li class="pa3 pa3-ns bb b&#45;&#45;black-05">
+                 <span class="f5 db lh-copy measure color-light">
+                   <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
+                   <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
+               </li>
+               <li class="pa3 pa3-ns">
+                 <span class="f5 db lh-copy measure color-light">
+                   <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
+                   <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
+               </li>-->
+            </ul>
+            <div class="scroll-my-journal">
+              <ul class="list pl0 tl mt0">
+                <li class="pa3 pa3-ns bb b--black-05">
                 <span class="f5 db lh-copy measure color-light">
                   <span class="fw5">Enjoy a short walk to power your brain</span>
                   <span class="fw3 db truncate w5 w-100-l w-100-m">Fermentum a, ullamcorper eget velt. In non bibendum ante</span></span>
-              </li>
-              <li class="pa3 pa3-ns bb b--black-05">
+                </li>
+                <li class="pa3 pa3-ns bb b--black-05">
                 <span class="f5 db lh-copy measure color-light">
                   <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
                   <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-              </li>
-              <li class="pa3 pa3-ns">
+                </li>
+                <li class="pa3 pa3-ns">
                 <span class="f5 db lh-copy measure color-light">
                   <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
                   <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-              </li>
-            </ul>
+                </li>
+                <li class="pa3 pa3-ns">
+                <span class="f5 db lh-copy measure color-light">
+                  <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
+                  <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
+                </li>
+                <li class="pa3 pa3-ns">
+                <span class="f5 db lh-copy measure color-light">
+                  <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
+                  <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="fl w-100 w-50-ns pl0 pl2-ns  ">
@@ -90,12 +120,15 @@
                 <b class="db f3 mb1 w-50 w-70-l w-70-m fl navy pl2 pl4-m pl4-l">Activity log</b>
 
                 <!--<a href=""-->
-                   <!--class="db small-font mb1 tr fw6 pt2 pt0-l pt0-m fr w-50 w-30-l w-30-m pr2 pr4-m pr4-l no-underline color-light-blue">SEE-->
-                  <!--ALL ACTIVITIES</a>-->
+                <!--class="db small-font mb1 tr fw6 pt2 pt0-l pt0-m fr w-50 w-30-l w-30-m pr2 pr4-m pr4-l no-underline color-light-blue">SEE-->
+                <!--ALL ACTIVITIES</a>-->
               </li>
-              <li class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05" v-if="!userChallengeStateList">No activity found</li>
+              <li class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05"
+                  v-if="!userChallengeStateList">No activity found
+              </li>
               <li
-                class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05 " v-for="(list, i) in userChallengeStateList">
+                class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05 "
+                v-for="(list, i) in userChallengeStateList">
                 <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
                 <div class="pl3 flex-auto">
                   <span class="f5 fw5 db color-light">Program 1 Day - {{list.createdAt | parseDate('DD/MM')}}</span>
@@ -104,22 +137,22 @@
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.challenge.shortDescription}}</span>
                 </div>
               </li>
-            <!--  <li
-                class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b&#45;&#45;black-05 ">
-                <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
-                <div class="pl3 flex-auto">
-                  <span class="f5 fw5 db color-light">Program 1 Day 3 - 01/08</span>
-                  <span class="f6 f4-m f4-l fw5 db color-light">Enjoy a short walk to power your brain</span>
-                </div>
-              </li>
-              <li
-                class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m ">
-                <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
-                <div class="pl3 flex-auto">
-                  <span class="f5 fw5 db color-light">Program 1 Day 3 - 01/08</span>
-                  <span class="f6 f4-m f4-l fw5 db color-light">Enjoy a short walk to power your brain</span>
-                </div>
-              </li>-->
+              <!--  <li
+                  class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b&#45;&#45;black-05 ">
+                  <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
+                  <div class="pl3 flex-auto">
+                    <span class="f5 fw5 db color-light">Program 1 Day 3 - 01/08</span>
+                    <span class="f6 f4-m f4-l fw5 db color-light">Enjoy a short walk to power your brain</span>
+                  </div>
+                </li>
+                <li
+                  class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m ">
+                  <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
+                  <div class="pl3 flex-auto">
+                    <span class="f5 fw5 db color-light">Program 1 Day 3 - 01/08</span>
+                    <span class="f6 f4-m f4-l fw5 db color-light">Enjoy a short walk to power your brain</span>
+                  </div>
+                </li>-->
 
             </ul>
 

@@ -1,4 +1,8 @@
 .moonGrey {
   color: #dfe9f5;
 }
-
+.scroll-my-journal {
+  height: 245px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
