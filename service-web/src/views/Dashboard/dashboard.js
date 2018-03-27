@@ -19,6 +19,12 @@ export default {
   },
   data () {
     return {
+      statusComponents: {
+        PENDING: OnHold,
+        STARTED: Doing,
+        COMPLETED: Done,
+        SKIPPED: Skipped
+      },
       selectedDates: {
         start: new Date(2018, 2, 20),
         end: new Date(2018, 2, 28)
@@ -60,7 +66,7 @@ export default {
       // return (this.$store.state.auth.userChallengeStateList.filter(function (x) {
       //   return x.status === 'PENDING'
       // })[0] || {})
-      return this.userChallengeStateList[0]
+      return this.userChallengeStateList.find(challenge => this.differenceDays(challenge['challengeDate'], challenge['user']['createdAt']) === 0)
     }
   },
   methods: {
@@ -78,6 +84,6 @@ export default {
   },
   created () {
     this.$store.dispatch('fetchUserChallengeStateList')
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', this.userChallengeStatePending)
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>', this.userChallengeStatePending)
   }
 }

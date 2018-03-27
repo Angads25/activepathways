@@ -9,8 +9,8 @@
       <div class="w-100 tr">
       <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
          style="cursor: pointer" @click="logout()">Logout</a></div>
-      <template>
-        <OnHold></OnHold>
+      <template v-if="userChallengeStatePending && userChallengeStatePending['status']">
+        <component :is="statusComponents[userChallengeStatePending['status']]"></component>
       </template>
     </div>
   </section>
@@ -105,7 +105,7 @@
                 v-for="(list, i) in userChallengeStateList">
                 <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
                 <div class="pl3 flex-auto">
-                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{differenceDays(list.createdAt, (list.user || {}).createdAt)}} - {{list.createdAt | parseDate('DD/MM')}}</span>
+                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{differenceDays(list.challengeDate, (list.user || {}).createdAt)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.status}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.challenge.shortDescription}}</span>
                 </div>

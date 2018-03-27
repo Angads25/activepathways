@@ -19,7 +19,8 @@ export const UserService = {
         },
         user: {
           createdAt: 'createdAt'
-        }
+        },
+        challengeDate: 'challengeDate'
       }
     })
     return postRequest(query.getGraphQLString(), 'userChallengeStateList')
