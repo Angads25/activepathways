@@ -11,13 +11,14 @@ UserChallengeState.add({
 	user: {type: Types.Relationship, ref: 'AppUser', required: true, initial: true},
 	programme: {type: Types.Relationship, ref: 'Programme', initial: true, required: true},
 	challenge: {type: Types.Relationship, ref: 'Challenge', initial: true, required: true},
-	notes: {type: Types.Text, initial: true, required: true},
+	notes: {type: Types.Text, initial: true, required: false},
 	status: {
 		type: Types.Select,
 		options: ['PENDING', 'STARTED', 'COMPLETED', 'SKIPPED'],
 		initial: true,
 		required: true
-	}
+	},
+	challengeDate: {type: Types.Date, initial: true, required: true}
 });
 
 /**

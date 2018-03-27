@@ -35,6 +35,9 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		createdAt: {
 			type: graphql.GraphQLString
+		},
+		challengeDate: {
+			type: graphql.GraphQLString
 		}
 	})
 });
