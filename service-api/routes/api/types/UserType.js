@@ -45,6 +45,9 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		token: {
 			type: graphql.GraphQLString
+		},
+		createdAt: {
+			type: graphql.GraphQLString
 		}
 	})
 });

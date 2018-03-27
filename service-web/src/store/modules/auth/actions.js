@@ -58,11 +58,9 @@ export default {
     return new Promise((resolve, reject) => {
       const auth = LocalData.fetch.authToken()
       if (auth) {
-        console.log('>>>>>>>>>>>1')
         commit('setAuthToken', auth)
         AuthService.myProfile()
           .then(resp => {
-            console.log('>>>>>>>>>>>2', resp)
             if (resp.id) {
               commit('setUser', resp)
               resolve(resp)

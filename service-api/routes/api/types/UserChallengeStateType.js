@@ -17,7 +17,7 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		user: {
 			type: userType,
-			resolve: (challengeState, args, request) => userGetResolver.userQuery.resolve(null, {id: challengeState.id}, request)
+			resolve: (challengeState, args, request) => userGetResolver.userQuery.resolve(null, {id: challengeState.user}, request)
 		},
 		programme: {
 			type: programmeType,

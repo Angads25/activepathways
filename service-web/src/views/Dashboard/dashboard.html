@@ -9,35 +9,9 @@
       <div class="w-100 tr">
       <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
          style="cursor: pointer" @click="logout()">Logout</a></div>
-      <div class="w-100 bg-white black br3 mb4">
-        <span class="w-100 db bg-washed-blue br4 br--top bt3">
-          <span class="w-30 db br4 blue-dark-color pa1"></span>
-        </span>
-        <div class="w-100 pa3">
-          <div class="w-100  pa1 tl f5 fw6 navy"></div>
-          <div class="cf db">
-            <article class="mw7 center ph0 ph5-ns tc br2 pv3">
-              <h2 class="fw4 f4 lh-copy mt0 mb3 navy">
-                Day 3 - {{userChallengeStatePending.createdAt | parseDate('DD/MM')}}
-              </h2>
-              <h1 class="b f4 f2-ns navy lh-title w-90-l ph1 ph3-l ph3-m mt0 mb3 center">
-                {{(userChallengeStatePending.challenge || {}).name}}
-              </h1>
-              <p class="lh-copy mt0 mb3 w-100 w-90-l ph2 w-90-m center color-light">
-                {{(userChallengeStatePending.challenge || {}).shortDescription}}
-              </p>
-              <div>
-                <a class="small-font fw6 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy">
-                  ACCEPT TRAIN
-                </a>
-                <a class="small-font fw6 link dim br-pill ph4 pv2 w-100 db mb2 mt3 dib color-light-blue">
-                  SKIP TRAIN TODAY
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
+      <template>
+        <OnHold></OnHold>
+      </template>
     </div>
   </section>
   <section class="cf w-100 ph0 ph6-l relative">
@@ -98,13 +72,13 @@
             </div>
           </div>
         </div>
-        <div class="fl w-100 w-50-ns pl0 pl2-ns  ">
+        <div class="fl w-100 w-50-ns pl0 pl2-ns">
           <div class="bg-white br3 box-shadow-grey vCalender pt4 pb3">
             <!--<datepicker :inline="true"></datepicker>-->
             <v-date-picker
               mode='range'
               tint-color='#f142f4'
-              v-model='selectedDate'
+              :value='selectedDates'
               :theme-styles='themeStyles'
               is-single-paned
               is-inline>
@@ -124,15 +98,14 @@
                 <!--ALL ACTIVITIES</a>-->
               </li>
               <li class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05"
-                  v-if="!userChallengeStateList">No activity found
+                  v-if="!userChallengeStateList || !userChallengeStateList.length">No activities found
               </li>
               <li
                 class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05 "
                 v-for="(list, i) in userChallengeStateList">
                 <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
                 <div class="pl3 flex-auto">
-                  <span class="f5 fw5 db color-light">Program 1 Day - {{list.createdAt | parseDate('DD/MM')}}</span>
-                  <span class="f6 f4-m f4-l fw5 db color-light">{{list.notes}}</span>
+                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{differenceDays(list.createdAt, (list.user || {}).createdAt)}} - {{list.createdAt | parseDate('DD/MM')}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.status}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.challenge.shortDescription}}</span>
                 </div>

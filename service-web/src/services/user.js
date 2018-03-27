@@ -11,11 +11,14 @@ export const UserService = {
         status: 'status',
         createdAt: 'createdAt',
         programme: {
-          description: 'description'
+          name: 'name'
         },
         challenge: {
           name: 'name',
           shortDescription: 'shortDescription'
+        },
+        user: {
+          createdAt: 'createdAt'
         }
       }
     })
