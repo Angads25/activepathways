@@ -1,7 +1,7 @@
 const keystone = require('keystone'),
 	User = keystone.list('AppUser').model,
 	UserProgrammeEnrollment = keystone.list('UserProgrammeEnrollment').model,
-	UserChallengeState = keystone.list('UserChallengeState').model,
+	UserChallengeState = keystone.list('UserChallengeState'),
 	Programme = keystone.list('Programme').model,
 	async = require('async'),
 	mongoose = require('mongoose'),
@@ -10,6 +10,8 @@ const keystone = require('keystone'),
 
 const UserType = require('../types/UserType');
 const EmailService = require('../../../services/EmailService');
+
+const moment = require('moment');
 
 module.exports = {
 	upsertUser: {
@@ -131,18 +133,21 @@ upsertUser = (args, request, cb) => {
 			},
 			callback => {
 				if (!user || args.id || !programme) return callback();
-				programme.challenges.map(challenge => {
-					userChallengeState = new UserChallengeState();
+				const userChallenges = []
+				programme.challenges.map((challenge, i) => {
+					userChallengeState = {}
 					userChallengeState.user = user._id;
 					userChallengeState.programme = programme._id;
 					userChallengeState.challenge = challenge;
 					userChallengeState.notes = "";
 					userChallengeState.status = "PENDING";
-					
-					userChallengeState.save(function (err) {
-						if (err) callback(err);
-						else callback();
-					})
+					userChallengeState.challengeDate = moment(user.createdAt).add(i+1, 'days');
+					userChallenges.push(userChallengeState)
+				})
+				console.log('>>>>>', userChallenges, UserChallengeState.model, UserChallengeState.model.insertMany)
+				UserChallengeState.model.insertMany(userChallenges, function (err) {
+					if (err) callback(err);
+					else callback();
 				})
 			}
 		],
