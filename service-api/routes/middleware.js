@@ -76,7 +76,6 @@ exports.tokenAuthCommon = function (req, res, next) {
 			expires: new Date(+new Date() - (24 * 60 * 60 * 1000))
 		});
 	};
-
 	next();
 
 };
@@ -99,6 +98,5 @@ exports.tokenAuth = function (req, res, next) {
 		}
 		req._user = session;
 	}
-	
 	next();
 }
