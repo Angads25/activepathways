@@ -39,7 +39,7 @@ export default {
             this.$store.dispatch('signin', this.getSignInData())
               .then(resp => {
                 this.$router.push({
-                  name: 'challengestates'
+                  name: 'dashboard'
                 })
                 this.$loader.hide()
                 this.closeModal(event)

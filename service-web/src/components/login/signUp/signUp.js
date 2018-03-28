@@ -35,7 +35,7 @@ export default {
               .then(resp => {
                 console.log('>>>>>>>>>>', resp)
                 this.$router.push({
-                  name: 'challengestates'
+                  name: 'dashboard'
                 })
                 this.$loader.hide()
                 this.closeModal(event)
