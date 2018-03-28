@@ -35,18 +35,18 @@
             <a href="" class="w-100 f4 fw5 db white no-underline tl pb3">
               Home
             </a>
-            <a href=""
+            <a href="" @click.stop.prevent="toggle"
                class="w-100 f4 fw5 db white no-underline tl pb3" v-scroll-to="'#features'">How it works
             </a>
-            <a href="" v-scroll-to="'#saying'" class="w-100 f4 fw5 db pb3 white no-underline tl">
+            <a href="" v-scroll-to="'#saying'" @click.stop.prevent="toggle" class="w-100 f4 fw5 db pb3 white no-underline tl">
               Testimonials
             </a>
             <a class="w-100 f4 fw5 db white no-underline pb3 tl"
-               @click.prevent="activeModal = 'signup'; openModal()">
+               @click.prevent="activeModal = 'signup'; openModal(); toggle()">
               Sign up
             </a>
             <a class="w-100 f4 fw5 db white no-underline pb2 tl"
-               @click.prevent="activeModal = 'signin'; openModal()">
+               @click.prevent="activeModal = 'signin'; openModal(); toggle()">
               Sign in
             </a>
           </div>

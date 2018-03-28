@@ -141,10 +141,10 @@ upsertUser = (args, request, cb) => {
 					userChallengeState.challenge = challenge;
 					userChallengeState.notes = "";
 					userChallengeState.status = "PENDING";
-					userChallengeState.challengeDate = moment(user.createdAt).add(i+1, 'days');
+					userChallengeState.challengeDate = moment(user.createdAt).add(i+1, 'days').format();
+					userChallengeState.createdAt = user.createdAt;
 					userChallenges.push(userChallengeState)
 				})
-				console.log('>>>>>', userChallenges, UserChallengeState.model, UserChallengeState.model.insertMany)
 				UserChallengeState.model.insertMany(userChallenges, function (err) {
 					if (err) callback(err);
 					else callback();
