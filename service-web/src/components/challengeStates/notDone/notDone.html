@@ -4,19 +4,19 @@
         </span>
   <div class="w-100 pa3">
     <div class="cf db">
-      <div class="w-40 fl pa1 f5 fw6 tl navy">Program 1</div>
-      <div class="w-60 fl pa1 f6 fw5 tr blue">CHECK CHALLENGE DETAILS</div>
+      <div class="w-40 fl pa1 f5 fw6 tl navy">{{(challengeData['programme'] || {})['name']}}</div>
+      <router-link tag="div" :to="{ name: 'challenge-detail', params: { id: challengeData['id'] } }" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-if="!isChallengeDetail">CHECK CHALLENGE DETAILS</router-link>
     </div>
     <div class="cf db o-90">
       <article class="w-100 mw7 center ph0 ph5-ns tc br2 pv3">
         <h2 class="fw4 f4 tc lh-copy mt0 mb3 navy">
-          Day 3 - 01/08
+          Day {{$differenceDays(challengeData['challengeDate'], (challengeData['user'] || {})['createdAt'])}} - {{challengeData['challengeDate'] | parseDate('DD/MM')}}
         </h2>
         <h1 class=" b f4 f2-ns navy lh-title mt0 mb3">
-          Try harder tommarrow!
+          Try harder tomorrow!
         </h1>
         <h1 class=" f5 f3-ns strike fw6-ns gray lh-title mt0 mb3">
-          Enjoy a short walk after lunch to power your brain
+          {{(challengeData['challenge'] || {})['name']}}
         </h1>
         <p class="fw5 f6 f4-ns mt0 mb3 w-100 w-80-ns center navy">
           Well done, how do you feel about it?
@@ -39,7 +39,7 @@
                 </span>
         </div>
         <div>
-          <a class="f6 fw5 link dim br-pill ph4 mb2 mt4 dib white blue-dark-color pt2 pb2 lh-copy" href="/">
+          <a class="f6 fw5 link dim br-pill ph4 mb2 mt4 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">
             ADD NOTES
           </a>
         </div>

@@ -7,10 +7,10 @@
   <section class="cf w-100 ph0 ph6-l pt4 gradient-blue">
     <div class="dt w-100 mw8 ph3 ph3-m ph3-l center">
       <div class="w-100 tr">
-      <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
-         style="cursor: pointer" @click="logout()">Logout</a></div>
+        <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
+           style="cursor: pointer" @click="logout()">Logout</a></div>
       <template v-if="userChallengeStatePending && userChallengeStatePending['status']">
-        <component :is="statusComponents[userChallengeStatePending['status']]"></component>
+        <component :is="statusComponents[userChallengeStatePending['status']]" :challengeData="userChallengeStatePending"></component>
       </template>
     </div>
   </section>
@@ -42,33 +42,40 @@
                </li>-->
             </ul>
             <div class="scroll-my-journal">
-              <ul class="list pl0 tl mt0">
-                <li class="pa3 pa3-ns bb b--black-05">
+              <ul class="list pl0 tl mt0" v-if="userJournal && userJournal.length">
+                <li class="pa3 pa3-ns bb b--black-05" v-for="challenge in userJournal">
                 <span class="f5 db lh-copy measure color-light">
-                  <span class="fw5">Enjoy a short walk to power your brain</span>
-                  <span class="fw3 db truncate w5 w-100-l w-100-m">Fermentum a, ullamcorper eget velt. In non bibendum ante</span></span>
+                  <span class="fw5">{{(challenge['challenge'] || {})['name']}}</span>
+                  <span class="fw3 db truncate w5 w-100-l w-100-m">{{challenge['notes']}}</span></span>
                 </li>
-                <li class="pa3 pa3-ns bb b--black-05">
-                <span class="f5 db lh-copy measure color-light">
-                  <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
-                  <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-                </li>
-                <li class="pa3 pa3-ns">
-                <span class="f5 db lh-copy measure color-light">
-                  <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
-                  <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-                </li>
-                <li class="pa3 pa3-ns">
-                <span class="f5 db lh-copy measure color-light">
-                  <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
-                  <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-                </li>
-                <li class="pa3 pa3-ns">
-                <span class="f5 db lh-copy measure color-light">
-                  <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
-                  <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-                </li>
+                <!--<li class="pa3 pa3-ns bb b&#45;&#45;black-05">-->
+                <!--<span class="f5 db lh-copy measure color-light">-->
+                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
+                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
+                <!--</li>-->
+                <!--<li class="pa3 pa3-ns">-->
+                <!--<span class="f5 db lh-copy measure color-light">-->
+                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
+                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
+                <!--</li>-->
+                <!--<li class="pa3 pa3-ns">-->
+                <!--<span class="f5 db lh-copy measure color-light">-->
+                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
+                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
+                <!--</li>-->
+                <!--<li class="pa3 pa3-ns">-->
+                <!--<span class="f5 db lh-copy measure color-light">-->
+                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
+                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
+                <!--</li>-->
               </ul>
+              <div v-else>
+                <div class="pa3 pa3-ns mt3">
+                    <span class="f5 db lh-copy measure color-light">
+                      <span class="fw5">No Journals for the user</span>
+                    </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -105,7 +112,7 @@
                 v-for="(list, i) in userChallengeStateList">
                 <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
                 <div class="pl3 flex-auto">
-                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{differenceDays(list.challengeDate, (list.user || {}).createdAt)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
+                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{$differenceDays(list.challengeDate, (list.user || {}).createdAt)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.status}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.challenge.shortDescription}}</span>
                 </div>

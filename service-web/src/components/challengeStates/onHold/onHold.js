@@ -1,3 +1,11 @@
 export default {
-  name: 'OnHold'
+  name: 'OnHold',
+  props: {
+    challengeData: {
+      default () {
+        return {}
+      }
+    },
+    isChallengeDetail: { default: false }
+  }
 }

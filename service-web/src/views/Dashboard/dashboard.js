@@ -1,5 +1,3 @@
-import moment from 'moment'
-
 import OnHold from '@/components/challengeStates/onHold/onHold.vue'
 import Doing from '@/components/challengeStates/doing/doing.vue'
 import Skipped from '@/components/challengeStates/skipped/skipped.vue'
@@ -63,10 +61,10 @@ export default {
       return this.$store.state.auth.userChallengeStateList
     },
     userChallengeStatePending () {
-      // return (this.$store.state.auth.userChallengeStateList.filter(function (x) {
-      //   return x.status === 'PENDING'
-      // })[0] || {})
-      return this.userChallengeStateList.find(challenge => this.differenceDays(challenge['challengeDate'], challenge['user']['createdAt']) === 0)
+      return this.userChallengeStateList.find(challenge => this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
+    },
+    userJournal () {
+      return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
     }
   },
   methods: {
@@ -77,13 +75,9 @@ export default {
         name: 'landingpage'
       })
       this.$loader.hide()
-    },
-    differenceDays (d1, d2) {
-      return moment(d1).diff(moment(d2), 'days')
     }
   },
   created () {
     this.$store.dispatch('fetchUserChallengeStateList')
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>', this.userChallengeStatePending)
   }
 }

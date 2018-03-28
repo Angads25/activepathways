@@ -1,3 +1,11 @@
 export default {
-  name: 'NoCheckIn'
+  name: 'NoCheckIn',
+  props: {
+    challengeData: {
+      default () {
+        return {}
+      }
+    },
+    isChallengeDetail: { default: false }
+  }
 }

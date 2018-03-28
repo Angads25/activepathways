@@ -18,9 +18,11 @@ export default {
     this.$store.dispatch('fetchAuthFromLocal')
       .then(resp => {
         this.$loader.hide()
-        this.$router.push({
-          name: 'dashboard'
-        })
+        if (['landingpage'].indexOf(this.$route.name) > -1) {
+          this.$router.push({
+            name: 'dashboard'
+          })
+        }
       })
       .catch(err => {
         this.$loader.hide()
@@ -43,12 +45,13 @@ export default {
   },
   watch: {
     '$route' (to, from) {
+      console.log('>>>> watcher route')
       const flag = ['landingpage'].indexOf(to.name)
       if (flag > -1 && !this.isLoggedIn) {
         this.$router.push({
           name: 'landingpage'
         })
-      } else if (flag === -1 && this.isLoggedIn) {
+      } else if (flag > -1 && this.isLoggedIn) {
         this.$router.push({
           name: 'dashboard'
         })

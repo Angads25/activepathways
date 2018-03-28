@@ -1,3 +1,11 @@
 export default {
-  name: 'Skipped'
+  name: 'Skipped',
+  props: {
+    challengeData: {
+      default () {
+        return {}
+      }
+    },
+    isChallengeDetail: { default: false }
+  }
 }

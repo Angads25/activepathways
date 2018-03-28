@@ -24,8 +24,8 @@ export default new Router({
       component: ChallengeStates
     },
     {
-      path: '/challengepage',
-      name: 'challenge-page',
+      path: '/challenge/:id',
+      name: 'challenge-detail',
       component: ChallengePage
     }
   ]

@@ -1,3 +1,11 @@
 export default {
-  name: 'Doing'
+  name: 'Doing',
+  props: {
+    challengeData: {
+      default () {
+        return {}
+      }
+    },
+    isChallengeDetail: { default: false }
+  }
 }
