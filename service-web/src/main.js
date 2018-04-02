@@ -12,6 +12,8 @@ import 'v-calendar/lib/v-calendar.min.css'
 import moment from 'moment'
 import vueScrollto from 'vue-scrollto'
 import VmBackTop from 'vue-multiple-back-top'
+// import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(VeeValidate)
 Vue.use(VCalendar)

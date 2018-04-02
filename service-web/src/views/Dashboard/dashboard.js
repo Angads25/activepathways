@@ -23,10 +23,6 @@ export default {
         COMPLETED: Done,
         SKIPPED: Skipped
       },
-      selectedDates: {
-        start: new Date(2018, 2, 20),
-        end: new Date(2018, 2, 28)
-      },
       themeStyles: {
         wrapper: {
           border: '1'
@@ -65,6 +61,33 @@ export default {
     },
     userJournal () {
       return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
+    },
+    userChallengeStateCompletedOrSkipped () {
+      return this.userChallengeStateList.filter(challange => challange['status']==='COMPLETED' || challange['status']==='SKIPPED')
+    },
+    selectedDates ()
+    {
+      let start='', end= ''
+
+      this.userChallengeStateList.map(challange => {
+        if(!start){
+          start=challange['challengeDate'],
+            end=challange['challengeDate']
+        } else {
+          if(this.$differenceDays(start,challange['challengeDate'])>0)
+          {
+            start=challange['challengeDate']
+          }
+          if(this.$differenceDays(challange['challengeDate'],end)>0)
+          {
+            end=challange['challengeDate']
+          }
+        }
+      })
+      return {
+        start:start,
+        end:end
+      }
     }
   },
   methods: {

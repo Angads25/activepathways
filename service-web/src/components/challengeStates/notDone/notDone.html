@@ -22,25 +22,32 @@
           Well done, how do you feel about it?
         </p>
         <div class="cf db">
-                <span class=" dib mr1" href="#" title="">
-                  <img src="../../../assets/images/smile4.svg" class="w2"/>
+                <span class=" dib mr1 mood-icons">
+                  <img src="../../../assets/images/smile1.svg" alt="Mountains" class="smile-mood-icon w2"/>
+                  <img src="../../../assets/images/smile1selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>
                 </span>
-          <span class=" dib mr1" href="#" title="">
-                  <img src="../../../assets/images/smile4.svg" class="w2"/>
+          <span class=" dib mr1 mood-icons">
+                  <img src="../../../assets/images/smile2.svg" alt="Mountains" class="smile-mood-icon w2"/>
+                  <img src="../../../assets/images/smile2selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>
                 </span>
-          <span class="dib mr1" href="#" title="">
-                  <img src="../../../assets/images/smile4.svg" class="w2"/>
+          <span class=" dib mr1 mood-icons">
+                  <img src="../../../assets/images/smile3.svg" alt="Mountains" class="smile-mood-icon w2"/>
+                  <img src="../../../assets/images/smile3selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>
                 </span>
-          <span class="dib mr1" href="#" title="">
-                  <img src="../../../assets/images/smile4selected.svg" class="w2"/>
+          <span class=" dib mr1 mood-icons">
+                  <img src="../../../assets/images/smile4.svg" alt="Mountains" class="smile-mood-icon w2"/>
+                  <img src="../../../assets/images/smile4selected.svg" alt="" class="selected-smile-icon hvr-smile-icon active-mood-icon"/>
                 </span>
-          <span class="dib mr1" href="#" title="">
-                  <img src="../../../assets/images/smile4.svg" class="w2"/>
+          <span class=" dib mr1 mood-icons">
+                  <img src="../../../assets/images/smile5.svg" alt="Mountains" class="smile-mood-icon w2"/>
+                  <img src="../../../assets/images/smile5selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>
                 </span>
         </div>
-        <div>
-          <a class="f6 fw5 link dim br-pill ph4 mb2 mt4 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">
-            ADD NOTES
+        <div class="w-100 center mt2">
+          <textarea v-show="notesStatus!=='Add'" v-model="notes" id="comment" name="comment" class=" border-box hover-black w-100 measure ba b--black-20 pa2 br2" aria-describedby="comment-desc"></textarea>
+        </div>
+        <div @click.stop.prevent="changeStatus">
+          <a  class="f6 fw5 link dim br-pill ph4 mb2 mt4 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">{{notesStatus==='Add'? 'ADD NOTES': (notesStatus==='Save'? 'SAVE NOTES': 'UPDATE NOTES')}}
           </a>
         </div>
       </article>
