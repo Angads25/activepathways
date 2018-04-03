@@ -3,3 +3,5 @@
 *.iml
 
 node-debug.log
+package-lock.json
+
