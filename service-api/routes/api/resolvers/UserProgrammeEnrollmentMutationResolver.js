@@ -1,7 +1,8 @@
 const keystone = require('keystone'),
 	UserProgrammeEnrollment = keystone.list('UserProgrammeEnrollment').model,
 	async = require('async'),
-	graphql = require('graphql');
+	graphql = require('graphql'),
+	ObjectId = require('mongoose').Types.ObjectId;
 
 const UserProgrammeEnrollmentType = require('../types/UserProgrammeEnrollmentType');
 

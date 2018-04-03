@@ -38,6 +38,9 @@ export default {
           console.log(resp)
           this.challengeData = resp
         })
+    },
+    challengeUpdated (event) {
+      this.fetchChallengeData()
     }
   }
 }

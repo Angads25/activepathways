@@ -1,7 +1,8 @@
 const keystone = require('keystone'),
 	Challenge = keystone.list('Challenge').model,
 	async = require('async'),
-	graphql = require('graphql');
+	graphql = require('graphql'),
+	ObjectId = require('mongoose').Types.ObjectId;
 
 const ChallengeType = require('../types/ChallengeType');
 

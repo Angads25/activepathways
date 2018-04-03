@@ -1,7 +1,8 @@
 const keystone = require('keystone'),
 	Programme = keystone.list('Programme').model,
 	async = require('async'),
-	graphql = require('graphql');
+	graphql = require('graphql'),
+	ObjectId = require('mongoose').Types.ObjectId;
 
 const ProgrammeType = require('../types/ProgrammeType');
 

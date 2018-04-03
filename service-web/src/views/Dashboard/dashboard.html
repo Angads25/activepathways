@@ -10,7 +10,7 @@
         <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
            style="cursor: pointer" @click="logout()">Logout</a></div>
       <template v-if="userChallengeStatePending && userChallengeStatePending['status']">
-        <component :is="statusComponents[userChallengeStatePending['status']]" :challengeData="userChallengeStatePending"></component>
+        <component :is="statusComponents[userChallengeStatePending['status']]" :challengeData="userChallengeStatePending" @challengeUpdated="challengeUpdated($event)"></component>
       </template>
     </div>
   </section>

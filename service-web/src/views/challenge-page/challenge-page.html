@@ -57,7 +57,7 @@
           <!--</div>-->
         <!--</div>-->
         <div v-if="challengeData && challengeData['status']">
-          <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData" :isChallengeDetail="true"></component>
+          <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData" :isChallengeDetail="true" @challengeUpdated="challengeUpdated($event)"></component>
         </div>
         <div class="w-100 bt b--near-white">
           <div class="cf db o-90">

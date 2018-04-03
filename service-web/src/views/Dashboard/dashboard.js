@@ -98,6 +98,10 @@ export default {
         name: 'landingpage'
       })
       this.$loader.hide()
+    },
+    challengeUpdated (event) {
+      console.log('>>>>>>>>>>>>>updated', event)
+      this.$store.dispatch('fetchUserChallengeStateList')
     }
   },
   created () {

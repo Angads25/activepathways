@@ -19,7 +19,7 @@
           {{(challengeData['challenge'] || {})['shortDescription']}}
         </p>
         <div>
-          <a class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">
+          <a @click.stop.prevent="done()" class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">
             DONE
           </a>
         </div>
