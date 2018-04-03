@@ -12,8 +12,8 @@ export default {
   },
   methods: {
     acceptOrSkip(str) {
-      console.log('>>>>>>>accept or skip clicked',"str"+str)
       const challengeData = { ...this.challengeData }
+      console.log('>>>>>>>accept or skip clicked',"str"+str,challengeData)
       str==='accept' ? challengeData['status'] = 'STARTED' : challengeData['status'] = 'SKIPPED'
       UserService.updateUserChallengeById(challengeData).then((response) => {
         this.$emit('challengeUpdated', response)

@@ -81,7 +81,7 @@ export const UserService = {
         challenge: obj['challenge']['id'],
         notes: obj['notes'],
         status: obj['status'],
-        rating: obj['rating']
+        rating: obj['rating'] || -1
       },
       nodes: {
         id: 'id',

@@ -54,6 +54,7 @@ export default {
       challengeData['rating'] = rating
       if (this.challengeData['user']['id']) {
         UserService.updateUserChallengeById(challengeData).then((response) => {
+          this.$store.dispatch('rating set to '+rating)
           this.$emit('challengeUpdated', response)
         })
       }

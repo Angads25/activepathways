@@ -19,5 +19,9 @@ export default {
   },
   hideLoader: (state) => {
     state.show_loader = false
+  },
+  showToast: (state, component) => {
+    state.show_Toast = true
+    state.toastMessage = component
   }
 }
