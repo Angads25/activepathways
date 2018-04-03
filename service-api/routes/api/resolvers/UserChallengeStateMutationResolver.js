@@ -63,7 +63,7 @@ module.exports = {
 						if (args.user) challenge.user = args.user;
 						if (args.programme) challenge.programme = args.programme;
 						if (args.challenge) challenge.challenge = args.challenge;
-						if (args.notes) challenge.status = args.notes;
+						challenge.notes = args.notes || '';
 						if (args.status) challenge.status = args.status;
 						challenge.save(function (err) {
 							if (err) callback(err);
