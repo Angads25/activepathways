@@ -17,6 +17,7 @@ export default {
   },
   data () {
     return {
+      todaysDate: new Date(),
       statusComponents: {
         PENDING: OnHold,
         STARTED: Doing,

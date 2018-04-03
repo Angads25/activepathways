@@ -8,6 +8,7 @@ export const UserService = {
       nodes: {
         id: 'id',
         notes: 'notes',
+        rating: 'rating',
         status: 'status',
         createdAt: 'createdAt',
         programme: {
@@ -38,6 +39,7 @@ export const UserService = {
       nodes: {
         id: 'id',
         notes: 'notes',
+        rating: 'rating',
         status: 'status',
         createdAt: 'createdAt',
         programme: {
@@ -78,11 +80,13 @@ export const UserService = {
         programme: obj['programme']['id'],
         challenge: obj['challenge']['id'],
         notes: obj['notes'],
-        status: obj['status']
+        status: obj['status'],
+        rating: obj['rating']
       },
       nodes: {
         id: 'id',
         notes: 'notes',
+        rating: 'rating',
         status: 'status',
         createdAt: 'createdAt',
         programme: {

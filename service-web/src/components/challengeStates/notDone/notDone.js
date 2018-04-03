@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       notes: '',
-      notesStatus: 'Add'
+      saveFlag: false
     }
   },
   watch: {
@@ -23,20 +23,33 @@ export default {
   },
   computed: {
     notesStatus() {
-      return this.challengeData['notes'] ? 'Update' : (saveFlag ? 'Save' : 'Add')
+      return this.challengeData['notes'] ? 'Update' : (this.saveFlag ? 'Save' : 'Add')
+    },
+    rating () {
+      return this.challengeData['rating']
     }
   },
   methods: {
-    changeStatus () {
-      if(this.notesStatus==='Add')
-      {
-        this.saveFlag=true
+    changeStatus() {
+      if (this.notesStatus === 'Add') {
+        this.saveFlag = true
       } else {
-        console.log('151515','hit api')
-        const challengeData={ ...this.challengeData}
-        challengeData['notes']=this.notes
-        UserService.updateUserChallengeById(challengeData).then((response)=>{
-          this.$emit('challengeUpdated',response)
+        console.log('151515', 'hit api')
+        const challengeData = {...this.challengeData}
+        challengeData['notes'] = this.notes
+        if (this.challengeData['user']['id']) {
+          UserService.updateUserChallengeById(challengeData).then((response) => {
+            this.$emit('challengeUpdated', response)
+          })
+        }
+      }
+    },
+    setRating(rating) {
+      const challengeData = {...this.challengeData}
+      challengeData['rating'] = rating
+      if (this.challengeData['user']['id']) {
+        UserService.updateUserChallengeById(challengeData).then((response) => {
+          this.$emit('challengeUpdated', response)
         })
       }
     }

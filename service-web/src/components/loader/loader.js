@@ -18,7 +18,7 @@ export default {
       }
       setInterval(() => {
         _self.percentage += 10
-      }, 1000)
+      }, 200)
     }
   },
   destroy () {

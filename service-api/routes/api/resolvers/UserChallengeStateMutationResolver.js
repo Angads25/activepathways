@@ -28,6 +28,9 @@ module.exports = {
 			},
 			status: {
 				type: new graphql.GraphQLNonNull(graphql.GraphQLString)
+			},
+			rating: {
+				type: graphql.GraphQLInt
 			}
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
@@ -65,6 +68,7 @@ module.exports = {
 						if (args.challenge) challenge.challenge = args.challenge;
 						challenge.notes = args.notes || '';
 						if (args.status) challenge.status = args.status;
+						if (args.rating) challenge.rating = args.rating;
 						challenge.save(function (err) {
 							if (err) callback(err);
 							else callback();

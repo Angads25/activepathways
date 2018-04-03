@@ -33,6 +33,9 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		status: {
 			type: graphql.GraphQLString
 		},
+		rating: {
+			type: graphql.GraphQLInt
+		},
 		createdAt: {
 			type: graphql.GraphQLString
 		},

@@ -26,7 +26,10 @@ export default {
   },
   computed: {
     notesStatus () {
-      return this.challengeData['notes'] ? 'Update' : (saveFlag ? 'Save' : 'Add')
+      return this.challengeData['notes'] ? 'Update' : (this.saveFlag ? 'Save' : 'Add')
+    },
+    rating () {
+      return this.challengeData['rating']
     }
   },
   methods: {
@@ -35,11 +38,23 @@ export default {
       {
         this.saveFlag=true
       } else {
-        console.log('151515','hit api')
-        const challengeData={ ...this.challengeData}
-        challengeData['notes']=this.notes
-        UserService.updateUserChallengeById(challengeData).then((response)=>{
-          this.$emit('challengeUpdated',response)
+        const challengeData = {...this.challengeData}
+        challengeData['notes'] = this.notes
+        if (this.challengeData['user']['id']) {
+          console.log('151515', 'hit api')
+          UserService.updateUserChallengeById(challengeData).then((response) => {
+            this.$emit('challengeUpdated', response)
+          })
+        }
+      }
+    },
+    setRating (rating) {
+      console.log('>>>>>rating clicked',rating)
+      const challengeData = { ...this.challengeData }
+      challengeData['rating'] = rating
+      if (this.challengeData['user']['id']) {
+        UserService.updateUserChallengeById(challengeData).then((response) => {
+          this.$emit('challengeUpdated', response)
         })
       }
     }
