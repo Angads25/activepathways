@@ -3,13 +3,6 @@
     <Header></Header>
     <router-view/>
     <Loader v-if="showLoader"></Loader>
-    <template v-if="showToast">
-      <el-button
-        plain
-        @click="open" type="success" showClose="false">
-        Closes automatically
-      </el-button>
-    </template>
   </div>
 </template>
 
@@ -20,6 +13,11 @@ import Loader from '@/components/loader/loader.vue'
 export default {
   name: 'App',
   components: {Header, Loader},
+  data () {
+    return {
+      timeOut: 0
+    }
+  },
   created () {
     this.$loader.show()
     this.$store.dispatch('fetchAuthFromLocal')
@@ -48,17 +46,6 @@ export default {
     },
     showLoader () {
       return this.$store.state.ui.show_loader
-    },
-    showToast () {
-      return this.$store.state.ui.show_Toast
-    }
-  },
-  methods: {
-    open () {
-      const h = this.$createElement
-      this.$notify({
-        message: h('i', { style: 'color: teal' }, this.$store.state.ui.toastMessage)
-      })
     }
   },
   watch: {

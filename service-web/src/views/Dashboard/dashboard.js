@@ -69,7 +69,6 @@ export default {
     selectedDates ()
     {
       let start='', end= ''
-
       this.userChallengeStateList.map(challange => {
         if(!start){
           start=challange['challengeDate'],

@@ -14,7 +14,7 @@ Vue.mixin({
   },
   methods: {
     $differenceDays (d1, d2) {
-      return moment(d1).diff(moment(d2), 'days')
+      return moment(d1).startOf('day').diff(moment(d2).startOf('day'), 'days')
     }
   }
 })

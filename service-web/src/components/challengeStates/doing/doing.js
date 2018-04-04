@@ -12,12 +12,14 @@ export default {
   },
   methods: {
     done() {
-      console.log('>>>','doneclicked')
-      const challengeData = { ...this.challengeData }
-      challengeData['status'] = 'COMPLETED'
-      UserService.updateUserChallengeById(challengeData).then((response) => {
-        this.$emit('challengeUpdated', response)
-      })
+      console.log('>>>', 'doneclicked')
+      const challengeData = {...this.challengeData}
+      if (this.challengeData['user']['id']) {
+        challengeData['status'] = 'COMPLETED'
+        UserService.updateUserChallengeById(challengeData).then((response) => {
+          this.$emit('challengeUpdated', response)
+        })
+      }
     }
   }
 }
