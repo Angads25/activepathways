@@ -12,7 +12,7 @@ module.exports = class SkipIncompleteChallenges {
 		let users = [];
 		async.series([
 			callback => {
-				UserChallengeState.find({$and: [{challengeDate: {$lte: moment().subtract(1, 'days').endOf('day')}}, {challengeDate: {$gte: moment().subtract(1, 'days').startOf('day')}}, {$or: [{status: 'PENDING'}, {status: 'STARTED'}]}]}).exec((err, _users) => (callback(err, users = (_users || []).map(user => user._id))))
+				UserChallengeState.find({$and: [{challengeDate: {$lte: moment().subtract(1, 'days').endOf('day')}}, {$or: [{status: 'PENDING'}, {status: 'STARTED'}]}]}).exec((err, _users) => (callback(err, users = (_users || []).map(user => user._id))))
 			},
 			callback => {
 				UserChallengeState.update({'_id': {$in: users}}, {
