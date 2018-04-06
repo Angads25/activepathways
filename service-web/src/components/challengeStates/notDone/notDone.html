@@ -6,6 +6,7 @@
     <div class="cf db">
       <div class="w-40 fl pa1 f5 fw6 tl navy">{{(challengeData['programme'] || {})['name']}}</div>
       <router-link tag="div" :to="{ name: 'challenge-detail', params: { id: challengeData['id'] } }" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-if="!isChallengeDetail">CHECK CHALLENGE DETAILS</router-link>
+      <router-link tag="div" :to="{ name: 'dashboard'}" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-else="!isChallengeDetail"> GO BACK </router-link>
     </div>
     <div class="cf db o-90">
       <article class="w-100 mw7 center ph0 ph5-ns tc br2 pv3">
@@ -46,8 +47,8 @@
         <div class="w-100 center mt2">
           <textarea v-show="notesStatus!=='Add'" v-model="notes" id="comment" name="comment" class=" border-box hover-black w-100 measure ba b--black-20 pa2 br2" aria-describedby="comment-desc"></textarea>
         </div>
-        <div @click.stop.prevent="changeStatus">
-          <a  class="f6 fw5 link dim br-pill ph4 mb2 mt4 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">{{notesStatus==='Add'? 'ADD NOTES': (notesStatus==='Save'? 'SAVE NOTES': 'UPDATE NOTES')}}
+        <div >
+          <a @click.stop.prevent="changeStatus" class="f6 fw5 link br-pill ph4 mb2 mt4 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">{{notesStatus==='Add'? 'ADD NOTES': (notesStatus==='Save'? 'SAVE NOTES': 'UPDATE NOTES')}}
           </a>
         </div>
       </article>

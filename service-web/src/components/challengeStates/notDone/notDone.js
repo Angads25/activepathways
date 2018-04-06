@@ -40,6 +40,11 @@ export default {
         if (this.challengeData['user']['id']) {
           UserService.updateUserChallengeById(challengeData).then((response) => {
             this.$emit('challengeUpdated', response)
+            this.$notify({
+              title: 'Success',
+              message: 'Notes updated',
+              type: 'success'
+            });
           })
         }
       }
@@ -52,7 +57,9 @@ export default {
           this.$emit('challengeUpdated', response)
           const h = this.$createElement;
           this.$notify({
-            message: h('i', { style: 'color: teal' }, 'rating set to '+rating)
+            title: 'Success',
+            message: 'Hapiness level updated',
+            type: 'success'
           });
         })
       }

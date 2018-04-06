@@ -6,6 +6,8 @@
     <div class="cf db">
       <div class="w-40 fl pa1 tl f5 fw6 navy">{{(challengeData['programme'] || {})['name']}}</div>
       <router-link tag="div" :to="{ name: 'challenge-detail', params: { id: challengeData['id'] } }" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-if="!isChallengeDetail">CHECK CHALLENGE DETAILS</router-link>
+      <router-link tag="div" :to="{ name: 'dashboard'}" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-else="!isChallengeDetail"> GO BACK </router-link>
+
     </div>
     <div class="cf db">
       <article class="w-100 mw7 center ph0 ph5-ns tc br2 pv3">
@@ -19,10 +21,10 @@
           {{(challengeData['challenge'] || {})['shortDescription']}}
         </p>
         <div>
-          <a class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">
+          <a class="f6 fw5 link br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">
             ACCEPT TRAIN
           </a>
-          <a class="f6 fw5 link dim br-pill ph4 mb2 mt3 dib blue b--blue ba pt2 pb2 lh-copy ml2" href="javascript:void(0)">
+          <a class="f6 fw5 link br-pill ph4 mb2 mt3 dib blue b--blue ba pt2 pb2 lh-copy ml2" href="javascript:void(0)">
             SKIP TRAIN
           </a>
         </div>

@@ -33,7 +33,7 @@ input::-webkit-input-placeholder {
   color: #6e7d92;
 }
 .v-tb {
-  vertical-align: text-bottom;
+  vertical-align: -webkit-baseline-middle;
 }
 /* End css list with numeber circle background -------------- */
 /*-Gradient color libary*/
