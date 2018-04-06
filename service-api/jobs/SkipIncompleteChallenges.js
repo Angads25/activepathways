@@ -8,11 +8,11 @@ module.exports = class SkipIncompleteChallenges {
 		return "0 0 * * *";
 	}
 	static task(err, done) {
-		console.log('Triggering... skipchallenge');
+		console.log('Triggering Challenges skip.');
 		let users = [];
-		series([
+		async.series([
 			callback => {
-				UserChallengeState.find({$and: [{challengeDate: {$lte: moment().subtract(1, 'days').endOf('day')}}, {challengeDate: {$gte: moment().add(1, 'days').startOf('day')}}, {$or: [{status: 'PENDING'}, {status: 'STARTED'}]}]}).exec((err, _users) => (callback(err, users = (_users || []).map(user => user._id))))
+				UserChallengeState.find({$and: [{challengeDate: {$lte: moment().subtract(1, 'days').endOf('day')}}, {challengeDate: {$gte: moment().subtract(1, 'days').startOf('day')}}, {$or: [{status: 'PENDING'}, {status: 'STARTED'}]}]}).exec((err, _users) => (callback(err, users = (_users || []).map(user => user._id))))
 			},
 			callback => {
 				UserChallengeState.update({'_id': {$in: users}}, {
