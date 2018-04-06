@@ -79,8 +79,8 @@
                 </div>
               </fieldset>
               <div class="cf w-100 mt4">
-                <a class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100 pointer"
-                   @click.prevent="signUp($event)">SIGN UP</a>
+                <button class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100 pointer"
+                   @click.prevent="signUp($event)" :disabled="loading">SIGN UP</button>
               </div>
               <div class="cf w-100 mt2">
                 <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b--lightest-blue blue w-100" href="#0">FACEBOOK

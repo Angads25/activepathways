@@ -5,7 +5,8 @@ export default {
       fname: '',
       lname: '',
       email: '',
-      password: ''
+      password: '',
+      loading: false
     }
   },
   props: {
@@ -31,8 +32,10 @@ export default {
         .then(result => {
           if (result) {
             this.$loader.show()
+            this.loading = true
             this.$store.dispatch('signup', this.getSignUpData())
               .then(resp => {
+                this.loading = false
                 console.log('>>>>>>>>>>', resp)
                 this.$router.push({
                   name: 'dashboard'
@@ -40,6 +43,7 @@ export default {
                 this.$loader.hide()
                 this.closeModal(event)
               }).catch(err => {
+                this.loading = false
                 this.$loader.hide()
               })
           } else {

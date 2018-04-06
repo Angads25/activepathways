@@ -49,6 +49,11 @@ export default {
               message: 'Notes updated',
               type: 'success'
             });
+          }).catch(err =>{
+            this.$notify.error({
+              title: 'Error',
+              message: 'Error updating notes'
+            });
           })
         }
       }
@@ -63,8 +68,13 @@ export default {
           const h = this.$createElement;
           this.$notify({
             title: 'Success',
-            message: 'Hapiness level updated',
+            message: 'Happiness level updated',
             type: 'success'
+          })
+        }).catch(err =>{
+          this.$notify.error({
+            title: 'Error',
+            message: 'Error updating happiness level'
           });
         })
       }
