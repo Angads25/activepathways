@@ -49,9 +49,5 @@ exports = module.exports = function (app) {
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
 	// agenda dash 
-	app.use('/dash', middleware.tokenAuthCommon, middleware.tokenAuth, function (req, res, next) {
-		if (req._user)
-			next();
-		else res.send(401);
-	}, Agendash(_agenda));
+	app.use('/jobs/admin', middleware.requireUserWithTargetUrl('/jobs/admin'), Agendash(_agenda));
 };

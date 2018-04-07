@@ -50,6 +50,17 @@ exports.requireUser = function (req, res, next) {
 	}
 };
 
+exports.requireUserWithTargetUrl = function (url) {
+	return function (req, res, next) {
+		if (!req.user) {
+			req.flash('error', 'Please sign in to access this page.');
+			res.redirect('/admin/signin?from=' + url);
+		} else {
+			next();
+		}
+	}
+};
+
 exports.tokenAuthCommon = function (req, res, next) {
 
 	delete req.query._;
@@ -89,7 +100,7 @@ exports.tokenAuth = function (req, res, next) {
 	} catch (c) {
 		console.log(c);
 	}
-	
+
 	if (token) {
 		token = token.trim().replace(/^Bearer /, '').trim();
 		var session = AuthService.decrypt(token);

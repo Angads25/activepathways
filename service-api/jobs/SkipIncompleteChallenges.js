@@ -4,26 +4,26 @@ const UserChallengeState = require('keystone').list('UserChallengeState').model,
 	ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports = class SkipIncompleteChallenges {
+
 	static get trigger() {
-		return "0 0 * * *";
+		return "1 0 * * *";
 	}
+
 	static task(err, done) {
-		console.log('Triggering Challenges skip.');
-		let users = [];
-		async.series([
-			callback => {
-				UserChallengeState.find({$and: [{challengeDate: {$lte: moment().subtract(1, 'days').endOf('day')}}, {$or: [{status: 'PENDING'}, {status: 'STARTED'}]}]}).exec((err, _users) => (callback(err, users = (_users || []).map(user => user._id))))
+		console.log('Triggering', this.name);
+		const yesterdayEOD = moment().subtract(1, 'days').endOf('day')._d;
+		console.log('YESTERDAY: EOD', yesterdayEOD);
+		UserChallengeState.update(
+			{
+				challengeDate: {$lte: yesterdayEOD},
+				status: {$in: ['PENDING', 'STARTED']}
 			},
-			callback => {
-				UserChallengeState.update({'_id': {$in: users}}, {
-					$set: {
-						status: 'SKIPPED'
-					}
-				}).exec((err, _status) => callback(err, _status));
+			{
+				$set: {status: 'SKIPPED'}
 			}
-		], (err) => {
+		).exec((err) => {
 			if (err) log.error(`ERROR in Job ${this.name}`, err);
 			done();
 		});
 	}
-}
+};
