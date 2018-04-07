@@ -17,11 +17,11 @@ export default {
     }
   },
   created() {
-    this.notes=this.challengeData['notes']
+    this.notes = this.challengeData['notes']
   },
   watch: {
     challengeData(){
-      this.notes=this.challengeData['notes']
+      this.notes = this.challengeData['notes']
     }
   },
   computed: {
@@ -34,9 +34,12 @@ export default {
   },
   methods: {
     changeStatus () {
-      if(this.notesStatus==='Add')
-      {
-        this.saveFlag=true
+      if (this.notesStatus === 'Add') {
+        this.saveFlag = true
+        // focus
+        setTimeout(function(){
+          document.querySelector('#comment').focus()
+        }, 200)
       } else {
         const challengeData = {...this.challengeData}
         challengeData['notes'] = this.notes
@@ -49,7 +52,7 @@ export default {
               message: 'Notes updated',
               type: 'success'
             });
-          }).catch(err =>{
+          }).catch(err => {
             this.$notify.error({
               title: 'Error',
               message: 'Error updating notes'
@@ -59,8 +62,8 @@ export default {
       }
     },
     setRating (rating) {
-      console.log('>>>>>rating clicked',rating)
-      const challengeData = { ...this.challengeData }
+      console.log('>>>>>rating clicked', rating)
+      const challengeData = {...this.challengeData}
       challengeData['rating'] = rating
       if (this.challengeData['user']['id']) {
         UserService.updateUserChallengeById(challengeData).then((response) => {
@@ -71,7 +74,7 @@ export default {
             message: 'Happiness level updated',
             type: 'success'
           })
-        }).catch(err =>{
+        }).catch(err => {
           this.$notify.error({
             title: 'Error',
             message: 'Error updating happiness level'
