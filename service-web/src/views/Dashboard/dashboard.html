@@ -80,7 +80,12 @@
               <li
                 class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05 "
                 v-for="(list, i) in userChallengeStateCompletedOrSkipped">
-                <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
+                <img v-if="list['rating']===5" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile5selected.svg"/>
+                <img v-else-if="list['rating']===4" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
+                <img v-else-if="list['rating']===3" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile3selected.svg"/>
+                <img v-else-if="list['rating']===2" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile2selected.svg"/>
+                <img v-else-if="list['rating']===1" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile1selected.svg"/>
+                <img v-else="list['rating']===-1 || list['rating']===''" src="../../assets/images/smile4.svg" alt="Mountains" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l"/>
                 <div class="pl3 flex-auto">
                   <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{$differenceDays(list.challengeDate, (list.user || {}).createdAt)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.status}}</span>

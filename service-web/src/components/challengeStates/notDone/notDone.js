@@ -25,9 +25,16 @@ export default {
     notesStatus() {
       return this.challengeData['notes'] ? 'Update' : (this.saveFlag ? 'Save' : 'Add')
     },
-    rating () {
+    rating() {
       return this.challengeData['rating']
+    },
+    userChallengeStateList() {
+      return this.$store.state.auth.userChallengeStateList
+    },
+    indexOfCurrentChallenge() {
+      return this.userChallengeStateList.indexOf(this.challengeData) + 1
     }
+
   },
   methods: {
     changeStatus() {
@@ -45,7 +52,7 @@ export default {
               message: 'Notes updated',
               type: 'success'
             });
-          }).catch(err =>{
+          }).catch(err => {
             this.$notify.error({
               title: 'Error',
               message: 'Error updating notes'
@@ -66,7 +73,7 @@ export default {
             message: 'Happiness level updated',
             type: 'success'
           })
-        }).catch(err =>{
+        }).catch(err => {
           this.$notify.error({
             title: 'Error',
             message: 'Error updating happiness level'

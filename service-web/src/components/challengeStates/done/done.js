@@ -2,6 +2,7 @@ import {UserService} from "../../../services/user";
 
 export default {
   name: 'Done',
+  l_rating: '',
   props: {
     challengeData: {
       default() {
@@ -17,27 +18,44 @@ export default {
     }
   },
   created() {
+    this.l_rating = this.challengeData['rating']
     this.notes = this.challengeData['notes']
   },
   watch: {
-    challengeData(){
+    challengeData() {
       this.notes = this.challengeData['notes']
     }
   },
   computed: {
-    notesStatus () {
+    notesStatus() {
       return this.challengeData['notes'] ? 'Update' : (this.saveFlag ? 'Save' : 'Add')
     },
-    rating () {
-      return this.challengeData['rating']
+    userChallengeStateList() {
+      return this.$store.state.auth.userChallengeStateList
+    },
+    indexOfCurrentChallenge() {
+      console.log("&&&&&&&&&&&", "in index of position")
+      let selectedchallenge=this.userChallengeStateList.filter(challenge =>
+        challenge['id'] === this.challengeData['id']
+      )
+      let x= this.userChallengeStateList.indexOf(selectedchallenge);
+      console.log("&&&&&&&&&&&", "in index of position",x,selectedchallenge)
+      return x
+
     }
+    // ,
+    // rating () {
+    //   console.log('in computed propertty lrating is',this.l_rating)
+    //   console.log("in computed property,challengeDAta",this.challengeData['rating'])
+    //   return this.l_rating==='' ? this.challengeData['rating'] : this.l_rating
+    // }
   },
   methods: {
-    changeStatus () {
+    changeStatus() {
       if (this.notesStatus === 'Add') {
         this.saveFlag = true
         // focus
-        setTimeout(function(){
+        setTimeout(function () {
           document.querySelector('#comment').focus()
         }, 200)
       } else {
@@ -61,8 +79,10 @@ export default {
         }
       }
     },
-    setRating (rating) {
+    setRating(rating) {
+      this.l_rating = rating
       console.log('>>>>>rating clicked', rating)
+      console.log('>>>>>lrating is', this.l_rating)
       const challengeData = {...this.challengeData}
       challengeData['rating'] = rating
       if (this.challengeData['user']['id']) {
@@ -75,6 +95,7 @@ export default {
             type: 'success'
           })
         }).catch(err => {
+          this.l_rating = this.challengeData['rating']
           this.$notify.error({
             title: 'Error',
             message: 'Error updating happiness level'

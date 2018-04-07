@@ -4,11 +4,19 @@ export default {
   name: 'Doing',
   props: {
     challengeData: {
-      default () {
+      default() {
         return {}
       }
     },
-    isChallengeDetail: { default: false }
+    isChallengeDetail: {default: false}
+  },
+  computed: {
+    userChallengeStateList() {
+      return this.$store.state.auth.userChallengeStateList
+    },
+    indexOfCurrentChallenge() {
+      return this.userChallengeStateList.indexOf(this.challengeData) + 1
+    }
   },
   methods: {
     done() {

@@ -14,5 +14,13 @@ export default {
       }
     },
     isChallengeDetail: { default: false }
+  },
+  computed: {
+    userChallengeStateList() {
+      return this.$store.state.auth.userChallengeStateList
+    },
+    indexOfCurrentChallenge() {
+      return this.userChallengeStateList.indexOf(this.challengeData) + 1
+    }
   }
 }

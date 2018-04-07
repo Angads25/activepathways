@@ -61,6 +61,7 @@ export default {
   },
   computed: {
     userChallengeStateList () {
+      // console.log('###################',this.$store.state.auth.userChallengeStateList)
       return this.$store.state.auth.userChallengeStateList
     },
     user () {
