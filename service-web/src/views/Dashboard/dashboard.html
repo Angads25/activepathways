@@ -7,7 +7,7 @@
   <section class="cf w-100 ph0 ph6-l pt4 gradient-blue">
     <div class="dt w-100 mw8 ph3 ph3-m ph3-l center">
       <div class="w-100 tr">
-        <div class="f6 fw6 link br-pill ph4 mb4 dib tr white pt2 pb2">{{user.name.first}} {{user.name.last}} ({{user.email}})</div>
+        <div class="f6 fw6 link br-pill ph4 mb4 dib tr white pt2 pb2">{{(user.name) ? (user.name.first +" "+ user.name.last) : ''}} ({{user.email}})</div>
 
         <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
            style="cursor: pointer" @click="logout()">Logout</a>
