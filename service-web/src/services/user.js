@@ -79,7 +79,7 @@ export const UserService = {
         user: obj['user']['id'],
         programme: obj['programme']['id'],
         challenge: obj['challenge']['id'],
-        notes: obj['notes'],
+        notes: (obj['notes'] || '').replace(/\n/g, '\\n'),
         status: obj['status'],
         rating: obj['rating'] || -1
       },
