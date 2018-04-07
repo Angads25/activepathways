@@ -12,7 +12,7 @@
     <div class="cf db">
       <article class="w-100 mw7 center ph0 ph5-ns tc br2 pv3">
         <h2 class="fw4 f4 tc lh-copy mt0 mb3 navy">
-          Day {{$differenceDays(challengeData['challengeDate'], (challengeData['user'] || {})['createdAt'])}} - {{challengeData['challengeDate'] | parseDate('DD/MM')}}
+          Day {{challengeData['day']}} - {{(challengeData['challengeDate'] || new Date()) | parseDate('DD/MM')}}
         </h2>
         <h1 class=" b f4 f2-ns navy lh-title mt0 mb3">
           {{(challengeData['challenge'] || {})['name']}}

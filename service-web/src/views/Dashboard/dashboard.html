@@ -16,6 +16,9 @@
         <component :is="statusComponents[userChallengeStatePending['status']]"
                    :challengeData="userChallengeStatePending" @challengeUpdated="challengeUpdated($event)"></component>
       </template>
+      <template v-else>
+        <component :is="statusComponents['NO_CHECKIN']"></component>
+      </template>
     </div>
   </section>
   <section class="cf w-100 ph0 ph6-l relative">

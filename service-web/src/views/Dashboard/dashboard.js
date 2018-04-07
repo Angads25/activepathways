@@ -25,6 +25,7 @@ export default {
         STARTED: Doing,
         COMPLETED: Done,
         SKIPPED: Skipped,
+        NO_CHECKIN: NoCheckIn,
         openerText: 'Open'
       },
       activeModal: '',
