@@ -1,15 +1,16 @@
 <div class="wrapper avenir">
   <!--<header class="cf w-100 pl3 pr3 ph0-ns bg-white">-->
-    <!--<div class="w-100 w-80-ns center">-->
-      <!--<h3 class="f3 fw2 dark-blue pt2 pb2">DASHBOARD PROPOSAL</h3>-->
-    <!--</div>-->
+  <!--<div class="w-100 w-80-ns center">-->
+  <!--<h3 class="f3 fw2 dark-blue pt2 pb2">DASHBOARD PROPOSAL</h3>-->
+  <!--</div>-->
   <!--</header>-->
   <section class="cf w-100 ph0 ph6-l pt5 relative">
     <div class="gradient-blue absolute right-0 left-0 top-0 height-480 z-1"></div>
     <div class="dt w-100 mw8 ph3 ph3-m ph3-l center">
       <div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default pt1">
         <div v-if="challengeData && challengeData['status']">
-          <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData" :isChallengeDetail="true" @challengeUpdated="challengeUpdated($event)"></component>
+          <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData"
+                     :isChallengeDetail="true" @challengeUpdated="challengeUpdated($event)"></component>
         </div>
         <div class="w-100 bt b--near-white">
           <div class="cf db o-90">
@@ -24,9 +25,17 @@
             <article class="w-100 mw7 center ph3 ph4-ns tc br2 pv4">
               <div class="cf db">
                 <div class="fl w-100 w-40-ns pa2">
-                  <div class="w-90 f5 fw5 black-40 tl avenir lh-copy"> {{(challengeData['challenge'] || {})['highlightedContent']}}
+                  <div class="w-90 f5 fw5 black-40 tl avenir lh-copy"> {{(challengeData['challenge'] ||
+                    {})['highlightedContent']}}
                   </div>
-                  <div class="w-100 mt5"><img :src="((challengeData['challenge'] || {})['illustration'] || {})['url'] || '../../assets/images/stretching_v4.png'"/></div>
+                  <div class="w-100 mt5"><img
+                    :src="((challengeData['challenge'] || {})['illustration'] || {})['url'] || '../../assets/images/stretching_v4.png'"/>
+                  </div>
+                </div>
+                <div class="fl w-100 w-60-ns pa2">
+                  <p class="f5 fw4 navy tl avenir">
+                    {{(challengeData['challenge'] || {})['description']}}
+                  </p>
                 </div>
               </div>
               <div>
@@ -42,7 +51,8 @@
       <div class="cf">
         <div class="fl w-100">
           <h3 class="f5 fw6 w-100 black-40 ma0">
-            <span class="mr2">Reach us</span> <a class="f6 fw5 navy no-underline white" href="mailto:activepathways@smartplayds.com">activepathways@smartplayds.com</a>
+            <span class="mr2">Reach us</span> <a class="f6 fw5 navy no-underline white"
+                                                 href="mailto:activepathways@smartplayds.com">activepathways@smartplayds.com</a>
           </h3>
           <h3 class="f5 fw6 w-100 black-40 mt2-ns mb2-ns">
             Join our community on <a href="https://www.facebook.com/getwalkers/"

@@ -8,15 +8,12 @@ export default {
         return {}
       }
     },
-    isChallengeDetail: {default: false}
-  },
-  computed: {
-    userChallengeStateList() {
-      return this.$store.state.auth.userChallengeStateList
+    programmeData: {
+      default () {
+        return {}
+      }
     },
-    indexOfCurrentChallenge() {
-      return this.userChallengeStateList.indexOf(this.challengeData) + 1
-    }
+    isChallengeDetail: {default: false}
   },
   methods: {
     done() {
@@ -28,6 +25,18 @@ export default {
           this.$emit('challengeUpdated', response)
         })
       }
+    }
+  },
+  computed: {
+    dayNum () {
+      let idx = -1;
+      for (let i = 0; i < (this.programmeData.challenges || []).length; i++) {
+        if (this.programmeData.challenges[i].id === this.challengeData.id) {
+          idx = i
+          break
+        }
+      }
+      return idx + 1
     }
   }
 }

@@ -8,6 +8,11 @@ export default {
         return {}
       }
     },
+    programmeData: {
+      default () {
+        return {}
+      }
+    },
     isChallengeDetail: { default: false }
   },
   computed: {
@@ -28,6 +33,18 @@ export default {
           this.$emit('challengeUpdated', response)
         })
       }
+    }
+  },
+  computed: {
+    dayNum () {
+      let idx = -1;
+      for (let i = 0; i < (this.programmeData.challenges || []).length; i++) {
+        if (this.programmeData.challenges[i].id === this.challengeData.id) {
+          idx = i
+          break
+        }
+      }
+      return idx + 1
     }
   }
 }

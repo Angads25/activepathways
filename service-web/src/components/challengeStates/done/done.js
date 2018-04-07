@@ -9,6 +9,11 @@ export default {
         return {}
       }
     },
+    programmeData: {
+      default () {
+        return {}
+      }
+    },
     isChallengeDetail: {default: false}
   },
   data() {
@@ -30,18 +35,18 @@ export default {
     notesStatus() {
       return this.challengeData['notes'] ? 'Update' : (this.saveFlag ? 'Save' : 'Add')
     },
-    userChallengeStateList() {
-      return this.$store.state.auth.userChallengeStateList
+    rating () {
+      return this.challengeData['rating']
     },
-    indexOfCurrentChallenge() {
-      console.log("&&&&&&&&&&&", "in index of position")
-      let selectedchallenge=this.userChallengeStateList.filter(challenge =>
-        challenge['id'] === this.challengeData['id']
-      )
-      let x= this.userChallengeStateList.indexOf(selectedchallenge);
-      console.log("&&&&&&&&&&&", "in index of position",x,selectedchallenge)
-      return x
-
+    dayNum () {
+      let idx = -1;
+      for (let i = 0; i < (this.programmeData.challenges || []).length; i++) {
+        if (this.programmeData.challenges[i].id === this.challengeData.id) {
+          idx = i
+          break
+        }
+      }
+      return idx + 1
     }
     // ,
     // rating () {

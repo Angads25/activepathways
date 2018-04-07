@@ -6,14 +6,23 @@ export default {
         return {}
       }
     },
+    programmeData: {
+      default () {
+        return {}
+      }
+    },
     isChallengeDetail: { default: false }
   },
   computed: {
-    userChallengeStateList() {
-      return this.$store.state.auth.userChallengeStateList
-    },
-    indexOfCurrentChallenge() {
-      return this.userChallengeStateList.indexOf(this.challengeData) + 1
+    dayNum () {
+      let idx = -1;
+      for (let i = 0; i < (this.programmeData.challenges || []).length; i++) {
+        if (this.programmeData.challenges[i].id === this.challengeData.id) {
+          idx = i
+          break
+        }
+      }
+      return idx + 1
     }
   }
 }
