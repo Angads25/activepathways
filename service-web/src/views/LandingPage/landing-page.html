@@ -88,7 +88,7 @@
           <p class="lh-copy-l black f5 fw5 avenir"> No sweat required - No pressure - No special equipment - Fun
             guaranteed - Join more than 2000 participants!</p>
         </div>
-        <a class="f5 link b dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir" href="/">
+        <a class="f5 link b dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir pointer" @click.prevent="activeModal = 'signin'; openModal()">
           Get started now
         </a>
       </div>
@@ -228,7 +228,7 @@
       <div class="cf">
         <div class="fl w-100 w-50-l w-50-m avenir">
           <h3 class="f4 fw6 w-90-l ma0-ns pa0-ns white">
-            Reach us <a class="f5 pl2 fw5 white no-underline white" href="mailto:activepathways@smartplayds.com">activepathways@smartplayds.com</a>
+            <span class="mr2">Reach us</span> <a class="f5 fw5 white no-underline white" href="mailto:activepathways@smartplayds.com">activepathways@smartplayds.com</a>
           </h3>
           <h3 class="f4 fw6 w-90-l ma0-ns pa0-ns white mt4-ns">
             Join our community on <a href="https://www.facebook.com/getwalkers/"
@@ -247,4 +247,13 @@
       </div>
     </div>
   </footer>
+  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()"
+          @openForgetPassword="activeModal = 'forgetPassword'; openModal()"
+          @openSignUp="activeModal = 'signup'; openModal()"
+          :activeStatus="activeModal === 'signin'"></SignIn>
+  <SignUp v-if="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()"
+          :activeStatus="activeModal === 'signup'"></SignUp>
+  <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()"
+                  @openSignIn="activeModal = 'signin'; openModal()"
+                  :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
 </div>

@@ -24,7 +24,12 @@
   text-decoration: none;
 
 }
-
+.w-600 {
+  width: 600px;
+}
+.h-500 {
+  height: 500px;
+}
 input:focus {
   outline: none;
 }
@@ -149,6 +154,7 @@ body.modal-open .bg-overlay, body.modal-open .mobile-expanded-nav {
 /*-------modal-frame----*/
 .modal-frame {
   max-width: 720px;
+  width: 100%;
   margin: auto;
   position: relative;
   z-index: 4;

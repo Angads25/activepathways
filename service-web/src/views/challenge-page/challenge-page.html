@@ -8,54 +8,6 @@
     <div class="gradient-blue absolute right-0 left-0 top-0 height-480 z-1"></div>
     <div class="dt w-100 mw8 ph3 ph3-m ph3-l center">
       <div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default pt1">
-        <!--<div>-->
-        <!--<span class=" db bg-washed-blue br4 br&#45;&#45;top bt3 ma2">-->
-          <!--<span class="w-30 db br4 blue-dark-color pa1"></span>-->
-        <!--</span>-->
-          <!--<div class="w-100 pa3">-->
-            <!--<div class="cf db o-90">-->
-              <!--<article class="w-100 mw7 center ph0 ph3-m ph3-l tc br2 pv3">-->
-                <!--<h1 class=" b f4 f2-ns navy lh-title mt0 mb3">-->
-                  <!--Congratulation, you made it!-->
-                <!--</h1>-->
-                <!--<h1 class=" f5 f5-ns strike fw6-ns gray lh-title mt0 mb3">-->
-                  <!--Being active (or inactive) is a consequence of our behaviours and habits-->
-                <!--</h1>-->
-                <!--<p class="fw5 f6 f4-ns mt0 mb3 w-100 w-80-m w-80-l center navy">-->
-                  <!--Well done, how do you feel about it?-->
-                <!--</p>-->
-                <!--<div class="cf db">-->
-                <!--<span class=" dib mr1 mood-icons">-->
-                  <!--<img src="../../assets/images/smile1.svg" alt="Mountains" class="smile-mood-icon w2"/>-->
-                  <!--<img src="../../assets/images/smile1selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>-->
-                <!--</span>-->
-                  <!--<span class=" dib mr1 mood-icons">-->
-                  <!--<img src="../../assets/images/smile2.svg" alt="Mountains" class="smile-mood-icon w2"/>-->
-                  <!--<img src="../../assets/images/smile2selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>-->
-                <!--</span>-->
-                  <!--<span class=" dib mr1 mood-icons">-->
-                  <!--<img src="../../assets/images/smile3.svg" alt="Mountains" class="smile-mood-icon w2"/>-->
-                  <!--<img src="../../assets/images/smile3selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>-->
-                <!--</span>-->
-                  <!--<span class=" dib mr1 mood-icons">-->
-                  <!--<img src="../../assets/images/smile4.svg" alt="Mountains" class="smile-mood-icon w2"/>-->
-                  <!--<img src="../../assets/images/smile4selected.svg" alt=""-->
-                       <!--class="selected-smile-icon hvr-smile-icon active-mood-icon"/>-->
-                <!--</span>-->
-                  <!--<span class=" dib mr1 mood-icons">-->
-                  <!--<img src="../../assets/images/smile5.svg" alt="Mountains" class="smile-mood-icon w2"/>-->
-                  <!--<img src="../../assets/images/smile5selected.svg" alt="" class="selected-smile-icon hvr-smile-icon"/>-->
-                <!--</span>-->
-                <!--</div>-->
-                <!--<div>-->
-                  <!--<a class="f6 fw5 link dim br-pill ph4 mb2 mt4 dib white blue-dark-color pt2 pb2 lh-copy" href="/">-->
-                    <!--EDIT NOTES-->
-                  <!--</a>-->
-                <!--</div>-->
-              <!--</article>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
         <div v-if="challengeData && challengeData['status']">
           <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData" :isChallengeDetail="true" @challengeUpdated="challengeUpdated($event)"></component>
         </div>
@@ -76,25 +28,6 @@
                   </div>
                   <div class="w-100 mt5"><img :src="((challengeData['challenge'] || {})['illustration'] || {})['url'] || '../../assets/images/stretching_v4.png'"/></div>
                 </div>
-                <div class="fl w-100 w-60-ns pa2">
-                  <p class="f5 fw4 navy tl avenir">
-                  <!--Getting awareness of our current-->
-                  <!--behaviours-->
-                  <!--irs the first step to replacing them with new ones, and for this purpose it is essential toidenify-->
-                  <!--cues and triggers that start our habits</p>-->
-                  <!--<p class="f5 fw4 navy tl avenir">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean-->
-                    <!--commodo ligula-->
-                    <!--eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur-->
-                    <!--ridiculus mus. </p>-->
-                  <!--<p class="f5 fw4 navy tl avenir">Your wellbeing not only depends on how much you exercise, but how-->
-                    <!--much physical activity you perform during the day, how long you spend sitting and the quality of-->
-                    <!--your sleep.</p>-->
-                  <!--<p class="f5 fw4 navy tl avenir">A study reported in the Journal of Clinical Nutrition found that-->
-                    <!--short bouts of exercise, just three minutes at a time, for a total of 30 minutes a day, lowered-->
-                    <!--several measures of cardiac risk as effectively as one continuous 30-minute session.</p>-->
-                    {{(challengeData['challenge'] || {})['description']}}
-                  </p>
-                </div>
               </div>
               <div>
               </div>
@@ -103,75 +36,21 @@
         </div>
       </div>
     </div>
-    <!--<div class="dt w-100 mw8 ph3 ph3-m ph3-l center" v-if="false">-->
-      <!--<div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default pt1">-->
-        <!--<span class=" db bg-washed-blue br4 br&#45;&#45;top bt3 ma2">-->
-          <!--<span class="w-30 db br4 blue-dark-color pa1"></span>-->
-        <!--</span>-->
-        <!--<div class="w-100 pa3">-->
-          <!--<div class="cf db o-90">-->
-            <!--<article class="w-100 mw7 center ph0 ph5-ns tc br2 pv3">-->
-              <!--<h1 class=" b f4 f3-ns navy lh-title mt0 mb3">-->
-                <!--Being active (or inactive) is a consequence of our behaviours and habits-->
-              <!--</h1>-->
-              <!--<p class="fw5 f6 mt0 mb3 w-100 w-80-ns center navy lh-copy">-->
-                <!--Getting awareness of our current behaviours-->
-                <!--irs the first step to replacing them with new ones, and for this purpose it is essential toidenify-->
-                <!--cues and triggers that start our habits-->
-              <!--</p>-->
-              <!--<div>-->
-                <!--<a class="f6 fw5 link dim br-pill ph4 mb2 mt2 dib white blue-dark-color pt2 pb2 lh-copy" href="/">-->
-                  <!--ACCEPT TRAIN-->
-                <!--</a>-->
-                <!--<a class="f6 fw5 link dim br-pill ph4 mb2 mt2 dib blue b&#45;&#45;blue ba pt2 pb2 lh-copy ml2" href="/">-->
-                  <!--SKIP TRAIN-->
-                <!--</a>-->
-              <!--</div>-->
-            <!--</article>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="w-100 bg-light-grey-moon">-->
-          <!--<div class="cf db o-90">-->
-            <!--<article class="w-100 mw7 center ph3 ph4-ns tc br2 pv4">-->
-              <!--<div class="cf db">-->
-                <!--<div class="fl w-100 w-40-ns pa2">-->
-                  <!--<div class="w-90 f5 fw5 black-40 tl avenir lh-copy"> Being active (or inactive) is a consequence of-->
-                    <!--our-->
-                    <!--behaviours-->
-                    <!--and habits-->
-                  <!--</div>-->
-                  <!--<div class="w-100 mt5"><img src="../../assets/images/stretching_v4.png"/></div>-->
-                <!--</div>-->
-                <!--<div class="fl w-100 w-60-ns pa2"><p class="f5 fw4 navy tl avenir">Getting awareness of our current-->
-                  <!--behaviours is-->
-                  <!--the first step to replacing them with new ones, and for this purpose it is essential to identify cues-->
-                  <!--and triggers that start our habits.</p>-->
-                  <!--<p class="f5 fw4 navy tl avenir">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean-->
-                    <!--commodo ligula-->
-                    <!--eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur-->
-                    <!--ridiculus mus. </p>-->
-                  <!--<p class="f5 fw4 navy tl avenir">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean-->
-                    <!--commodo ligula-->
-                    <!--eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur-->
-                    <!--ridiculus mus. </p>-->
-                  <!--<p class="f5 fw4 navy tl avenir">A study reported in the Journal of Clinical Nutrition found that-->
-                    <!--short bouts of exercise, just three minutes at a time, for a total of 30 minutes a day, lowered-->
-                    <!--several measures of cardiac risk as effectively as one continuous 30-minute session.</p>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div>-->
-              <!--</div>-->
-            <!--</article>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
   </section>
-
-  <!--<footer class="bg-light-gray">-->
-    <!--<div class="dt w-100 mw8 ph3 ph3-m ph3-l pv4 center">-->
-      <!--<h1 class="f3 b dark-blue-->
- <!--tc o-50">FOOTER</h1>-->
-    <!--</div>-->
-  <!--</footer>-->
+  <footer class="cf w-100 bg-light-gray mt5">
+    <div class="w-80 center tc pv3 pv4-ns">
+      <div class="cf">
+        <div class="fl w-100">
+          <h3 class="f5 fw6 w-100 black-40 ma0">
+            <span class="mr2">Reach us</span> <a class="f6 fw5 navy no-underline white" href="mailto:activepathways@smartplayds.com">activepathways@smartplayds.com</a>
+          </h3>
+          <h3 class="f5 fw6 w-100 black-40 mt2-ns mb2-ns">
+            Join our community on <a href="https://www.facebook.com/getwalkers/"
+                                     class=" navy underline" target="_blank">Facebook</a>
+          </h3>
+          <p class="small-font fw5 black-40 mt1 mb0-ns">Copyright © All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
