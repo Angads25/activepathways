@@ -56,14 +56,14 @@
         <div class="fl w-100 w-50-ns pl0 pl2-ns">
           <div class="bg-white br3 box-shadow-grey vCalender pt4 pb3">
             <!--<datepicker :inline="true"></datepicker>-->
-            <v-date-picker
+            <v-calendar
               mode='range'
               tint-color='#f142f4'
-              :value='selectedDates'
+              :attributes='selectedDates'
               :theme-styles='themeStyles'
               is-single-paned
               is-inline>
-            </v-date-picker>
+            </v-calendar>
           </div>
         </div>
 

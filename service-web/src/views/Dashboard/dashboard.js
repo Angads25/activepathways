@@ -73,30 +73,50 @@ export default {
       return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
     },
     userChallengeStateCompletedOrSkipped () {
-      return this.userChallengeStateList.filter(challange => challange['status']==='COMPLETED' || challange['status']==='SKIPPED')
+      return this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED')
     },
-    selectedDates ()
-    {
-      let start='', end= ''
+    selectedDates (){
+      let start = '', end = ''
       this.userChallengeStateList.map(challange => {
-        if(!start){
-          start=challange['challengeDate'],
-            end=challange['challengeDate']
+        if (!start) {
+          start = challange['challengeDate']
+          end = challange['challengeDate']
         } else {
-          if(this.$differenceDays(start,challange['challengeDate'])>0)
-          {
-            start=challange['challengeDate']
+          if (this.$differenceDays(start, challange['challengeDate']) > 0) {
+            start = challange['challengeDate']
           }
-          if(this.$differenceDays(challange['challengeDate'],end)>0)
-          {
-            end=challange['challengeDate']
+          if (this.$differenceDays(challange['challengeDate'], end) > 0) {
+            end = challange['challengeDate']
           }
         }
       })
-      return {
-        start:start,
-        end:end
-      }
+      return [
+        {
+          key: 'programme',
+          highlight: {
+            backgroundColor: '#41c9c5',
+            // Other properties are available too, like `height` & `borderRadius`
+          },
+          contentStyle: {
+            color: '#ffffff',
+          },
+          dates: {
+            start: start,
+            end: end
+          }
+        },
+        {
+          key: 'today',
+          highlight: {
+            backgroundColor: '#001c44',
+            // Other properties are available too, like `height` & `borderRadius`
+          },
+          contentStyle: {
+            color: '#ffffff',
+          },
+          dates: new Date()
+        }
+      ]
     }
   },
   methods: {
