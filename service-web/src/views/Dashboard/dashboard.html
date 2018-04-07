@@ -10,7 +10,8 @@
         <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
            style="cursor: pointer" @click="logout()">Logout</a></div>
       <template v-if="userChallengeStatePending && userChallengeStatePending['status']">
-        <component :is="statusComponents[userChallengeStatePending['status']]" :challengeData="userChallengeStatePending" @challengeUpdated="challengeUpdated($event)"></component>
+        <component :is="statusComponents[userChallengeStatePending['status']]"
+                   :challengeData="userChallengeStatePending" @challengeUpdated="challengeUpdated($event)"></component>
       </template>
     </div>
   </section>
@@ -23,23 +24,10 @@
             <ul class="list pl0 tl mt0 mb0">
               <li class="pa3 pa4-ns bb b--black-05 pb5 pb5-l">
                 <b class="db f3 mb1 w-50 w-70-l fl navy">My journal</b>
-                <div class="db f6 mb1 tr fw6 fr w-50 w-30-l pt2 pt0-l pt0-m pr3 color-light-blue">SEE ALL NOTES</div>
+                <div class="db small-font mb1 tr fw6 fr w-50 w-30-l pt2 pt2-l pt0-m pr3 color-light-blue pointer"
+                     @click.prevent="activeModal = 'notesmodal'; openModal()">SEE ALL NOTES
+                </div>
               </li>
-              <!-- <li class="pa3 pa3-ns bb b&#45;&#45;black-05">
-                 <span class="f5 db lh-copy measure color-light">
-                   <span class="fw5">Enjoy a short walk to power your brain</span>
-                   <span class="fw3 db truncate w5 w-100-l w-100-m">Fermentum a, ullamcorper eget velt. In non bibendum ante</span></span>
-               </li>
-               <li class="pa3 pa3-ns bb b&#45;&#45;black-05">
-                 <span class="f5 db lh-copy measure color-light">
-                   <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
-                   <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-               </li>
-               <li class="pa3 pa3-ns">
-                 <span class="f5 db lh-copy measure color-light">
-                   <span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>
-                   <span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>
-               </li>-->
             </ul>
             <div class="scroll-my-journal">
               <ul class="list pl0 tl mt0" v-if="userJournal && userJournal.length">
@@ -48,26 +36,6 @@
                   <span class="fw5">{{(challenge['challenge'] || {})['name']}}</span>
                   <span class="fw3 db truncate w5 w-100-l w-100-m">{{challenge['notes']}}</span></span>
                 </li>
-                <!--<li class="pa3 pa3-ns bb b&#45;&#45;black-05">-->
-                <!--<span class="f5 db lh-copy measure color-light">-->
-                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
-                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
-                <!--</li>-->
-                <!--<li class="pa3 pa3-ns">-->
-                <!--<span class="f5 db lh-copy measure color-light">-->
-                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
-                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
-                <!--</li>-->
-                <!--<li class="pa3 pa3-ns">-->
-                <!--<span class="f5 db lh-copy measure color-light">-->
-                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
-                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
-                <!--</li>-->
-                <!--<li class="pa3 pa3-ns">-->
-                <!--<span class="f5 db lh-copy measure color-light">-->
-                <!--<span class="fw5">Program 1, day 3 - Walk 2 bus Stops</span>-->
-                <!--<span class="fw3 db truncate w5 w-80-l w-80-m">Mauris augue ipsum, incident non fermentum a, ullamcorper eget velt</span></span>-->
-                <!--</li>-->
               </ul>
               <div v-else>
                 <div class="pa3 pa3-ns mt3">
@@ -99,17 +67,13 @@
               <li
                 class="flex items-center lh-copy pa4 ph0-l bb b--black-05">
                 <b class="db f3 mb1 w-50 w-70-l w-70-m fl navy pl2 pl4-m pl4-l">Activity log</b>
-
-                <!--<a href=""-->
-                <!--class="db small-font mb1 tr fw6 pt2 pt0-l pt0-m fr w-50 w-30-l w-30-m pr2 pr4-m pr4-l no-underline color-light-blue">SEE-->
-                <!--ALL ACTIVITIES</a>-->
               </li>
               <li class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05"
                   v-if="!userChallengeStateList || !userChallengeStateList.length">No activities found
               </li>
               <li
                 class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b--black-05 "
-                v-for="(list, i) in userChallengeStateCompletedOrSkipped"  >
+                v-for="(list, i) in userChallengeStateCompletedOrSkipped">
                 <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
                 <div class="pl3 flex-auto">
                   <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{$differenceDays(list.challengeDate, (list.user || {}).createdAt)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
@@ -117,23 +81,6 @@
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.challenge.shortDescription}}</span>
                 </div>
               </li>
-              <!--  <li
-                  class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m bb b&#45;&#45;black-05 ">
-                  <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
-                  <div class="pl3 flex-auto">
-                    <span class="f5 fw5 db color-light">Program 1 Day 3 - 01/08</span>
-                    <span class="f6 f4-m f4-l fw5 db color-light">Enjoy a short walk to power your brain</span>
-                  </div>
-                </li>
-                <li
-                  class="flex items-center lh-copy pv3 pv4-m pv4-l ph3 ph4-l ph4-m ph0-m ">
-                  <img class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile4selected.svg"/>
-                  <div class="pl3 flex-auto">
-                    <span class="f5 fw5 db color-light">Program 1 Day 3 - 01/08</span>
-                    <span class="f6 f4-m f4-l fw5 db color-light">Enjoy a short walk to power your brain</span>
-                  </div>
-                </li>-->
-
             </ul>
 
           </div>
@@ -144,8 +91,20 @@
   <footer class="cf w-100 bg-light-gray mt5">
     <div class="w-80 center tc pv3 pv4-ns">
       <div class="cf">
-        <div class="f3 f3-ns b dark-light">FOOTER</div>
+        <div class="fl w-100">
+          <h3 class="f5 fw6 w-100 black-40 ma0">
+            <span class="mr2">Reach us</span> <a class="f6 fw5 navy no-underline white"
+                                                 href="mailto:activepathways@smartplayds.com">activepathways@smartplayds.com</a>
+          </h3>
+          <h3 class="f5 fw6 w-100 black-40 mt2-ns mb2-ns">
+            Join our community on <a href="https://www.facebook.com/getwalkers/"
+                                     class=" navy underline" target="_blank">Facebook</a>
+          </h3>
+          <p class="small-font fw5 black-40 mt1 mb0-ns">Copyright © All rights reserved.</p>
+        </div>
       </div>
     </div>
   </footer>
+  <NotesModal v-if="activeModal === 'notesmodal'" @closeModal="closeModal()"
+              :activeStatus="activeModal === 'notesmodal'"></NotesModal>
 </div>

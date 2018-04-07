@@ -1,0 +1,12 @@
+.scroll-my-journal {
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /*padding-bottom: 50px;*/
+}
+.notes  {
+  overflow: hidden;
+}
+.notes + i {
+  overflow: scroll;
+}

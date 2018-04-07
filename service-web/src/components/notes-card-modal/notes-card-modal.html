@@ -1,0 +1,34 @@
+<section class="modal-signin fade " :class="{'show': activeStatus, 'd-block': activeStatus}"
+         @click.prevent="closeModal($event)">
+  <section class="modal-frame h-100 dt ph3 ph2-m ph0-l pt4-m pv0-l">
+    <div class="w-100 modal-dialog dtc v-mid ph2">
+      <div class="  mb5 z-3 relative" @click.prevent="$event.stopPropagation()">
+        <div class="bg-white  black br3 shadow-default animation">
+          <i
+            class="bg-white h2 w2 absolute top-0 top--1-m top--1-l br-100 right-0 right--1-l right--1-m z-4 br5 pointer close-icon"
+            @click.prevent="closeModal($event)"><img src="../../assets/images/close-icon.png" class="v-tb"/></i>
+          <div class="cf db">
+            <div class="fl w-100">
+              <div class=" br3 mb0-ns">
+                <ul class="list pl0 tl mt0 mb0">
+                  <li class="pa3 pa4-ns bb b--black-05 pb5 pb5-l">
+                    <b class="db f3 mb1 w-50 w-70-l fl navy">My journal</b>
+                  </li>
+                </ul>
+                <div class="scroll-my-journal">
+                  <ul class="list pl0 tl mt0">
+                    <li class="pa3 pa3-ns bb b--black-05">
+                <span class="f5 db lh-copy measure color-light">
+                  <span class="fw5">No Journals for the user</span>
+                  <span class="fw3 db truncate w5 w-100-l w-100-m">No Journals for the user</span></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

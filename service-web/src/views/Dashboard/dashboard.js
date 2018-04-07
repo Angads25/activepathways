@@ -4,6 +4,7 @@ import Skipped from '@/components/challengeStates/skipped/skipped.vue'
 import Done from '@/components/challengeStates/done/done.vue'
 import NotDone from '@/components/challengeStates/notDone/notDone.vue'
 import NoCheckIn from '@/components/challengeStates/noCheckIn/noCheckIn.vue'
+import NotesModal from '@/components/notes-card-modal/notes-card-modal.vue'
 
 export default {
   name: 'Dashboard',
@@ -13,7 +14,8 @@ export default {
     Skipped,
     Done,
     NotDone,
-    NoCheckIn
+    NoCheckIn,
+    NotesModal
   },
   data () {
     return {
@@ -22,8 +24,11 @@ export default {
         PENDING: OnHold,
         STARTED: Doing,
         COMPLETED: Done,
-        SKIPPED: Skipped
+        SKIPPED: Skipped,
+        openerText: 'Open'
       },
+      activeModal: '',
+      isOpen: false,
       themeStyles: {
         wrapper: {
           border: '1'
@@ -102,6 +107,23 @@ export default {
     challengeUpdated (event) {
       console.log('>>>>>>>>>>>>>updated', event)
       this.$store.dispatch('fetchUserChallengeStateList')
+    },
+    closeModal () {
+      document.body.classList.remove('modal-open')
+      this.activeModal = ''
+    },
+    openModal () {
+      document.body.classList.add('modal-open')
+    },
+    open () {
+      this.openerText = 'Close'
+      this.isOpen = true
+      document.body.classList.add('overlay-bg')
+    },
+    close () {
+      this.openerText = 'Open'
+      this.isOpen = false
+      document.body.classList.remove('overlay-bg')
     }
   },
   created () {
