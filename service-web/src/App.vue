@@ -64,11 +64,15 @@ export default {
     },
     responseError () {
       console.log(this.responseError)
-      swal({
-        type: 'error',
-        title: 'Error',
-        text: this.responseError.error
-      })
+      if (this.responseError.intercept) {
+        this.responseError.intercept(this.responseError.error)
+      } else {
+        swal({
+          type: 'error',
+          title: 'Error',
+          text: this.responseError.error
+        })
+      }
     }
   }
 }

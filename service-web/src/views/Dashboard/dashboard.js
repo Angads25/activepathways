@@ -62,6 +62,9 @@ export default {
     userChallengeStateList () {
       return this.$store.state.auth.userChallengeStateList
     },
+    user () {
+      return this.$store.state.auth.user
+    },
     userChallengeStatePending () {
       return this.userChallengeStateList.find(challenge => this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
     },

@@ -1,4 +1,5 @@
 import { postRequest, createMutation, createQuery } from './index'
+import swal from 'sweetalert2'
 
 export const AuthService = {
   signup (data) {
@@ -26,7 +27,12 @@ export const AuthService = {
         token: 'token'
       }
     })
-    return postRequest(mutation.getGraphQLString(), 'upsertUser', false)
+    return postRequest(mutation.getGraphQLString(), 'upsertUser', false, err => {
+      console.log('Intercepting Error', err)
+      if (err.search(/already register/i) > -1) {
+        swal({type: 'warning', title: 'Oops!', text: 'This email id has been already registered. If you forgot your password then please use forget password link to reset your password.'})
+      }
+    })
   },
   signin (data) {
     const query = createQuery()

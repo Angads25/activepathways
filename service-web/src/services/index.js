@@ -10,19 +10,20 @@ export const HTTP = axios.create({
 
 HTTP.defaults.headers.post['Accept'] = 'application/json'
 
-const _responseHandler = (response, name, resolve, reject) => {
+const _responseHandler = (response, name, resolve, reject, intercept) => {
   const body = response.data
   if (body.data && body.data[name]) {
     resolve(body.data[name])
   } else {
-    errorHandler(response.data.errors, reject)
+    errorHandler(response.data.errors, reject, intercept)
   }
 }
 
-export const errorHandler = (err, reject) => {
-  console.log('error -> ', err)
+export const errorHandler = (err, reject, intercept) => {
+  console.log('error -> ', err, intercept)
   store.commit('setResponseError', {
-    error: err.message || err[0].message || 'Something went wrong, Please try again!!!' || err
+    error: err.message || err[0].message || 'Something went wrong, Please try again!!!' || err,
+    intercept: intercept
   })
   reject(err)
 }
@@ -44,14 +45,14 @@ export const _getHeaders = () => {
   }
 }
 
-export const postRequest = (url, name, headers = true) => {
+export const postRequest = (url, name, headers = true, intercept = false) => {
   return new Promise((resolve, reject) => {
     HTTP.post(`graph?query=${encodeURIComponent(url)}`, '', headers ? _getHeaders() : {})
       .then((response) => {
-        _responseHandler(response, name, resolve, reject)
+        _responseHandler(response, name, resolve, reject, intercept)
       })
       .catch((err) => {
-        errorHandler(err, reject)
+        errorHandler(err, reject, intercept)
       })
   })
 }
