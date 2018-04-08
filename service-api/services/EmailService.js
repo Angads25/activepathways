@@ -9,10 +9,10 @@ var nodemailer = require('nodemailer'),
 	transporter = nodemailer.createTransport({
 		service: 'Mailgun',
 		auth: {
-			user: process.env.MAILGUN_DOMAIN,
-			pass: process.env.MAILGUN_PASS
+			user: process.env.MAILGUN_USER,
+			pass: process.env.MAILGUN_PASSWORD
 		},
-		fromEmail: process.env.MAILGUN_DOMAIN,
+		fromEmail: process.env.MAILGUN_USER,
 		subject: 'Welcome'
 	});
 
@@ -21,7 +21,7 @@ const REPORT_TEMPLATES_BASE_PATH = path.join(__dirname, '../templates', 'emailTe
 module.exports = {
 
 	//Sends the mail
-	sendMail: function (to, template, data, callback) {
+	sendMail: function (to, subject, template, data, callback) {
 
 		var tasks = [],
 			result,
@@ -31,6 +31,7 @@ module.exports = {
 			_compileTemplate(template, data, function (err, html) {
 				if (err) return callback();
 				additionalParameters.html = html;
+				console.log(html);
 				callback();
 			});
 		});
@@ -38,9 +39,10 @@ module.exports = {
 		tasks.push(function (callback) {
 			additionalParameters.to = to;
 			additionalParameters.from = transporter.fromEmail;
-			additionalParameters.subject = transporter.subject;
+			additionalParameters.subject = subject;
 			_sendMail(additionalParameters, function (err, resp) {
 				if (err) return callback(err);
+				console.log(resp);
 				callback(null, result = 'Success');
 			});
 		});

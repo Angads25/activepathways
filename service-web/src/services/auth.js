@@ -1,4 +1,4 @@
-import { postRequest, createMutation, createQuery } from './index'
+import {postRequest, createMutation, createQuery} from './index'
 import swal from 'sweetalert2'
 
 export const AuthService = {
@@ -7,11 +7,10 @@ export const AuthService = {
     mutation.addQuery({
       name: 'upsertUser',
       args: {
-        name:
-          {
-            first: data.name.first,
-            last: data.name.last
-          },
+        name: {
+          first: data.name.first,
+          last: data.name.last
+        },
         email: data.email,
         password: data.password
       },
@@ -30,7 +29,13 @@ export const AuthService = {
     return postRequest(mutation.getGraphQLString(), 'upsertUser', false, err => {
       console.log('Intercepting Error', err)
       if (err.search(/already register/i) > -1) {
-        swal({type: 'warning', title: 'Oops!', text: 'This email id has been already registered. If you forgot your password then please use forget password link to reset your password.'})
+        swal({
+          type: 'warning',
+          title: 'Oops!',
+          text: 'This email id has been already registered. If you forgot your password then please use forget password link to reset your password.'
+        })
+      } else {
+        swal({type: 'error', title: 'Error', text: err})
       }
     })
   },

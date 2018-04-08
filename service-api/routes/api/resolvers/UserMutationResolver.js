@@ -104,7 +104,7 @@ upsertUser = (args, request, cb) => {
 			// Send welcome email to user
 			callback => {
 				if (!user || args.id) return callback();
-				EmailService.sendMail(user.email, 'Welcome', user, function (err, _result) {
+				EmailService.sendMail(user.email, "Welcome to ActivePathways.", 'Welcome', user, function (err, _result) {
 					if (err) console.log(err);
 					callback()
 				})
@@ -112,7 +112,7 @@ upsertUser = (args, request, cb) => {
 			// 
 			callback => {
 				if (!user || args.id) return callback();
-				Programme.findOne({name: /.*Starter.*/}, (err, _programme) => {
+				Programme.findOne({name: /.*Starter.*/i}, (err, _programme) => {
 					if (err) callback(err);
 					else if (_programme) callback(null, programme = _programme);
 					else callback(new Error("Unable to find any starter program!"));
@@ -141,7 +141,7 @@ upsertUser = (args, request, cb) => {
 					userChallengeState.challenge = challenge;
 					userChallengeState.notes = "";
 					userChallengeState.status = "PENDING";
-					userChallengeState.challengeDate = moment(user.createdAt).add(i+1, 'days').format();
+					userChallengeState.challengeDate = moment(user.createdAt).add(i + 1, 'days').format();
 					userChallengeState.createdAt = user.createdAt;
 					userChallenges.push(userChallengeState)
 				})

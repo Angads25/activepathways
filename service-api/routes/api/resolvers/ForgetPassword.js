@@ -27,7 +27,7 @@ module.exports = {
 			new Promise((resolve, reject) => {
 					let user,
 						token;
-					
+
 					async.series([
 						// find user
 						callback => {
@@ -46,7 +46,7 @@ module.exports = {
 						callback => {
 							user = user.toObject();
 							user.link = process.env.WEBSITE_URL + token;
-							EmailService.sendMail(user.email, 'ForgetPassword', user, (err, resp) => {
+							EmailService.sendMail(user.email, "[ActivePathways] Reset your password.", 'ForgetPassword', user, (err, resp) => {
 								if (err) return callback(err);
 								callback();
 							});
