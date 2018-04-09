@@ -65,6 +65,7 @@ export default {
       return this.$store.state.auth.userChallengeStateList
     },
     user() {
+      console.log('?>>>>>',this.$store.state.auth.user)
       return this.$store.state.auth.user
     },
     userChallengeStatePending() {

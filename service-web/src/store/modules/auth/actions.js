@@ -23,7 +23,7 @@ export default {
       AuthService.signin(payload)
         .then(resp => {
           if (resp.id) {
-            commit('setUser', resp['user'])
+            commit('setUser', resp)
             commit('setAuthToken', resp['token'])
             LocalData.set.authToken(resp['token'])
             resolve(resp)
