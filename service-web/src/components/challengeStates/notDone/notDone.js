@@ -35,8 +35,8 @@ export default {
     },
     dayNum () {
       let idx = -1;
-      for (let i = 0; i < (this.programmeData.challenges || []).length; i++) {
-        if (this.programmeData.challenges[i].id === this.challengeData.id) {
+      for (let i = 0; i < (this.programmeData || []).length; i++) {
+        if (this.programmeData[i].id === this.challengeData.id) {
           idx = i
           break
         }

@@ -10,7 +10,7 @@
       <div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default pt1">
         <div v-if="challengeData && challengeData['status']">
           <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData"
-                     :isChallengeDetail="true" @challengeUpdated="challengeUpdated($event)"></component>
+                     :isChallengeDetail="true" :programmeData="userChallengeStateList" @challengeUpdated="challengeUpdated($event)"></component>
         </div>
         <div class="w-100 bt b--near-white">
           <div class="cf db o-90">

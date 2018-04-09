@@ -1,4 +1,4 @@
-import { UserService } from '../../services/user'
+import {UserService} from '../../services/user'
 import OnHold from '@/components/challengeStates/onHold/onHold.vue'
 import Doing from '@/components/challengeStates/doing/doing.vue'
 import Skipped from '@/components/challengeStates/skipped/skipped.vue'
@@ -16,7 +16,7 @@ export default {
     NotDone,
     NoCheckIn
   },
-  data () {
+  data() {
     return {
       type: 0,
       challengeData: {},
@@ -28,18 +28,29 @@ export default {
       }
     }
   },
-  created () {
+  computed: {
+    userChallengeStateList() {
+      // console.log('###################',this.$store.state.auth.userChallengeStateList)
+      return this.$store.state.auth.userChallengeStateList
+    },
+    currentProgrammeData() {
+      return {
+        challenges: this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
+      }
+    }
+  },
+  created() {
     this.fetchChallengeData()
   },
   methods: {
-    fetchChallengeData () {
+    fetchChallengeData() {
       UserService.userChallengeById(this.$route.params['id'])
         .then(resp => {
           console.log(resp)
           this.challengeData = resp
         })
     },
-    challengeUpdated (event) {
+    challengeUpdated(event) {
       this.fetchChallengeData()
     }
   }
