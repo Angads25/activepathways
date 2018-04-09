@@ -90,7 +90,7 @@
                 <img v-else-if="list['rating']===1" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile1selected.svg"/>
                 <img v-else="list['rating']===-1 || list['rating']===''" src="../../assets/images/smile4.svg" alt="Mountains" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l"/>
                 <div class="pl3 flex-auto">
-                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{$differenceDays(list.challengeDate, (list.user || {}).createdAt)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
+                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{dayNum(list)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.status}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.challenge.shortDescription}}</span>
                 </div>
