@@ -4,7 +4,7 @@
   *list-style: decimal;
   padding: 0;
   margin-bottom: 4em;
-  /*margin-left: 15px;*/
+  margin-left: 50px;
   position: relative;
 
 }
@@ -393,6 +393,9 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   }
   .vCalender .c-header .c-arrow-layout {
     right: -76%;
+  }
+  .numberlist ol {
+    margin-left: 17px;
   }
 
 }
