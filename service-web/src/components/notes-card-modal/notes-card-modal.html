@@ -16,13 +16,20 @@
                   </li>
                 </ul>
                 <div class="scroll-my-journal">
-                  <ul class="list pl0 tl mt0">
-                    <li class="pa3 pa3-ns bb b--black-05">
+                  <ul class="list pl0 tl mt0" v-if="userJournal && userJournal.length">
+                    <li v-for="challenge in userJournal" class="pa3 pa3-ns bb b--black-05">
                 <span class="f5 db lh-copy measure color-light">
-                  <span class="fw5">No Journals for the user</span>
-                  <span class="fw3 db truncate w5 w-100-l w-100-m">No Journals for the user</span></span>
+                  <span class="fw5">{{(challenge['challenge'] || {})['name']}}</span>
+                  <span class="fw3 db truncate w5 w-100-l w-100-m">{{challenge['notes']}}</span></span>
                     </li>
                   </ul>
+                  <div v-else>
+                    <div class="pa3 pa3-ns mt3">
+                    <span class="f5 db lh-copy measure color-light">
+                      <span class="fw5">No Journals for the user</span>
+                    </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
