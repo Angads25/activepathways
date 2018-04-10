@@ -347,6 +347,25 @@ input:focus ~ label, input:valid ~ label 		{
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
+.button-loader {
+  height: 30px;
+  top: 13px;
+  left: 0;
+  margin: auto;
+  right: 0;
+  position: absolute;
+  width: 30px;
+  animation: rotate 0.8s infinite linear;
+  border: 2px solid #408BC9;
+  /*border: 2px solid #fff;*/
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
 /*-----mood icon---*/
 
 .mood-icons {
@@ -369,10 +388,6 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   width: 100%;
   height: 100%;
   padding: 15px;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -ms-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
 }
 .mood-icons:hover .selected-smile-icon{
   opacity: 1;
@@ -385,7 +400,10 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   padding: 0;
   background: none;
 }
-
+.textarea:focus {
+  outline: none;
+  border: 1px solid #408BC9;
+}
 @media screen and (max-width: 480px) {
   .welcome-bg {
     background-color: rgba(255, 255, 255, 0.85);
