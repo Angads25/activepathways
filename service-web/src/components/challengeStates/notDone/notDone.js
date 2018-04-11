@@ -15,10 +15,14 @@ export default {
     },
     isChallengeDetail: {default: false}
   },
+  created() {
+    l_rating=this.challengeData['rating']
+  },
   data() {
     return {
       notes: '',
-      saveFlag: false
+      saveFlag: false,
+      l_rating: ''
     }
   },
   watch: {
@@ -29,9 +33,6 @@ export default {
   computed: {
     notesStatus() {
       return this.challengeData['notes'] ? 'Update' : (this.saveFlag ? 'Save' : 'Add')
-    },
-    rating() {
-      return this.challengeData['rating']
     },
     dayNum () {
       let idx = -1;
@@ -72,6 +73,7 @@ export default {
       }
     },
     setRating(rating) {
+      this.l_rating=rating
       const challengeData = {...this.challengeData}
       challengeData['rating'] = rating
       if (this.challengeData['user']['id']) {
@@ -84,6 +86,7 @@ export default {
             type: 'success'
           })
         }).catch(err => {
+          this.l_rating=this.challengeData['rating']
           this.$notify.error({
             title: 'Error',
             message: 'Error updating happiness level'

@@ -2,7 +2,6 @@ import {UserService} from "../../../services/user";
 
 export default {
   name: 'Done',
-  l_rating: '',
   props: {
     challengeData: {
       default() {
@@ -18,6 +17,7 @@ export default {
   },
   data() {
     return {
+      l_rating: '',
       notes: '',
       saveFlag: false
     }
@@ -88,8 +88,6 @@ export default {
     },
     setRating(rating) {
       this.l_rating = rating
-      console.log('>>>>>rating clicked', rating)
-      console.log('>>>>>lrating is', this.l_rating)
       const challengeData = {...this.challengeData}
       challengeData['rating'] = rating
       if (this.challengeData['user']['id']) {
