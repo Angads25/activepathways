@@ -14,6 +14,11 @@ export default {
       default: false
     }
   },
+  computed: {
+    showLoader() {
+      return this.$store.state.ui.show_loader
+    }
+  },
   methods: {
     closeModal (event) {
       event.stopPropagation()

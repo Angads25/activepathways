@@ -1,6 +1,6 @@
 export default {
   name: 'SignIn',
-  data () {
+  data() {
     return {
       email: '',
       password: ''
@@ -11,26 +11,31 @@ export default {
       default: false
     }
   },
+  computed: {
+    showLoader() {
+      return this.$store.state.ui.show_loader
+    }
+  },
   methods: {
-    closeModal (event) {
+    closeModal(event) {
       event.stopPropagation()
       this.$emit('closeModal')
     },
-    openSignUp (event) {
+    openSignUp(event) {
       event.stopPropagation()
       this.$emit('openSignUp')
     },
-    openForgetPassword (event) {
+    openForgetPassword(event) {
       event.stopPropagation()
       this.$emit('openForgetPassword')
     },
-    getSignInData () {
+    getSignInData() {
       return {
         email: this.email,
         password: this.password
       }
     },
-    signIn (event) {
+    signIn(event) {
       event.stopPropagation()
       this.$validator.validateAll()
         .then(result => {
@@ -44,8 +49,8 @@ export default {
                 this.$loader.hide()
                 this.closeModal(event)
               }).catch(err => {
-                this.$loader.hide()
-              })
+              this.$loader.hide()
+            })
           } else {
             console.log('form not validated')
           }
