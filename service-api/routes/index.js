@@ -50,4 +50,7 @@ exports = module.exports = function (app) {
 
 	// agenda dash 
 	app.use('/jobs/admin', middleware.requireUserWithTargetUrl('/jobs/admin'), Agendash(_agenda));
+	
+	// mail test util
+	app.use('/util/templates', middleware.requireUserWithTargetUrl('/util/templates'), routes.views.mailTemplateUtil);
 };

@@ -50,6 +50,19 @@ module.exports = {
 		async.series(tasks, function (err) {
 			callback(err, result);
 		});
+	},
+
+	sendHTML: function (to, html, subject, callback) {
+		let additionalParameters = {};
+		additionalParameters.html = html;
+		additionalParameters.to = to;
+		additionalParameters.from = transporter.fromEmail;
+		additionalParameters.subject = subject;
+		_sendMail(additionalParameters, function (err, resp) {
+			if (err) return callback(err);
+			console.log(resp);
+			callback(null, 'Success');
+		});
 	}
 };
 
