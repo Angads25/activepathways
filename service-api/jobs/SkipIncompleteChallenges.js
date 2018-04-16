@@ -20,6 +20,9 @@ module.exports = class SkipIncompleteChallenges {
 			},
 			{
 				$set: {status: 'SKIPPED'}
+			},
+			{
+				multi: true
 			}
 		).exec((err) => {
 			if (err) log.error(`ERROR in Job ${this.name}`, err);
