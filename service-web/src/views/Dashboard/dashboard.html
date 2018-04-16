@@ -7,7 +7,7 @@
   <section class="cf w-100 ph0 ph6-l pt4 gradient-blue">
     <div class="dt w-100 mw8 ph3 ph3-m ph3-l center">
       <div class="w-100 tr">
-        <div class="f6 fw6 link br-pill ph4 mb4 dib tr white pt2 pb2">{{(user.name) ? (user.name.first +" "+ user.name.last) : ''}} ({{user.email}})</div>
+        <div class="f6 fw6 link br-pill ph4 mb4 dib tr white pt2 pb2">{{(user && user.name) ? (user.name.first +" "+ user.name.last) : ''}} ({{user ? user.email : ''}})</div>
 
         <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
            style="cursor: pointer" @click="logout()">Logout</a>
@@ -15,7 +15,7 @@
       <template v-if="userChallengeStatePending && userChallengeStatePending['status']">
         <component :is="statusComponents[userChallengeStatePending['status']]"
                    :challengeData="userChallengeStatePending"
-                   :programmeData="currentProgrammeData"
+                   :programmeData="userChallengeStateList"
                    @challengeUpdated="challengeUpdated($event)"
         ></component>
       </template>
@@ -90,7 +90,7 @@
                 <img v-else-if="list['rating']===1" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l" src="../../assets/images/smile1selected.svg"/>
                 <img v-else="list['rating']===-1 || list['rating']===''" src="../../assets/images/smile4.svg" alt="Mountains" class="w2 h2 w2-ns h2-ns br-100 ml2 ml4-m ml4-l"/>
                 <div class="pl3 flex-auto">
-                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{$differenceDays(list.challengeDate, (list.user || {}).createdAt)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
+                  <span class="f5 fw5 db color-light">{{(list.programme || {}).name}} - Day {{dayNum(list)}} - {{list.challengeDate | parseDate('DD/MM')}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.status}}</span>
                   <span class="f6 f4-m f4-l fw5 db color-light">{{list.challenge.shortDescription}}</span>
                 </div>

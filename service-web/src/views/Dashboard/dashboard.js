@@ -17,7 +17,7 @@ export default {
     NoCheckIn,
     NotesModal
   },
-  data () {
+  data() {
     return {
       todaysDate: new Date(),
       statusComponents: {
@@ -60,28 +60,29 @@ export default {
     }
   },
   computed: {
-    userChallengeStateList () {
+    userChallengeStateList() {
       // console.log('###################',this.$store.state.auth.userChallengeStateList)
       return this.$store.state.auth.userChallengeStateList
     },
-    user () {
+    user() {
+      console.log('?>>>>>',this.$store.state.auth.user)
       return this.$store.state.auth.user
     },
-    userChallengeStatePending () {
+    userChallengeStatePending() {
       return this.userChallengeStateList.find(challenge => this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
     },
-    currentProgrammeData () {
+    currentProgrammeData() {
       return {
         challenges: this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
       }
     },
-    userJournal () {
+    userJournal() {
       return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
     },
-    userChallengeStateCompletedOrSkipped () {
+    userChallengeStateCompletedOrSkipped() {
       return this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED')
     },
-    selectedDates (){
+    selectedDates() {
       let start = '', end = ''
       this.userChallengeStateList.map(challange => {
         if (!start) {
@@ -126,7 +127,7 @@ export default {
     }
   },
   methods: {
-    logout () {
+    logout() {
       this.$loader.show()
       this.$store.dispatch('logout')
       this.$router.push({
@@ -134,29 +135,40 @@ export default {
       })
       this.$loader.hide()
     },
-    challengeUpdated (event) {
+    dayNum(challengeData) {
+      let idx = -1;
+      for (let i = 0; i < (this.userChallengeStateList || []).length; i++) {
+        if (this.userChallengeStateList[i].id === challengeData.id) {
+          idx = i
+          break
+        }
+      }
+      return idx + 1
+
+    },
+    challengeUpdated(event) {
       console.log('>>>>>>>>>>>>>updated', event)
       this.$store.dispatch('fetchUserChallengeStateList')
     },
-    closeModal () {
+    closeModal() {
       document.body.classList.remove('modal-open')
       this.activeModal = ''
     },
-    openModal () {
+    openModal() {
       document.body.classList.add('modal-open')
     },
-    open () {
+    open() {
       this.openerText = 'Close'
       this.isOpen = true
       document.body.classList.add('overlay-bg')
     },
-    close () {
+    close() {
       this.openerText = 'Open'
       this.isOpen = false
       document.body.classList.remove('overlay-bg')
     }
   },
-  created () {
+  created() {
     this.$store.dispatch('fetchUserChallengeStateList')
   }
 }

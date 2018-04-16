@@ -10,13 +10,13 @@
       <div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default pt1">
         <div v-if="challengeData && challengeData['status']">
           <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData"
-                     :isChallengeDetail="true" @challengeUpdated="challengeUpdated($event)"></component>
+                     :isChallengeDetail="true" :programmeData="userChallengeStateList" @challengeUpdated="challengeUpdated($event)"></component>
         </div>
         <div class="w-100 bt b--near-white">
           <div class="cf db o-90">
             <article class="w-100 mw7 center ph3 ph5-ns tc br2 pv3" v-if="challengeData && challengeData['notes']">
               <h4 class="f4 fw5 black-40 tl mb0">My journal</h4>
-              <p class="f6 lh-copy navy tl avenir">{{challengeData['notes']}}</p>
+              <pre class="f6 lh-copy navy tl avenir">{{challengeData['notes']}}</pre>
             </article>
           </div>
         </div>

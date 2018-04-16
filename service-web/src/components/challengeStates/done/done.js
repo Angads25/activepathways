@@ -2,7 +2,6 @@ import {UserService} from "../../../services/user";
 
 export default {
   name: 'Done',
-  l_rating: '',
   props: {
     challengeData: {
       default() {
@@ -18,6 +17,7 @@ export default {
   },
   data() {
     return {
+      l_rating: '',
       notes: '',
       saveFlag: false
     }
@@ -39,13 +39,15 @@ export default {
       return this.challengeData['rating']
     },
     dayNum () {
+      console.log('>>>>>>>>',this.programmeData,this.challengeData)
       let idx = -1;
-      for (let i = 0; i < (this.programmeData.challenges || []).length; i++) {
-        if (this.programmeData.challenges[i].id === this.challengeData.id) {
+      for (let i = 0; i < (this.programmeData || []).length; i++) {
+        if (this.programmeData[i].id === this.challengeData.id) {
           idx = i
           break
         }
       }
+      console.log('>>>>>>',idx)
       return idx + 1
     }
     // ,
@@ -86,8 +88,6 @@ export default {
     },
     setRating(rating) {
       this.l_rating = rating
-      console.log('>>>>>rating clicked', rating)
-      console.log('>>>>>lrating is', this.l_rating)
       const challengeData = {...this.challengeData}
       challengeData['rating'] = rating
       if (this.challengeData['user']['id']) {
