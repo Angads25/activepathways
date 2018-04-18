@@ -54,6 +54,17 @@ export default {
         })
     })
   },
+  setNewPassword ({commit}, payload) {
+    return new Promise((resolve ,reject) => {
+      const  auth = AuthService.resetPassword(payload)
+        .then(resp => {
+          resolve(resp)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  },
   fetchAuthFromLocal ({commit, dispatch}) {
     return new Promise((resolve, reject) => {
       const auth = LocalData.fetch.authToken()

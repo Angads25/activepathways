@@ -1,8 +1,7 @@
 <header class="avenir h-100 " v-if="!showHeader">
   <div class=" header-baner">
     <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-75 vh-100-m vh-100-l">
-      <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt3-ns dt w-100 mw8 center bb nav-border-b
-">
+      <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt3-ns dt w-100 mw8 center bb nav-border-b">
         <div class="w-20 fl ml3 ml0-ns tl pa2-ns">
           <a href="" class="no-underline">
             <img src="../../assets/images/site-logo.png"/>
@@ -16,8 +15,11 @@
             <a href="" v-scroll-to="'#saying'" class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer">
               Testimonials
             </a>
-            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'signup'; openModal()">
-              Sign up
+            <!--<a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'signup'; openModal()">-->
+              <!--Sign up-->
+            <!--</a>-->
+            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'resetPassword'; openModal()">
+              Reset Password
             </a>
             <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'signin'; openModal()">
               Sign in
@@ -78,4 +80,7 @@
   <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()"
                   @openSignIn="activeModal = 'signin'; openModal()"
                   :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
+  <ResetPassword v-if="activeModal === 'resetPassword'" @closeModal="closeModal()"
+                  @openSignIn="activeModal = 'resetPassword'; openModal()"
+                  :activeStatus="activeModal === 'resetPassword'"></ResetPassword>
 </header>

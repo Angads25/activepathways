@@ -1,5 +1,6 @@
 import {postRequest, createMutation, createQuery} from './index'
 import swal from 'sweetalert2'
+import resetPassword from "../components/login/resetPassword/resetPassword";
 
 export const AuthService = {
   signup (data) {
@@ -73,6 +74,19 @@ export const AuthService = {
       }
     })
     return postRequest(query.getGraphQLString(), 'forgetPassword', false)
+  },
+  resetPassword (data) {
+    const query = createQuery()
+    query.addQuery({
+      name: 'resetPassword',
+      args: {
+        email: data.password
+      },
+      nodes:{
+
+      }
+    })
+    return postRequest(query.getGraphQLString(), 'resetPassword', false)
   },
   myProfile () {
     const query = createQuery()

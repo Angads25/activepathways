@@ -17,7 +17,7 @@ export default {
   },
   data() {
     return {
-      l_rating: '',
+      cd : '',
       notes: '',
       saveFlag: false
     }
