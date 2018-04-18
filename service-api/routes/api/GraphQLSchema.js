@@ -18,8 +18,7 @@ const UserProgrammeEnrollmentField = require('./resolvers/UserProgrammeEnrollmen
 const ForgetPasswordField = require('./resolvers/ForgetPassword');
 
 //Mutation Fields
-
-
+const ResetPasswordField = require('./resolvers/ResetPassword');
 // Define schema
 const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 	/**
@@ -52,6 +51,7 @@ const ProjectNameGraphQLSchema = new graphql.GraphQLSchema({
 			upsertUserChallengeState: ChallengeStateMutationField.upsertChallengeState,
 			upsertUserProgrammeEnrollment: UserProgrammeEnrollmentField.UserProgrammeEnrollment,
 			upsertProgramme: ProgrammeMutationField.upsertProgramme,
+			resetPassword: ResetPasswordField.resetPassword
 		})
 	}),
 });
