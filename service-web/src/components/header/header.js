@@ -23,10 +23,18 @@ export default {
       return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard') || (this.$route.name === 'challenge-detail')
     }
   },
+  watch: {
+    "$route"(to, from){
+      if (to.query.redirect) {
+        this.activeModal = 'signin';
+        this.openModal();
+      }
+    }
+  },
   methods: {
     closeModal () {
-      document.body.classList.remove('modal-open')
-      this.activeModal = ''
+      document.body.classList.remove('modal-open');
+      this.activeModal = "";
     },
     openModal () {
       document.body.classList.add('modal-open')
