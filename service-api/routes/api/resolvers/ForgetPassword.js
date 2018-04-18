@@ -25,37 +25,37 @@ module.exports = {
 		},
 		resolve: (parent, args, request) => (
 			new Promise((resolve, reject) => {
-					let user,
-						token;
+				let user,
+					token;
 
-					async.series([
-						// find user
-						callback => {
-							AppUser.findOne({email: args.email}).exec((err, _user) => {
-								if (err) return callback(err);
-								if (_user) return callback(null, user = _user);
-								callback(new Error('No user found with email!'));
-							})
-						},
-						// build token
-						callback => {
-							token = AuthService.encrypt({id: user._id, password: user.password});
+				async.series([
+					// find user
+					callback => {
+						AppUser.findOne({email: args.email}).exec((err, _user) => {
+							if (err) return callback(err);
+							if (_user) return callback(null, user = _user);
+							callback(new Error('No user found with email!'));
+						})
+					},
+					// build token
+					callback => {
+						token = AuthService.encrypt({id: user._id, password: user.password});
+						callback();
+					},
+					// build params
+					callback => {
+						user = user.toObject();
+						user.link = process.env.WEBSITE_URL + '#/' + token;
+						EmailService.sendMail(user.email, "[ActivePathways] Reset your password.", 'ForgetPassword', user, (err, resp) => {
+							if (err) return callback(err);
 							callback();
-						},
-						// build params
-						callback => {
-							user = user.toObject();
-							user.link = process.env.WEBSITE_URL + token;
-							EmailService.sendMail(user.email, "[ActivePathways] Reset your password.", 'ForgetPassword', user, (err, resp) => {
-								if (err) return callback(err);
-								callback();
-							});
-						}
-					], (err) => {
-						if (err) reject(err);
-						else resolve({success: true});
-					});
-				}
+						});
+					}
+				], (err) => {
+					if (err) reject(err);
+					else resolve({success: true});
+				});
+			}
 			)),
 	}
 };
