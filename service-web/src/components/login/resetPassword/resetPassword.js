@@ -5,13 +5,18 @@ export default {
   data () {
     return {
       confirmpassword: '',
-      newpassword: ''
+      newpassword: '',
+      token:''
     }
   },
   props: {
     activeStatus: {
       default: false
     }
+  },
+  created() {
+    this.token=tokenthis.$route.params.resetToken
+
   },
   computed: {
     showLoader() {
@@ -30,23 +35,24 @@ export default {
     },
     getData () {
       return {
-        email: this.email
+        token: this.token,
+        newpassword: this.newpassword
       }
     },
-    forgetPassword (event) {
+    resetPassword (event) {
       event.stopPropagation()
       this.$validator.validateAll()
         .then(result => {
           if (result) {
             this.$loader.show()
-            this.$store.dispatch('openForgetPassword', this.getData())
+            this.$store.dispatch('setNewPassword', this.getData())
               .then(resp => {
                 this.$loader.hide()
                 if (resp.success) {
                   swal({
                     type: 'success',
                     title: 'Success',
-                    text: 'Email sent to your email'
+                    text: 'Password reset successfully'
                   })
                 }
               }).catch(err => {

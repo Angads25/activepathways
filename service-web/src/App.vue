@@ -30,11 +30,16 @@
           }
         })
         .catch(err => {
-          console.log(err)
+          console.log(err);
           this.$loader.hide();
-          this.$router.push({
-            name: 'landingpage'
-          })
+          let queryParamsObject = {};
+          if (this.$route.path.match(/\/(\w+)\/(\w+)/)) {
+            queryParamsObject.redirect = this.$route.path
+          }
+          // this.$router.push({
+          //   name: 'landingpage',
+          //   query: queryParamsObject
+          // })
         })
     },
     computed: {
@@ -53,14 +58,14 @@
         const flag = ['landingpage'].indexOf(from.name);
         if (flag > -1 && !this.isLoggedIn) {
           let queryParamsObject = {};
-          if (to.path.match(/\/(\w+)/)) {
+          if (to.path.match(this.$route.path.match(/\/(\w+)\/(\w+)/))) {
             queryParamsObject.redirect = to.path
           }
           this.$router.push({
-            name: 'landingpage',
+            name: this.$route.name,
             query: queryParamsObject
           })
-        } else if (flag > -1 && this.isLoggedIn) {
+        } else if (['landingpage'].indexOf(to.name) > -1 && this.isLoggedIn) {
           if (from.query.redirect) return;
           this.$router.push({
             name: 'dashboard'

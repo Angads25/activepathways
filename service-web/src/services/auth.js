@@ -80,10 +80,10 @@ export const AuthService = {
     query.addQuery({
       name: 'resetPassword',
       args: {
-        email: data.password
+        password: data.password
       },
       nodes:{
-
+        success: 'success'
       }
     })
     return postRequest(query.getGraphQLString(), 'resetPassword', false)
