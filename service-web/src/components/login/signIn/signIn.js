@@ -43,9 +43,15 @@ export default {
             this.$loader.show()
             this.$store.dispatch('signin', this.getSignInData())
               .then(resp => {
-                this.$router.push({
-                  name: 'dashboard'
-                })
+                if (this.$route.query.redirect) {
+                  this.$router.push({
+                    path: this.$route.query.redirect
+                  })
+                } else {
+                  this.$router.push({
+                    name: 'dashboard'
+                  })
+                }
                 this.$loader.hide()
                 this.closeModal(event)
               }).catch(err => {
