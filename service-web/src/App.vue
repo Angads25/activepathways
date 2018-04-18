@@ -30,8 +30,8 @@
           }
         })
         .catch(err => {
-          this.$loader.hide()
           console.log(err)
+          this.$loader.hide();
           this.$router.push({
             name: 'landingpage'
           })
@@ -50,21 +50,25 @@
     },
     watch: {
       '$route' (to, from) {
-        console.log('>>>> watcher route', to, from);
-        const flag = ['landingpage'].indexOf(to.name)
+        const flag = ['landingpage'].indexOf(from.name);
         if (flag > -1 && !this.isLoggedIn) {
+          let queryParamsObject = {};
+          if (to.path.match(/\/(\w+)/)) {
+            queryParamsObject.redirect = to.path
+          }
           this.$router.push({
-            name: 'landingpage'
+            name: 'landingpage',
+            query: queryParamsObject
           })
         } else if (flag > -1 && this.isLoggedIn) {
+          if (from.query.redirect) return;
           this.$router.push({
-            name: 'dashboard',
-            query: {redirect: "q1"}
+            name: 'dashboard'
           })
         }
       },
       responseError () {
-        console.log(this.responseError)
+        console.log(this.responseError);
         if (this.responseError.intercept) {
           this.responseError.intercept(this.responseError.error)
         } else {
