@@ -9,11 +9,6 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/:resetToken?',
-      name: 'landingpage',
-      component: LandingPage
-    },
-    {
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard
@@ -22,6 +17,11 @@ export default new Router({
       path: '/challengestates',
       name: 'challengestates',
       component: ChallengeStates
+    },
+    {
+      path: '/:resetToken?',
+      name: 'landingpage',
+      component: LandingPage
     },
     {
       path: '/challenge/:id',

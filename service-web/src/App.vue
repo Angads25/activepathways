@@ -22,14 +22,17 @@
       this.$loader.show()
       this.$store.dispatch('fetchAuthFromLocal')
         .then(resp => {
+          console.log('in fetch from local')
           this.$loader.hide()
           if (['landingpage'].indexOf(this.$route.name) > -1) {
             this.$router.push({
               name: 'dashboard'
             })
           }
+          console.log('after pushing to dashboard')
         })
         .catch(err => {
+          console.log('in error')
           console.log(err);
           this.$loader.hide();
           let queryParamsObject = {};
@@ -66,10 +69,12 @@
             query: queryParamsObject
           })
         } else if (['landingpage'].indexOf(to.name) > -1 && this.isLoggedIn) {
+          console.log('>>>>>>>>>>>>>>user is logged in')
           if (from.query.redirect) return;
           this.$router.push({
             name: 'dashboard'
           })
+          console.log('>>>>>>>>>>>>>>after pushing dashboard')
         }
       },
       responseError () {

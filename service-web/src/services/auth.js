@@ -76,16 +76,16 @@ export const AuthService = {
     return postRequest(query.getGraphQLString(), 'forgetPassword', false)
   },
   resetPassword (data) {
-    const query = createQuery()
+    const query = createMutation()
     query.addQuery({
       name: 'resetPassword',
       args: {
-        password: data.password
+        newPassword: data.newpassword,
+        resetPassToken: data.resettoken
       },
-      nodes:{
-        success: 'success'
-      }
+      nodes:{success: 'success'}
     })
+    console.log('>>>>>>.query',query)
     return postRequest(query.getGraphQLString(), 'resetPassword', false)
   },
   myProfile () {
