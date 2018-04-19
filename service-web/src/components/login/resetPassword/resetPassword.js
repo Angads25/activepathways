@@ -15,8 +15,8 @@ export default {
     }
   },
   created() {
-    this.token=tokenthis.$route.params.resetToken
-
+    this.token=this.$route.params.resetToken
+    console.log('reset token is>>>>',this.token)
   },
   computed: {
     showLoader() {
@@ -35,11 +35,12 @@ export default {
     },
     getData () {
       return {
-        token: this.token,
+        resettoken: this.token,
         newpassword: this.newpassword
       }
     },
     resetPassword (event) {
+      console.log(this.getData())
       event.stopPropagation()
       this.$validator.validateAll()
         .then(result => {
@@ -54,6 +55,7 @@ export default {
                     title: 'Success',
                     text: 'Password reset successfully'
                   })
+                  this.$emit('closeModal')
                 }
               }).catch(err => {
               this.$loader.hide()

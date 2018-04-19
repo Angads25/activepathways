@@ -21,6 +21,7 @@ export default {
     ResetPassword
   },
   created() {
+    console.log("token is>>>>",this.$route.params)
     if(this.$route.params.resetToken){
       this.activeModal = 'resetPassword';
       this.openModal();
@@ -34,6 +35,7 @@ export default {
   },
   watch: {
     "$route"(to, from){
+      console.log('in header watcher',to,from)
       if (to.query.redirect) {
         this.activeModal = 'signin';
         this.openModal();
