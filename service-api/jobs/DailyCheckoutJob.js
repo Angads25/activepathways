@@ -33,7 +33,7 @@ module.exports = class DailyCheckoutJob {
 
 		tasks.push((callback) => {
 			async.mapLimit(userChallenges, 10, (_challenge, callback) => {
-				EmailService.sendMail(_challenge.user.email, "You have a new challenge!", "emailCheckIn", {
+				EmailService.sendMail(_challenge.user.email, "You have some incomplete challenges!", "emailCheckIn", {
 					username: _challenge.user.name.first,
 					websiteUrl: process.env.WEBSITE_URL,
 					challengeId: _challenge._id
