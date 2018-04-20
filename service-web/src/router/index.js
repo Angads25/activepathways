@@ -47,7 +47,13 @@ router.beforeEach((to, from, next) => {
       })
     }
   }else{
-    next()
+    if(authCheck){
+      next({
+        name: 'dashboard'
+      })
+    }else {
+      next()
+    }
   }
 })
 
