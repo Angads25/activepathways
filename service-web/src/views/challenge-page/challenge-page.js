@@ -41,6 +41,7 @@ export default {
   },
   created() {
     this.fetchChallengeData()
+    this.$store.dispatch('fetchUserChallengeStateList')
   },
   methods: {
     fetchChallengeData() {
