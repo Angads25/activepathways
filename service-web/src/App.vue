@@ -35,14 +35,6 @@
           console.log('in error')
           console.log(err);
           this.$loader.hide();
-          let queryParamsObject = {};
-          if (this.$route.path.match(/\/(\w+)\/(\w+)/)) {
-            queryParamsObject.redirect = this.$route.path
-          }
-          // this.$router.push({
-          //   name: 'landingpage',
-          //   query: queryParamsObject
-          // })
         })
     },
     computed: {
@@ -57,26 +49,6 @@
       }
     },
     watch: {
-      '$route' (to, from) {
-        const flag = ['landingpage'].indexOf(from.name);
-        if (flag > -1 && !this.isLoggedIn) {
-          let queryParamsObject = {};
-          if (to.path.match(this.$route.path.match(/\/(\w+)\/(\w+)/))) {
-            queryParamsObject.redirect = to.path
-          }
-          this.$router.push({
-            name: this.$route.name,
-            query: queryParamsObject
-          })
-        } else if (['landingpage'].indexOf(to.name) > -1 && this.isLoggedIn) {
-          console.log('>>>>>>>>>>>>>>user is logged in')
-          if (from.query.redirect) return;
-          this.$router.push({
-            name: 'dashboard'
-          })
-          console.log('>>>>>>>>>>>>>>after pushing dashboard')
-        }
-      },
       responseError () {
         console.log(this.responseError);
         if (this.responseError.intercept) {

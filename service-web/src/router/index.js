@@ -4,10 +4,10 @@ import LandingPage from '@/views/LandingPage/landing-page.vue'
 import Dashboard from '@/views/Dashboard/dashboard.vue'
 import ChallengeStates from '@/views/ChallengeStates/challenge-states.vue'
 import ChallengePage from '@/views/challenge-page/challenge-page.vue'
-import { LocalData } from '../services/localData'
+import {LocalData} from '../services/localData'
 
 Vue.use(Router)
-const router =  new Router({
+const router = new Router({
   routes: [
     {
       path: '/dashboard',
@@ -43,16 +43,18 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       next({
-        name: 'home-view'
+        name: 'home-view',
+        query: {
+          redirect: to.path
+        }
       })
     }
-  }else{
-    if(authCheck){
-      next({
-        name: 'dashboard'
-      })
-    }else {
+  }
+  if (['dashboard', 'challengestates', 'challenge-detail'].indexOf(to.name) === -1) {
+    if (!authCheck) {
       next()
+    } else {
+      next({name: from.name})
     }
   }
 })
