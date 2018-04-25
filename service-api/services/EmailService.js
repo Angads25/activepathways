@@ -38,7 +38,7 @@ module.exports = {
 
 		tasks.push(function (callback) {
 			additionalParameters.to = to;
-			additionalParameters.from = transporter.fromEmail;
+			additionalParameters.from = `The Active Pathways Team < ${process.env.MAILGUN_USER} >`;
 			additionalParameters.subject = subject;
 			_sendMail(additionalParameters, function (err, resp) {
 				if (err) return callback(err);
