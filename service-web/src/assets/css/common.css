@@ -311,7 +311,7 @@ body.modal-open {
   width: 22px;
   height: 22px;
 }
-label 				 {
+/*label 				 {
   color:#8693a4;
   position:absolute;
   pointer-events:none;
@@ -324,8 +324,8 @@ label 				 {
 input:focus ~ label, input:valid ~ label 		{
   top:-10px;
   opacity: 0;
-}
-.bar 	{ position:relative; display:block; width:100%; }
+}*/
+/*.bar 	{ position:relative; display:block; width:100%; }
 .bar:before, .bar:after 	{
   content:'';
   height:1px;
@@ -346,7 +346,7 @@ input:focus ~ label, input:valid ~ label 		{
 
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
-}
+}*/
 .button-loader {
   height: 30px;
   top: 13px;
@@ -403,6 +403,100 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 .textarea:focus {
   outline: none;
   border: 1px solid #408BC9;
+}
+/*------text-field-CssLibrary---*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #4e4e4e;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.text-field {
+  display: flex;
+  flex-flow: column-reverse;
+  position: relative;
+}
+label, input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+.text-field input {
+  appearance: none;
+  background-color: transparent;
+  border-bottom: 1px solid rgba( 0, 0, 0, .2 );
+  line-height: normal;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+  border-radius: 0;
+  display: block;
+  box-sizing: border-box;
+  padding: 5px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.text-field input:focus {
+  outline: 0;
+  border-bottom: 1px solid #666;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+.text-field label {
+  text-align: left;
+  color:#8693a4;
+  position: absolute;
+  padding: 6px 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.text-field input:placeholder-shown + label {
+  cursor: text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  font-size: 13px;
+}
+
+.text-field input::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+  color: #fff;
+}
+
+.text-field input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  color: #000;
+}
+
+.text-field input:not(:placeholder-shown) + label,
+.text-field input:focus + label {
+  margin-top: -20px;
+  font-size: 12px;
+  color: #001b44;
+  font-weight: 400;
+  opacity: 0;
+}
+
+.height-370 {
+  height: 370px;
+}
+.height-470 {
+  height: 470px;
 }
 @media screen and (max-width: 480px) {
   .welcome-bg {
