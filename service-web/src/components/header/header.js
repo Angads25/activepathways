@@ -26,6 +26,10 @@ export default {
       this.activeModal = 'resetPassword';
       this.openModal();
     }
+    if((this.$route.fullPath || '').match('redirect')) {
+      this.activeModal = 'signin';
+      this.openModal();
+    }
   },
   computed: {
     showHeader() {
