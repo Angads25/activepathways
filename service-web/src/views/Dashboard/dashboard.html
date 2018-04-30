@@ -15,7 +15,7 @@
       <template v-if="userChallengeStatePending && userChallengeStatePending['status']">
         <component :is="statusComponents[userChallengeStatePending['status']]"
                    :challengeData="userChallengeStatePending"
-                   :programmeData="userChallengeStateList"
+                   :programmeData="currentProgrammeData"
                    @challengeUpdated="challengeUpdated($event)"
         ></component>
       </template>
