@@ -65,16 +65,14 @@ export default {
       return this.$store.state.auth.userChallengeStateList
     },
     user() {
-      console.log('?>>>>>',this.$store.state.auth.user)
       return this.$store.state.auth.user
     },
     userChallengeStatePending() {
-      return this.userChallengeStateList.find(challenge => this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
+      return this.userChallengeStateList.find(challenge =>
+        this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
     },
     currentProgrammeData() {
-      return {
-        challenges: this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
-      }
+      return this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
     },
     userJournal() {
       return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
@@ -147,7 +145,6 @@ export default {
 
     },
     challengeUpdated(event) {
-      console.log('>>>>>>>>>>>>>updated', event)
       this.$store.dispatch('fetchUserChallengeStateList')
     },
     closeModal() {
@@ -172,3 +169,4 @@ export default {
     this.$store.dispatch('fetchUserChallengeStateList')
   }
 }
+

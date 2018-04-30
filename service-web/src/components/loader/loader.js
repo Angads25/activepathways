@@ -15,9 +15,12 @@ export default {
       const _self = this
       if (this.interval) {
         clearInterval(this.interval)
+
       }
       setInterval(() => {
-        _self.percentage += 10
+        if(_self.percentage <100) {
+          _self.percentage += 10
+        }
       }, 200)
     }
   },

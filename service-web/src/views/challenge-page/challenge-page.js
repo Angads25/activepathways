@@ -34,9 +34,7 @@ export default {
       return this.$store.state.auth.userChallengeStateList
     },
     currentProgrammeData() {
-      return {
-        challenges: this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
-      }
+      return this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
     }
   },
   created() {
