@@ -7,7 +7,6 @@ export default {
     }
   },
   created() {
-    console.log("userjournal >>>>>>>>>>", this.userJournal)
   },
   computed: {
     userChallengeStateList() {

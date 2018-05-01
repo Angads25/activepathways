@@ -48,7 +48,6 @@ export default {
     fetchChallengeData() {
       UserService.userChallengeById(this.$route.params['id'])
         .then(resp => {
-          console.log(resp)
           this.challengeData = resp
         })
     },
