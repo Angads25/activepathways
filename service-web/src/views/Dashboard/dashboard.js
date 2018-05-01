@@ -78,7 +78,9 @@ export default {
       return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
     },
     userChallengeStateCompletedOrSkipped() {
-      return this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED')
+      const sortedlist = this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED').sort((c1, c2) =>
+        +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
+      return sortedlist;
     },
     selectedDates() {
       let start = '', end = ''
@@ -135,8 +137,8 @@ export default {
     },
     dayNum(challengeData) {
       let idx = -1;
-      for (let i = 0; i < (this.userChallengeStateList || []).length; i++) {
-        if (this.userChallengeStateList[i].id === challengeData.id) {
+      for (let i = 0; i < (this.currentProgrammeData || []).length; i++) {
+        if (this.currentProgrammeData[i].id === challengeData.id) {
           idx = i
           break
         }
