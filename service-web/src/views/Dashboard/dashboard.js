@@ -75,7 +75,8 @@ export default {
       return this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
     },
     userJournal() {
-      return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
+      return this.userChallengeStateList.filter(challenge => !!challenge['notes']).sort((c1, c2) =>
+        +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
     },
     userChallengeStateCompletedOrSkipped() {
       const sortedlist = this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED').sort((c1, c2) =>
