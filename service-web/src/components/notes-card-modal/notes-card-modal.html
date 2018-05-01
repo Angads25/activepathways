@@ -20,7 +20,7 @@
                     <li v-for="challenge in userJournal" class="pa3 pa3-ns bb b--black-05">
                 <span class="f5 db lh-copy color-light">
                   <span class="fw5">{{(challenge['challenge'] || {})['name']}}</span>
-                  <span class="fw3 db w5 w-100-l w-100-m">{{challenge['notes']}}</span></span>
+                  <pre class="fw3 db w5 w-100-l w-100-m">{{challenge['notes']}}</pre></span>
                     </li>
                   </ul>
                   <div v-else>

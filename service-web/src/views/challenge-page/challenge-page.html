@@ -5,8 +5,17 @@
   <!--</div>-->
   <!--</header>-->
   <section class="cf w-100 ph0 ph6-l pt5 relative">
-    <div class="gradient-blue absolute right-0 left-0 top-0 height-480 z-1"></div>
-    <div class="dt w-100 mw8 ph3 ph3-m ph3-l center">
+    <div class="gradient-blue absolute right-0 left-0 top-0 height-480 z-1">
+      <div class="dt w-100 mw8 ph3 ph3-m ph3-l center mt4">
+      <div class="w-100 tr">
+        <div class="f6 fw6 link br-pill ph4 mb4 dib tr white pt2 pb2">{{(user && user.name) ? (user.name.first +" "+ user.name.last) : ''}} ({{user ? user.email : ''}})</div>
+
+        <a class="f6 fw6 link br-pill ph4 mb4 dib tr white blue-dark-color pt2 pb2"
+           style="cursor: pointer" @click="logout()">Logout</a>
+      </div>
+      </div>
+    </div>
+    <div class="dt w-100 mw8 ph3 ph3-m ph3-l center mt4">
       <div class="w-100 bg-white black br3 mb5 z-3 relative shadow-default pt1">
         <div v-if="challengeData && challengeData['status']">
           <component :is="statusComponents[challengeData['status']]" :challengeData="challengeData"
