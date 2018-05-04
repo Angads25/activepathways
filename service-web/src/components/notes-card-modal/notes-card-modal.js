@@ -7,7 +7,6 @@ export default {
     }
   },
   created() {
-    console.log(">>>>>>>>>>", ChallengesWithNotes)
   },
   computed: {
     userChallengeStateList() {
@@ -15,7 +14,8 @@ export default {
       return this.$store.state.auth.userChallengeStateList
     },
     userJournal() {
-      return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
+      return this.userChallengeStateList.filter(challenge => !!challenge['notes']).sort((c1, c2) =>
+        +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
     }
   },
   props: {

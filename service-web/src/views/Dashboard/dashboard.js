@@ -65,22 +65,23 @@ export default {
       return this.$store.state.auth.userChallengeStateList
     },
     user() {
-      console.log('?>>>>>',this.$store.state.auth.user)
       return this.$store.state.auth.user
     },
     userChallengeStatePending() {
-      return this.userChallengeStateList.find(challenge => this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
+      return this.userChallengeStateList.find(challenge =>
+        this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
     },
     currentProgrammeData() {
-      return {
-        challenges: this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
-      }
+      return this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
     },
     userJournal() {
-      return this.userChallengeStateList.filter(challenge => !!challenge['notes'])
+      return this.userChallengeStateList.filter(challenge => !!challenge['notes']).sort((c1, c2) =>
+        +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
     },
     userChallengeStateCompletedOrSkipped() {
-      return this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED')
+      const sortedlist = this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED').sort((c1, c2) =>
+        +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
+      return sortedlist;
     },
     selectedDates() {
       let start = '', end = ''
@@ -137,8 +138,8 @@ export default {
     },
     dayNum(challengeData) {
       let idx = -1;
-      for (let i = 0; i < (this.userChallengeStateList || []).length; i++) {
-        if (this.userChallengeStateList[i].id === challengeData.id) {
+      for (let i = 0; i < (this.currentProgrammeData || []).length; i++) {
+        if (this.currentProgrammeData[i].id === challengeData.id) {
           idx = i
           break
         }
@@ -147,7 +148,6 @@ export default {
 
     },
     challengeUpdated(event) {
-      console.log('>>>>>>>>>>>>>updated', event)
       this.$store.dispatch('fetchUserChallengeStateList')
     },
     closeModal() {
@@ -172,3 +172,4 @@ export default {
     this.$store.dispatch('fetchUserChallengeStateList')
   }
 }
+
