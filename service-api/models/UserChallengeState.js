@@ -12,7 +12,7 @@ UserChallengeState.add({
 	programme: {type: Types.Relationship, ref: 'Programme', initial: true, required: true},
 	challenge: {type: Types.Relationship, ref: 'Challenge', initial: true, required: true},
 	notes: {type: Types.Text, initial: true, required: false},
-	rating: {type: Number, initial:true},
+	rating: {type: Number, initial: true},
 	status: {
 		type: Types.Select,
 		options: ['PENDING', 'STARTED', 'COMPLETED', 'SKIPPED'],

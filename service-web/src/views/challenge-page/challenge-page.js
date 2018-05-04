@@ -33,6 +33,9 @@ export default {
       // console.log('###################',this.$store.state.auth.userChallengeStateList)
       return this.$store.state.auth.userChallengeStateList
     },
+    user() {
+      return this.$store.state.auth.user
+    },
     currentProgrammeData() {
       return this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
     }
@@ -45,9 +48,16 @@ export default {
     fetchChallengeData() {
       UserService.userChallengeById(this.$route.params['id'])
         .then(resp => {
-          console.log(resp)
           this.challengeData = resp
         })
+    },
+    logout() {
+      this.$loader.show()
+      this.$store.dispatch('logout')
+      this.$router.push({
+        name: 'landingpage'
+      })
+      this.$loader.hide()
     },
     challengeUpdated(event) {
       this.fetchChallengeData()

@@ -16,10 +16,11 @@ UserProgrammeEnrollment.add({
 		initial: true,
 		required: true
 	},
+	exitDate: {type: Types.Date}
 });
 
 /**
  * Registration
  */
-UserProgrammeEnrollment.defaultColumns = 'user, programme, challenge, notes, status, track';
+UserProgrammeEnrollment.defaultColumns = 'user, programme, status, exitDate, track';
 UserProgrammeEnrollment.register();
