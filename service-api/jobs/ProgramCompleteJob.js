@@ -24,7 +24,10 @@ module.exports = class ProgramCompleteJob {
 					exitDate: {$lte: yesterdayEOD, $gt: yesterdaySOD},
 					status: "EXITED"
 				}
-			).populate("programme", "user").exec((err, _userProgrammesStates) => {
+			).populate([{path: "programme", select: '_id name'}, {
+				path: "user",
+				select: '_id email name'
+			}]).exec((err, _userProgrammesStates) => {
 				if (err) return cb(err);
 				cb(null, userProgrammesStates = _userProgrammesStates)
 			});
@@ -32,6 +35,7 @@ module.exports = class ProgramCompleteJob {
 
 		tasks.push((cb) => {
 			if (!userProgrammesStates) return cb();
+			console.log("======", userProgrammesStates);
 			async.map(userProgrammesStates, (userProgram, cb) => {
 				EmailService.sendMail(userProgram.user.email, "Program Completed", "programmeEmail", {user: userProgram.user}, (err, result) => {
 					if (err) return cb(err);
