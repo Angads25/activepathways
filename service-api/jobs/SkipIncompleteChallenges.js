@@ -30,20 +30,20 @@ module.exports = class SkipIncompleteChallenges {
 					multi: true
 				}
 			).exec((err) => {
-				if (err) cb(err);
+				if (err) return cb(err);
 				cb()
 			});
 		});
 
 		tasks.push((cb) => {
 			Programme.find().exec((err, programmes) => {
-				if (err) cb(err);
+				if (err) return cb(err);
 				cb(null, _programmes = programmes)
 			});
 		});
 
 		tasks.push((cb) => {
-				if (!_programmes) return;
+				if (!_programmes) return cb();
 				async.map(_programmes, (programme, cb) => {
 					const startDate = moment().subtract(programme.durationDays + 1, 'days').startOf('day')._d;
 					const endDate = moment().subtract(1, 'days').endOf('day')._d;
@@ -64,7 +64,13 @@ module.exports = class SkipIncompleteChallenges {
 							}
 						}
 					]).exec((err, _userChallenges) => {
-						if (err) cb(err);
+						if (err) return cb(err);
+
+						/******************
+						 *
+						 * Updating user programes states to exit on completion of all the challenges
+						 *
+						 *******************/
 						_userChallenges.forEach((user) => {
 							if (user.totalCount === programme.durationDays) {
 								UserProgrammeEnrollment.update({
@@ -74,14 +80,14 @@ module.exports = class SkipIncompleteChallenges {
 								}, {
 									$set: {status: "EXITED", exitDate: moment().subtract(1, "days")._d}
 								}).exec((err, result) => {
-									if (err) cb(err);
+									if (err) return cb(err);
 									cb();
 								})
 							}
 						});
 					});
 				}, (err) => {
-					if (err) cb(err);
+					if (err) return cb(err);
 					cb()
 				});
 			}
