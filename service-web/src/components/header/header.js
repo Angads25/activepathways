@@ -21,12 +21,12 @@ export default {
     ResetPassword
   },
   created() {
-    console.log("token is>>>>",this.$route.params)
-    if(this.$route.params.resetToken){
+    console.log("token is>>>>", this.$route.params)
+    if (this.$route.params.resetToken) {
       this.activeModal = 'resetPassword';
       this.openModal();
     }
-    if((this.$route.fullPath || '').match('redirect')) {
+    if ((this.$route.fullPath || '').match('redirect')) {
       this.activeModal = 'signin';
       this.openModal();
     }
@@ -39,7 +39,7 @@ export default {
   },
   watch: {
     "$route"(to, from){
-      console.log('in header watcher',to,from)
+      console.log('in header watcher', to, from)
       if (to.query.redirect) {
         this.activeModal = 'signin';
         this.openModal();
@@ -51,8 +51,9 @@ export default {
       document.body.classList.remove('modal-open')
       this.activeModal = ''
     },
-    openModal() {
-      console.log('>>>>>>>>..', 'open modal called')
+    openModal(loc, type) {
+      console.log('>>>>>>>>..', 'open modal called', loc, type)
+      window._gtmCtxSignUp = {loc: loc, type: type}
       document.body.classList.add('modal-open')
     },
     open () {

@@ -15,7 +15,7 @@
             <a href="" v-scroll-to="'#saying'" class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer">
               Testimonials
             </a>
-            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'signup'; openModal()">
+            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'signup'; openModal('header', 'signup')">
               Sign up
             </a>
             <!--<a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'resetPassword'; openModal()">-->
@@ -63,7 +63,7 @@
             </p>
             <div class="cf">
               <a class="f5 b link dim br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy avenir pointer"
-                 @click.prevent="activeModal = 'signup'; openModal()">Sign up here
+                 @click.prevent="activeModal = 'signup'; openModal('sign up button','signup')">Sign up here
               </a>
             </div>
           </div>

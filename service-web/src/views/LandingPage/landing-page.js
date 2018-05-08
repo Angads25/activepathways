@@ -26,7 +26,8 @@ export default {
       document.body.classList.remove('modal-open')
       this.activeModal = ''
     },
-    openModal () {
+    openModal (loc, type) {
+      window._gtmCtxSignUp = {loc: loc, type: type}
       document.body.classList.add('modal-open')
     },
     open () {
