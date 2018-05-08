@@ -12,7 +12,8 @@ AppUser.add({
 	email: {type: Types.Email, initial: true, required: true, unique: true, index: true},
 	password: {type: Types.Password, initial: true, required: true},
 	isEnabled: {type: Types.Boolean, initial: true, default: false},
-	role: {type: Types.Select, options: ['APP_USER'], initial: true, required: true}
+	role: {type: Types.Select, options: ['APP_USER'], initial: true, required: true},
+	emailVerified: {type: Types.Boolean, initial: true, default: false}
 });
 
 /**

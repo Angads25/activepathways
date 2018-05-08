@@ -44,6 +44,7 @@ exports = module.exports = function (app) {
 	// app.get('/', routes.views.index);
 	app.get('/graph', middleware.tokenAuthCommon, middleware.tokenAuth, routes.api.GraphQLSchema.get);
 	app.post('/graph', middleware.tokenAuthCommon, middleware.tokenAuth, routes.api.GraphQLSchema.post);
+	app.post('/verify/:token', routes.api.VerifyEmail.get);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

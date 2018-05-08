@@ -10,6 +10,7 @@ const keystone = require('keystone'),
 
 const UserType = require('../types/UserType');
 const EmailService = require('../../../services/EmailService');
+const AuthService = require('../../../services/AuthService');
 
 const moment = require('moment');
 
@@ -104,7 +105,9 @@ upsertUser = (args, request, cb) => {
 			// Send welcome email to user
 			callback => {
 				if (!user || args.id) return callback();
-				EmailService.sendMail(user.email, "Welcome to ActivePathways.", 'Welcome', user, function (err, _result) {
+				let _user = user.toObject && user.toObject() || user;
+				_user.verificationLink = process.env.WEBSITE_URL + 'verify/' + AuthService.encrypt({id: _user._id, email: _user.email});
+				EmailService.sendMail(user.email, "Welcome to ActivePathways.", 'Welcome', _user, function (err, _result) {
 					if (err) console.log(err);
 					callback()
 				})
