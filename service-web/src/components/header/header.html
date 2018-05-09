@@ -15,13 +15,15 @@
             <a href="" v-scroll-to="'#saying'" class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer">
               Testimonials
             </a>
-            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'signup'; openModal('header', 'signup')">
+            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer"
+               @click.prevent="activeModal = 'signup'; openModal('header', 'signup')">
               Sign up
             </a>
             <!--<a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'resetPassword'; openModal()">-->
-              <!--Reset Password-->
+            <!--Reset Password-->
             <!--</a>-->
-            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'signin'; openModal()">
+            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer"
+               @click.prevent="activeModal = 'signin'; openModal()">
               Sign in
             </a>
           </div>
@@ -34,13 +36,14 @@
               class="bottom"></span></div>
             <div class="ml3 pl1 mb5"><img src="../../assets/images/logo-icon.png" class="fl"/><span
               class="f5 fw7 white dt-ca mt2">Active Pathways</span></div>
-            <a href="" class="w-100 f4 fw5 db white no-underline tl pb3">
+            <a href="" class="w-1   00 f4 fw5 db white no-underline tl pb3">
               Home
             </a>
             <a href="" @click.stop.prevent="toggle"
                class="w-100 f4 fw5 db white no-underline tl pb3" v-scroll-to="'#features'">How it works
             </a>
-            <a href="" v-scroll-to="'#saying'" @click.stop.prevent="toggle" class="w-100 f4 fw5 db pb3 white no-underline tl">
+            <a href="" v-scroll-to="'#saying'" @click.stop.prevent="toggle"
+               class="w-100 f4 fw5 db pb3 white no-underline tl">
               Testimonials
             </a>
             <a class="w-100 f4 fw5 db white no-underline pb3 tl"
@@ -81,6 +84,11 @@
                   @openSignIn="activeModal = 'signin'; openModal()"
                   :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
   <ResetPassword v-if="activeModal === 'resetPassword'" @closeModal="closeModal()"
-                  @openSignIn="activeModal = 'resetPassword'; openModal()"
-                  :activeStatus="activeModal === 'resetPassword'"></ResetPassword>
+                 @openSignIn="activeModal = 'resetPassword'; openModal()"
+                 :activeStatus="activeModal === 'resetPassword'"></ResetPassword>
+  <VerifyEmailStatus v-if="activeModal === 'verifyEmailStatus'" @closeModal="closeModal()"
+                     @openSignIn="activeModal = 'signin'; openModal()"
+                     :message="verifyEmailMessage"
+                     :type="verifyStatus"
+                     :activeStatus="activeModal === 'verifyEmailStatus'"></VerifyEmailStatus>
 </header>

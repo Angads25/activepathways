@@ -72,8 +72,6 @@ module.exports = class SkipIncompleteChallenges {
 						 *
 						 *******************/
 						_userChallenges.forEach((user) => {
-							console.log("--------", programme.durationDays);
-							console.log("--------user list", user);
 							if (user.totalCount === programme.durationDays) {
 								UserProgrammeEnrollment.update({
 									programme: ObjectId(programme._id),
