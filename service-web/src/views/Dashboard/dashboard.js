@@ -68,19 +68,21 @@ export default {
       return this.$store.state.auth.user
     },
     userChallengeStatePending() {
-      return this.userChallengeStateList.find(challenge =>
-        this.$differenceDays(challenge['challengeDate'], new Date()) === 0)
+      return this.userChallengeStateList.find(challenge => {
+        console.log('==========', this.$differenceDays(challenge['challengeDate'], new Date()))
+        return this.$differenceDays(challenge['challengeDate'], new Date()) === 0
+      })
     },
     currentProgrammeData() {
       return this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
     },
     userJournal() {
       return this.userChallengeStateList.filter(challenge => !!challenge['notes']).sort((c1, c2) =>
-        +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
+      +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
     },
     userChallengeStateCompletedOrSkipped() {
       const sortedlist = this.userChallengeStateList.filter(challange => challange['status'] === 'COMPLETED' || challange['status'] === 'SKIPPED').sort((c1, c2) =>
-        +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
+      +new Date(c2.challengeDate) - +new Date(c1.challengeDate))
       return sortedlist;
     },
     selectedDates() {

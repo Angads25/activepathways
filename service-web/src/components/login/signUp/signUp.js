@@ -15,7 +15,7 @@ export default {
     }
   },
   computed: {
-    showLoader() {
+    showLoader () {
       return this.$store.state.ui.show_loader
     }
   },
