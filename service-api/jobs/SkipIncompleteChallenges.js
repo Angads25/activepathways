@@ -64,6 +64,7 @@ module.exports = class SkipIncompleteChallenges {
 							}
 						}
 					]).cursor({}).exec((err, _userChallenges) => {
+						console.log("-------userchallenges list--------", _userChallenges);
 						if (err) return cb(err);
 
 						/******************
