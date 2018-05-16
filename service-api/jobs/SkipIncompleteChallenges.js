@@ -71,6 +71,7 @@ module.exports = class SkipIncompleteChallenges {
 						 * Updating user programes states to exit on completion of all the challenges
 						 *
 						 *******************/
+						if (!_userChallenges.length) return cb();
 						_userChallenges.forEach((user) => {
 							console.log("------userChallenges------", user.totalCount);
 							if (user.totalCount === programme.durationDays) {
