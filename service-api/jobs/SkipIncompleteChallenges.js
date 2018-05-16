@@ -63,7 +63,7 @@ module.exports = class SkipIncompleteChallenges {
 								}
 							}
 						}
-					]).exec((err, _userChallenges) => {
+					]).cursor({}).exec((err, _userChallenges) => {
 						if (err) return cb(err);
 
 						/******************
