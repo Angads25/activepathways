@@ -47,7 +47,7 @@ module.exports = class SkipIncompleteChallenges {
 				async.map(_programmes, (programme, cb) => {
 					const startDate = moment().subtract(programme.durationDays + 1, 'days').startOf('day')._d;
 					const endDate = moment().subtract(1, 'days').endOf('day')._d;
-
+					console.log("------date------", startDate, endDate, programme.durationDays);
 					UserChallengeState.aggregate([
 						{
 							$match: {
@@ -72,6 +72,7 @@ module.exports = class SkipIncompleteChallenges {
 						 *
 						 *******************/
 						_userChallenges.forEach((user) => {
+							console.log("------userChallenges------", user.totalCount);
 							if (user.totalCount === programme.durationDays) {
 								UserProgrammeEnrollment.update({
 									programme: ObjectId(programme._id),
@@ -80,6 +81,7 @@ module.exports = class SkipIncompleteChallenges {
 								}, {
 									$set: {status: "EXITED", exitDate: moment().subtract(1, "days")._d}
 								}).exec((err, result) => {
+									console.log("------updated programes------", result);
 									if (err) return cb(err);
 									cb();
 								})
