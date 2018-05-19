@@ -10,9 +10,10 @@ module.exports = class DailyCheckinJob {
 		return "0 8 * * *"; // 8:00 AM every day
 	}
 
-	static task(err, done) {
+	static task(_, done) {
 		console.log("Triggering", this.name);
-		let userChallenges, tasks = [];
+		let userChallenges, 
+			tasks = [];
 		const greaterThanDate = moment().startOf('day')._d;
 		const lessThanDate = moment().endOf('day')._d;
 
@@ -40,18 +41,18 @@ module.exports = class DailyCheckinJob {
 				}, (err, emailResp) => {
 					console.log("Sending Mail", _challenge.user);
 					if (err) console.log("email error", err);
-					callback(err, emailResp);
-				})
+					callback(null, emailResp);
+				});
 			}, (err, done) => {
 				callback(err, done);
-			})
+			});
 		});
 
 		async.series(tasks, (err, res) => {
 			console.log("Job Completed");
 			if (err) console.log("err ", this.name, err);
-			done(err, res);
+			done();
 		})
 	}
-}
+};
     

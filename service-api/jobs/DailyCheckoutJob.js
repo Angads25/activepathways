@@ -10,7 +10,7 @@ module.exports = class DailyCheckoutJob {
 		return "0 18 * * *"; // 6:00 PM every day
 	}
 
-	static task(err, done) {
+	static task(_, done) {
 		console.log("Triggering", this.name);
 		let userChallenges, tasks = [];
 		const greaterThanDate = moment().startOf('day')._d;
@@ -39,7 +39,7 @@ module.exports = class DailyCheckoutJob {
 					challengeId: _challenge._id
 				}, (err, emailResp) => {
 					if (err) console.log("email error", err);
-					callback(err, emailResp);
+					callback(null, emailResp);
 				})
 			}, (err, done) => {
 				callback(err, done);
@@ -48,7 +48,7 @@ module.exports = class DailyCheckoutJob {
 
 		async.series(tasks, (err, res) => {
 			if (err) console.log("err ", this.name, err);
-			done(err, res);
+			done();
 		})
 	}
 }
