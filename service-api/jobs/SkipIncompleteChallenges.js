@@ -81,6 +81,7 @@ module.exports = class SkipIncompleteChallenges {
 						}, {
 							$set: {status: "EXITED", exitDate: moment().subtract(1, "days")._d}
 						}).exec((err, result) => {
+							
 						})
 					}
 				});

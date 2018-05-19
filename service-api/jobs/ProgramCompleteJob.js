@@ -37,6 +37,11 @@ module.exports = class ProgramCompleteJob {
 			if (!userProgrammesStates) return cb();
 			console.log("======", userProgrammesStates);
 			async.map(userProgrammesStates, (userProgram, cb) => {
+				console.log('[JOB Program Completed] - Sending mail to ', userProgram._id, userProgram.user && userProgram.user.email || null);
+				if(!(userProgram && userProgram.user && userProgram.user.email)) {
+					console.log('QUITing this mail...');
+					return cb();
+				}
 				EmailService.sendMail(userProgram.user.email, "Program Completed", "programmeEmail", {user: userProgram.user}, (err, result) => {
 					if (err) return cb(err);
 					cb()

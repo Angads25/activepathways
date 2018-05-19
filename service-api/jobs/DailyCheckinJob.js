@@ -12,7 +12,7 @@ module.exports = class DailyCheckinJob {
 
 	static task(_, done) {
 		console.log("Triggering", this.name);
-		let userChallenges, 
+		let userChallenges,
 			tasks = [];
 		const greaterThanDate = moment().startOf('day')._d;
 		const lessThanDate = moment().endOf('day')._d;
@@ -34,6 +34,11 @@ module.exports = class DailyCheckinJob {
 
 		tasks.push((callback) => {
 			async.mapLimit(userChallenges, 10, (_challenge, callback) => {
+				console.log('[JOB CHECKIN] - Sending mail to ', _challenge._id, _challenge.user && _challenge.user.email || null);
+				if(!(_challenge && _challenge.user && _challenge.user.email)) {
+					console.log('QUITing this mail...');
+					return callback();
+				}
 				EmailService.sendMail(_challenge.user.email, "You have a new challenge!", "emailNewChallenge", {
 					username: _challenge.user.name.first,
 					websiteUrl: process.env.WEBSITE_URL,

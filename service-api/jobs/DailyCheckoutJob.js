@@ -33,6 +33,11 @@ module.exports = class DailyCheckoutJob {
 
 		tasks.push((callback) => {
 			async.mapLimit(userChallenges, 10, (_challenge, callback) => {
+				console.log('[JOB CHECKOUT] - Sending mail to ', _challenge._id, _challenge.user && _challenge.user.email || null);
+				if (!(_challenge && _challenge.user && _challenge.user.email)) {
+					console.log('QUITing this mail...');
+					return callback();
+				}
 				EmailService.sendMail(_challenge.user.email, "How did it go Today? Please check-in", "emailCheckIn", {
 					username: _challenge.user.name.first,
 					websiteUrl: process.env.WEBSITE_URL,
