@@ -56,7 +56,6 @@ export default {
   },
   watch: {
     "$route"(to, from){
-      console.log('in header watcher', to, from)
       if (to.query.redirect && (!to.query.success || !to.query.error)) {
         this.activeModal = 'signin';
         this.openModal();
@@ -69,7 +68,6 @@ export default {
       this.activeModal = ''
     },
     openModal(loc, type) {
-      console.log('>>>>>>>>..', 'open modal called', loc, type)
       window._gtmCtxSignUp = {loc: loc, type: type}
       document.body.classList.add('modal-open')
     },

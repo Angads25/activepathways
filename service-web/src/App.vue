@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Header v-if="showHeader"></Header>
     <router-view/>
     <Loader v-if="showLoader"></Loader>
   </div>
@@ -10,15 +10,20 @@
   import swal from 'sweetalert2'
   import Header from '@/components/header/header.vue'
   import Loader from '@/components/loader/loader.vue'
+
   export default {
     name: 'App',
     components: {Header, Loader},
-    data () {
+    data() {
       return {
-        timeOut: 0
+        timeOut: 0,
+        showHeader: true
       }
     },
-    created () {
+    created() {
+      if (['terms-of-use', 'privacy-policy'].indexOf(this.$route.name) > -1) {
+        this.showHeader = false;
+      }
       this.$loader.show()
       this.$store.dispatch('fetchAuthFromLocal')
         .then(resp => {
@@ -38,18 +43,18 @@
         })
     },
     computed: {
-      isLoggedIn () {
+      isLoggedIn() {
         return !!this.$store.state.auth.authToken
       },
-      responseError () {
+      responseError() {
         return this.$store.state.ui.responseError
       },
-      showLoader () {
+      showLoader() {
         return this.$store.state.ui.show_loader
       }
     },
     watch: {
-      responseError () {
+      responseError() {
         console.log(this.responseError);
         if (this.responseError.intercept) {
           this.responseError.intercept(this.responseError.error)
@@ -59,6 +64,15 @@
             title: 'Error',
             text: this.responseError.error
           })
+        }
+      },
+      "$route"(to, from) {
+        let self = this;
+        console.log('in header watcher', to, from)
+        if (['terms-of-use', 'privacy-policy'].indexOf(to.name) > -1) {
+          self.showHeader = false;
+        } else {
+          self.showHeader = true;
         }
       }
     }
