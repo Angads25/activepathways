@@ -81,6 +81,17 @@ export default {
         email: this.email,
         password: this.password
       }
+    },
+    showAboutUs(aboutus){
+      this.$store.commit('hideModal')
+      document.body.classList.remove('modal-open')
+      if(aboutus===1) {
+        //privacy policy
+        this.$router.push('/privacyPolicy')
+      } else {
+        //termsOfUse
+        this.$router.push('/termsOfUse')
+      }
     }
   }
 }
