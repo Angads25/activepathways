@@ -14,7 +14,8 @@ export default {
       isOpen: false,
       openerText: 'Open',
       verifyStatus: '',
-      verifyEmailMessage: ''
+      verifyEmailMessage: '',
+      showWelcomeText: true
     }
   },
   components: {
@@ -25,6 +26,9 @@ export default {
     VerifyEmailStatus
   },
   created() {
+    if (['terms-of-use', 'privacy-policy'].indexOf(this.$route.name) > -1) {
+      this.showWelcomeText = false;
+    }
     console.log("token is>>>>", this.$route)
     if (this.$route.params.resetToken) {
       this.activeModal = 'resetPassword';
@@ -49,6 +53,9 @@ export default {
     }
   },
   computed: {
+    getClassName() {
+      return (this.showWelcomeText ? 'header-baner' : 'maxHeight100') ;
+    },
     showHeader() {
       // return this.$route.name !== "dashboard ?? challengestates"
       return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard') || (this.$route.name === 'challenge-detail')

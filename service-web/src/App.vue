@@ -21,9 +21,9 @@
       }
     },
     created() {
-      if (['terms-of-use', 'privacy-policy'].indexOf(this.$route.name) > -1) {
+      /*if (['terms-of-use', 'privacy-policy'].indexOf(this.$route.name) > -1) {
         this.showHeader = false;
-      }
+      }*/
       this.$loader.show()
       this.$store.dispatch('fetchAuthFromLocal')
         .then(resp => {
@@ -69,11 +69,11 @@
       "$route"(to, from) {
         let self = this;
         console.log('in header watcher', to, from)
-        if (['terms-of-use', 'privacy-policy'].indexOf(to.name) > -1) {
+        /*if (['terms-of-use', 'privacy-policy'].indexOf(to.name) > -1) {
           self.showHeader = false;
         } else {
           self.showHeader = true;
-        }
+        }*/
       }
     }
   }

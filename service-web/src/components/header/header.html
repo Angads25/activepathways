@@ -1,5 +1,5 @@
 <header class="avenir h-100 " v-if="!showHeader">
-  <div class=" header-baner">
+  <div v-bind:class="getClassName">
     <div class=" pb5 pb6-m pb7-l  ph3 ph3-m ph3-l relative vh-75 vh-100-m vh-100-l">
       <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt3-ns dt w-100 mw8 center bb nav-border-b">
         <div class="w-20 fl ml3 ml0-ns tl pa2-ns">
@@ -58,7 +58,7 @@
           <div class="bg-overlay"></div>
         </div>
       </nav>
-      <section class="hero ph3 w-40">
+      <section class="hero ph3 w-40" v-if="showWelcomeText">
         <div class="db fr w-40-l w-60-m w-100 center black ph3 ph0-ns absolute bottom-0 right-0 ">
           <div class="bg-white welcome-bg black pv2 ph3 ph6-l ph3-m br--left-l br--left-m br--top br4 tl">
             <h1 class="f1 f1-ns black mb0 mt2-m">Welcome </h1>
