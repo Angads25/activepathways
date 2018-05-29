@@ -30,62 +30,67 @@ module.exports = class SkipIncompleteChallenges {
 					multi: true
 				}
 			).exec((err) => {
-				if (err) cb(err);
+				if (err) return cb(err);
 				cb()
 			});
 		});
 
 		tasks.push((cb) => {
 			Programme.find().exec((err, programmes) => {
-				if (err) cb(err);
+				if (err) return cb(err);
 				cb(null, _programmes = programmes)
 			});
 		});
 
 		tasks.push((cb) => {
-				if (!_programmes) return;
-				async.map(_programmes, (programme, cb) => {
-					const startDate = moment().subtract(programme.durationDays + 1, 'days').startOf('day')._d;
-					const endDate = moment().subtract(1, 'days').endOf('day')._d;
-
-					UserChallengeState.aggregate([
-						{
-							$match: {
-								programme: ObjectId(programme._id),
-								challengeDate: {$gt: startDate, $lte: endDate},
-								status: {$in: ["COMPLETED", "SKIPPED"]}
-							}
-						}, {
-							$group: {
-								_id: "$user",
-								totalCount: {
-									$sum: 1
-								}
+			if (!_programmes) return cb();
+			async.map(_programmes, (programme, cb) => {
+				const startDate = moment().subtract(programme.durationDays + 1, 'days').startOf('day')._d;
+				const endDate = moment().subtract(1, 'days').endOf('day')._d;
+				let cursor = UserChallengeState.aggregate([
+					{
+						$match: {
+							programme: ObjectId(programme._id),
+							challengeDate: {$gt: startDate, $lte: endDate},
+							status: {$in: ["COMPLETED", "SKIPPED"]}
+						}
+					}, {
+						$group: {
+							_id: "$user",
+							totalCount: {
+								$sum: 1
 							}
 						}
-					]).exec((err, _userChallenges) => {
-						if (err) cb(err);
-						_userChallenges.forEach((user) => {
-							if (user.totalCount === programme.durationDays) {
-								UserProgrammeEnrollment.update({
-									programme: ObjectId(programme._id),
-									user: ObjectId(user._id),
-									status: "JOINED"
-								}, {
-									$set: {status: "EXITED", exitDate: moment().subtract(1, "days")._d}
-								}).exec((err, result) => {
-									if (err) cb(err);
-									cb();
-								})
-							}
-						});
-					});
-				}, (err) => {
-					if (err) cb(err);
-					cb()
+					}
+				]).cursor().exec();
+
+				cursor.each((err, _userChallenges) => {
+					if (err) return;
+
+					/******************
+					 *
+					 * Updating user programes states to exit on completion of all the challenges
+					 *
+					 *******************/
+					if (!_userChallenges) return;
+					if (_userChallenges.totalCount === programme.durationDays) {
+						UserProgrammeEnrollment.update({
+							programme: ObjectId(programme._id),
+							user: ObjectId(_userChallenges._id),
+							status: "JOINED"
+						}, {
+							$set: {status: "EXITED", exitDate: moment().subtract(1, "days")._d}
+						}).exec((err, result) => {
+							
+						})
+					}
 				});
-			}
-		);
+				cb();
+			}, (err) => {
+				if (err) return cb(err);
+				cb()
+			});
+		});
 
 		async.series(tasks, (err, result) => {
 			if (err) console.error(`ERROR in Job ${this.name}`, err);

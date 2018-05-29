@@ -4,98 +4,102 @@
     <div class="w-100 modal-dialog dtc v-mid ph0-l ph0-m ph2"
          @click.prevent="$event.stopPropagation()">
       <div class="relative animation">
-      <i class="bg-white h2 w2 absolute top-0 top--1-m top--1-l br-100 right-0 right--1-l right--1-m z-4 br5 pointer"
-         @click.prevent="closeModal($event)"><img src="../../../assets/images/close-icon.png" class="v-tb"/></i>
-      <div class="w-100 bg-white pv0-l pv0-m pv4  black br3 shadow-default animation height-470 overflow-hidden">
-        <div class="cf db o-90">
-          <div class="fl  w-100 w-50-l w-50-m pa4 avenir">
-            <div class="cf w-100">
-              <div class="w-50 fl f4 fw5 navy tl">Sign Up</div>
-              <div class="w-50 fr f6 fw6 blue tr mt2 pointer" @click.prevent="openSignIn($event)">SIGN IN</div>
-            </div>
-            <div class="w-100 cf"><p class="f6 f5-ns lh-copy measure tl navy avenir mt2">Please create an account to start an exciting journey for healthy future.</p></div>
-            <form class="measure center">
-              <fieldset class="ba b--transparent ph0 mh0 pb0 mt0 pt0">
-                <div class=" w-100 tl relative">
-                  <div class="cf w-100">
-                    <div class="w-50 fl pr2 text-field">
-                      <input class="navy"
-                             name="fname"
-                             data-vv-as="first name"
-                             v-validate="'required|alpha'"
-                             v-model="fname"
-                             id="FirstName"
-                             placeholder="First Name"
-                             required/>
-                      <label class="f6-ns fw5 avenir" for="FirstName">First Name</label>
-                    </div>
-                    <div class="w-50 fl pl2 text-field">
-                      <input class="navy"
-                             name="lname"
-                             data-vv-as="last name"
-                             v-validate="'required|alpha'"
-                             v-model="lname" placeholder="Last Name" required/>
-                      <label class="f6-ns fw5 avenir ml2-ns" for="">Last Name</label>
-                    </div>
-                  </div>
-                  <span v-show="errors.has('fname') || errors.has('lname')" class="help is-danger absolute left-0 mt1">{{ errors.first('fname') || errors.first('lname') }}</span>
-                </div>
-                <div class="mt4 text-field">
-                  <input class="navy" type="email"
-                         name="email-address"
-                         v-validate="'required|email'"
-                         data-vv-as="email"
-                         id="email"
-                         v-model="email"
-                         placeholder="Email"
-                         required/>
-                  <label class="f6-ns fw5 avenir" for="email">Email</label>
-                  <span v-show="errors.has('email-address')" class="help is-danger absolute left-0 mt1">{{ errors.first('email-address') }}</span>
-                </div>
-                <div class="mt4 text-field">
-                  <input
-                    class="navy"
-                    type="password"
-                    v-validate="'required|alpha_num'"
-                    data-vv-as="password"
-                    name="password"
-                    placeholder="Password"
-                    id="Passwordsigup"
-                    v-model="password"
-                    required/>
-                  <label class="f6-ns fw5 avenir"for="Passwordsigup" >Password</label>
-                  <span v-show="errors.has('password')" class="help is-danger absolute left-0 mt1">{{ errors.first('password') }}</span>
-                </div>
-                <div class="mt4 text-field">
-                  <input
-                    class="navy"
-                    type="password"
-                    v-validate="'required|confirmed:password'"
-                    name="cpassword"
-                    id="ConfirmPassword"
-                    placeholder="Confirm Password"
-                    data-vv-as="password"
-                    required/>
-                  <label class="f6-ns fw5 avenir" for="ConfirmPassword">Confirm Password</label>
-                  <span v-show="errors.has('cpassword')" class="help is-danger absolute left-0 mt1">{{ errors.first('cpassword') }}</span>
-                </div>
-              </fieldset>
-              <div class="cf w-100 mt4 relative h3">
-                <button v-if="!showLoader" class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100 pointer"
-                   @click.prevent="signUp($event)" :disabled="loading">SIGN UP</button>
-                <div v-else class="button-loader"></div>
+        <i class="bg-white h2 w2 absolute top-0 top--1-m top--1-l br-100 right-0 right--1-l right--1-m z-4 br5 pointer"
+           @click.prevent="closeModal($event)"><img src="../../../assets/images/close-icon.png" class="v-tb"/></i>
+        <div class="w-100 bg-white pv0-l pv0-m pv4  black br3 shadow-default animation height-470 overflow-hidden">
+          <div class="cf db o-90">
+            <div class="fl  w-100 w-50-l w-50-m pa4 avenir">
+              <div class="cf w-100">
+                <div class="w-50 fl f4 fw5 navy tl">Sign Up</div>
+                <div class="w-50 fr f6 fw6 blue tr mt2 pointer" @click.prevent="openSignIn($event)">SIGN IN</div>
               </div>
-              <!--<div class="cf w-100 mt2">
-                <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b&#45;&#45;lightest-blue blue w-100" href="#0">FACEBOOK
-                  CONNECT</a>
-              </div>-->
-            </form>
-          </div>
-          <div class="fl w-100 w-50-l w-50-m blue-dark-color pa5 br--right br3 dn db-l db-m vh-100">
+              <div class="w-100 cf"><p class="f6 f5-ns lh-copy measure tl navy avenir mt2">Please sign up to start your
+                new active lifestyle journey.</p></div>
+              <form class="measure center">
+                <fieldset class="ba b--transparent ph0 mh0 pb0 mt0 pt0">
+                  <div class=" w-100 tl relative">
+                    <div class="cf w-100">
+                      <div class="w-50 fl pr2 text-field">
+                        <input class="navy"
+                               name="fname"
+                               data-vv-as="first name"
+                               v-validate="{required: true, regex: /^((\w+)|(\w+(\s)\w+))$/}"
+                               v-model="fname"
+                               id="FirstName"
+                               placeholder="First Name"
+                               required/>
+                        <label class="f6-ns fw5 avenir" for="FirstName">First Name</label>
+                      </div>
+                      <div class="w-50 fl pl2 text-field">
+                        <input class="navy"
+                               name="lname"
+                               data-vv-as="last name"
+                               v-validate="{required: true, regex: /^((\w+)|(\w+(-|\s)\w+\s?(\w+)?))$/}"
+                               v-model="lname" placeholder="Last Name" required/>
+                        <label class="f6-ns fw5 avenir ml2-ns" for="">Last Name</label>
+                      </div>
+                    </div>
+                    <span v-show="errors.has('fname') || errors.has('lname')"
+                          class="help is-danger absolute left-0 mt1">{{ errors.first('fname') || errors.first('lname') }}</span>
+                  </div>
+                  <div class="mt4 text-field">
+                    <input class="navy" type="email"
+                           name="email-address"
+                           v-validate="'required|email'"
+                           data-vv-as="email"
+                           id="email"
+                           v-model="email"
+                           placeholder="Email"
+                           required/>
+                    <label class="f6-ns fw5 avenir" for="email">Email</label>
+                    <span v-show="errors.has('email-address')" class="help is-danger absolute left-0 mt1">{{ errors.first('email-address') }}</span>
+                  </div>
+                  <div class="mt4 text-field">
+                    <input
+                      class="navy"
+                      type="password"
+                      v-validate="'required|alpha_num'"
+                      data-vv-as="password"
+                      name="password"
+                      placeholder="Password"
+                      id="Passwordsigup"
+                      v-model="password"
+                      required/>
+                    <label class="f6-ns fw5 avenir" for="Passwordsigup">Password</label>
+                    <span v-show="errors.has('password')" class="help is-danger absolute left-0 mt1">{{ errors.first('password') }}</span>
+                  </div>
+                  <div class="mt4 text-field">
+                    <input
+                      class="navy"
+                      type="password"
+                      v-validate="'required|confirmed:password'"
+                      name="cpassword"
+                      id="ConfirmPassword"
+                      placeholder="Confirm Password"
+                      data-vv-as="password"
+                      required/>
+                    <label class="f6-ns fw5 avenir" for="ConfirmPassword">Confirm Password</label>
+                    <span v-show="errors.has('cpassword')" class="help is-danger absolute left-0 mt1">{{ errors.first('cpassword') }}</span>
+                  </div>
+                </fieldset>
+                <div class="cf w-100 mt4 relative h3">
+                  <button v-if="!showLoader"
+                          class="f6 link dim br-pill ph3 pv3 mb2 dib white blue-dark-color w-100 pointer"
+                          @click.prevent="signUp($event)" :disabled="loading">SIGN UP
+                  </button>
+                  <div v-else class="button-loader"></div>
+                </div>
+                <!--<div class="cf w-100 mt2">
+                  <a class="f6 fw6 link dim br-pill ph3 pv3 mb2 dib ba b&#45;&#45;lightest-blue blue w-100" href="#0">FACEBOOK
+                    CONNECT</a>
+                </div>-->
+              </form>
+            </div>
+            <div class="fl w-100 w-50-l w-50-m blue-dark-color pa5 br--right br3 dn db-l db-m vh-100">
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 </section>

@@ -15,7 +15,7 @@ export default {
     }
   },
   computed: {
-    showLoader() {
+    showLoader () {
       return this.$store.state.ui.show_loader
     }
   },
@@ -36,6 +36,18 @@ export default {
       this.$validator.validateAll()
         .then(result => {
           if (result) {
+            // Send GTM event
+            if (window._gtmCtxSignUp && window._gtmCtxSignUp.type === 'signup' && window._gtmCtxSignUp.loc) {
+              console.log('Found GTM context', window._gtmCtxSignUp)
+              let dataLayer = window.dataLayer || [];
+              dataLayer.push({
+                event: 'Sign up',
+                eventCategory: 'Form',
+                eventAction: 'Sign up',
+                eventLabel: window._gtmCtxSignUp.loc // 'header' / 'sign up button' / 'Get started now button'
+              })
+            }
+
             this.$loader.show()
             this.loading = true
             this.$store.dispatch('signup', this.getSignUpData())
@@ -47,7 +59,8 @@ export default {
                 })
                 this.$loader.hide()
                 this.closeModal(event)
-              }).catch(err => {
+              })
+              .catch(err => {
                 this.loading = false
                 this.$loader.hide()
               })

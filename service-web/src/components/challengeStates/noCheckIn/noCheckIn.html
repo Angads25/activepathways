@@ -4,32 +4,40 @@
         </span>
   <div class="w-100 pa3">
     <div class="cf db">
-      <div class="w-40 fl pa1 tl f5 fw6 navy">{{(challengeData['programme'] || {})['name']}}</div>
-      <router-link tag="div" :to="{ name: 'challenge-detail', params: { id: challengeData['id'] } }" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-if="!isChallengeDetail">CHECK CHALLENGE DETAILS</router-link>
-      <router-link tag="div" :to="{ name: 'dashboard'}" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-else="!isChallengeDetail"> GO BACK </router-link>
+      <div class="w-40 fl pa1 tl f5 fw6 navy">{{(programmeResult || {})['name'] }}</div>
+      <!--<router-link tag="div" :to="{ name: 'challenge-detail', params: { id: challengeData['id'] } }" class="w-60 fl pa1 f6 fw5 tr blue pointer" v-if="!isChallengeDetail">CHECK CHALLENGE DETAILS</router-link>-->
+      <!--<router-link tag="div" :to="{ name: 'dashboard'}" class="w-60 fl pa1 f6 fw5 tr blue pointer"-->
+      <!--v-else="!isChallengeDetail"> GO BACK-->
+      <!--</router-link>-->
 
     </div>
     <div class="cf db">
       <article class="w-100 mw7 center ph0 ph5-ns tc br2 pv3">
-        <h2 class="fw4 f4 tc lh-copy mt0 mb3 navy">
-          Day {{challengeData['day']}} - {{(challengeData['challengeDate'] || new Date()) | parseDate('DD/MM')}}
-        </h2>
-        <h1 class=" b f4 f2-ns navy lh-title mt0 mb3">
-          {{(challengeData['challenge'] || {})['name']}}
+        <!--<h2 class="fw4 f4 tc lh-copy mt0 mb3 navy">-->
+        <!--Day {{challengeData['day']}} - {{(challengeData['challengeDate'] || new Date()) | parseDate('DD/MM')}}-->
+        <!--</h2>-->
+        <h1 class=" b f4 f2-ns navy lh-title mt0 mb3" v-if="programmeState === 'BEFORE_START'">
+          Get Ready
         </h1>
-        <p class="fw4 f6 f5-ns mt0 mb3 w-100 w-80-ns center navy">
-          {{(challengeData['challenge'] || {})['shortDescription']}}
+        <h1 class=" b f4 f2-ns navy lh-title mt0 mb3" v-else>
+          Well done! You made it!
+        </h1>
+        <p class="fw4 f6 f5-ns mt0 mb3 w-100 w-80-ns center navy" v-if="programmeState === 'BEFORE_START'">
+          You will receive an email tomorrow morning with your first challenge.
+        </p>
+        <p class="fw4 f6 f5-ns mt0 mb3 w-100 w-80-ns center navy" v-else>
+          You successfully completed the programme. We'll inform you when new programmes become available.
         </p>
         <div>
-          <a class="f6 fw5 link br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">
-            ACCEPT CHALLENGE
-          </a>
-          <a class="f6 fw5 link br-pill ph4 mb2 mt3 dib blue b--blue ba pt2 pb2 lh-copy ml2" href="javascript:void(0)">
-            SKIP
-          </a>
+          <!--<a class="f6 fw5 link br-pill ph4 mb2 mt3 dib white blue-dark-color pt2 pb2 lh-copy" href="javascript:void(0)">-->
+          <!--ACCEPT CHALLENGE-->
+          <!--</a>-->
+          <!--<a class="f6 fw5 link br-pill ph4 mb2 mt3 dib blue b&#45;&#45;blue ba pt2 pb2 lh-copy ml2" href="javascript:void(0)">-->
+          <!--SKIP-->
+          <!--</a>-->
         </div>
       </article>
     </div>
   </div>
-  <div class="absolute top-0 right-0 bottom-0 left-0 h-100 w-100 z-3 o-90 white f1 pt6 fw6" style="background-color: #50b8e7e6;">?</div>
+  <!--<div class="absolute top-0 right-0 bottom-0 left-0 h-100 w-100 z-3 o-90 white f1 pt6 fw6" style="background-color: #50b8e7e6;">?</div>-->
 </div>
