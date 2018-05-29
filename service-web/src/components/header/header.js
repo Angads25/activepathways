@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     getClassName() {
-      return (this.showWelcomeText ? 'header-baner' : 'maxHeight100') ;
+      return (this.showWelcomeText ? 'header-baner' : 'maxHeight100');
     },
     showHeader() {
       // return this.$route.name !== "dashboard ?? challengestates"
@@ -62,7 +62,12 @@ export default {
     }
   },
   watch: {
-    "$route"(to, from){
+    "$route"(to, from) {
+      if (['terms-of-use', 'privacy-policy'].indexOf(to.name) > -1) {
+        this.showWelcomeText = false;
+      } else {
+        this.showWelcomeText = true;
+      }
       if (to.query.redirect && (!to.query.success || !to.query.error)) {
         this.activeModal = 'signin';
         this.openModal();
@@ -78,17 +83,17 @@ export default {
       window._gtmCtxSignUp = {loc: loc, type: type}
       document.body.classList.add('modal-open')
     },
-    open () {
+    open() {
       this.openerText = 'Close'
       this.isOpen = true
       document.body.classList.add('overlay-bg')
     },
-    close () {
+    close() {
       this.openerText = 'Open'
       this.isOpen = false
       document.body.classList.remove('overlay-bg')
     },
-    toggle () {
+    toggle() {
       if (this.isOpen) {
         this.close()
       } else {

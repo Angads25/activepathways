@@ -67,6 +67,7 @@
         }
       },
       "$route"(to, from) {
+        window.scrollTo(0, 0);
         let self = this;
         console.log('in header watcher', to, from)
         /*if (['terms-of-use', 'privacy-policy'].indexOf(to.name) > -1) {
