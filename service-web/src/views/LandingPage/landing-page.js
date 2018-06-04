@@ -1,6 +1,9 @@
 import SignIn from '@/components/login/signIn/signIn.vue'
 import SignUp from '@/components/login/signUp/signUp.vue'
 import ForgetPassword from '@/components/login/forgetPassword/forgetPassword.vue'
+import swal from 'sweetalert2'
+import {getCookie, setCookie} from "../../services/index";
+
 export default {
   name: 'LandingPage',
   data () {
@@ -46,6 +49,24 @@ export default {
       } else {
         this.open()
       }
+    }
+  },
+  created () {
+    if(!getCookie()){
+      swal({
+        title: 'Disclaimer',
+        text: 'We use cookies for analytical purposes. Learn more',
+        backdrop: true,
+        allowOutsideClick : false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        position: 'top-end',
+        confirmButtonText: 'Ok',
+      }).then((result) => {
+        if(result && result.value) {
+          setCookie()
+        }
+      })
     }
   }
 }

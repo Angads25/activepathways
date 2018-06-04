@@ -3,6 +3,7 @@ import store from '@/store'
 import Convert2GraphQL from 'convert2graphql'
 
 const API_URL = process.env.BASE_API_URL
+const LS_KEY = 'LS_activepath_banner'
 
 export const HTTP = axios.create({
   baseURL: API_URL
@@ -63,4 +64,12 @@ export const createQuery = () => {
 
 export const createMutation = () => {
   return new Convert2GraphQL('mutation')
+}
+
+export const getCookie = () => {
+    return localStorage.getItem(LS_KEY)
+}
+
+export const setCookie = () => {
+    return localStorage.setItem(LS_KEY, true)
 }
