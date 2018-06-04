@@ -22,6 +22,8 @@ var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 const Agendash = require('agendash');
+const fs = require('fs');
+const path = require('path');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -42,6 +44,12 @@ exports = module.exports = function (app) {
 	});
 	// Views
 	// app.get('/', routes.views.index);
+	app.get('/terms', function (req, res) {
+		let file = path.join(__dirname, '../public', 'terms.html');
+		if (fs.existsSync(file)) {
+			fs.createReadStream(file).pipe(res);
+		}
+	});
 	app.get('/graph', middleware.tokenAuthCommon, middleware.tokenAuth, routes.api.GraphQLSchema.get);
 	app.post('/graph', middleware.tokenAuthCommon, middleware.tokenAuth, routes.api.GraphQLSchema.post);
 	app.get('/verify/:token', routes.api.VerifyEmail.get);
@@ -51,7 +59,7 @@ exports = module.exports = function (app) {
 
 	// agenda dash 
 	app.use('/jobs/admin', middleware.requireUserWithTargetUrl('/jobs/admin'), Agendash(_agenda));
-	
+
 	// mail test util
 	app.use('/util/templates', middleware.requireUserWithTargetUrl('/util/templates'), routes.views.mailTemplateUtil);
 };
