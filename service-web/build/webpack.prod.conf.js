@@ -119,6 +119,11 @@ const webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../terms.html'),
         to: config.build.assetsRoot,
         ignore: ['.*']
+      },
+      {
+        from: path.resolve(__dirname, '../src/assets/images/site-logo.png'),
+        to: config.build.assetsRoot,
+        ignore: ['.*']
       }
     ])
   ]
