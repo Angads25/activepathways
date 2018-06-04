@@ -1,8 +1,7 @@
-<section class="modal-signin fade" :class="{'show': activeStatus, 'd-block': activeStatus}"
-         @click.prevent="closeModal($event)">
+<section class="modal-signin fade" :class="{'show': activeStatus, 'd-block': activeStatus}">
+  <div @click.prevent="closeModal($event)" class="absolute top-0 left-0 h-100 w-100 o-70 bg-transparent"></div>
   <section class="modal-frame h-100 dt ph3 ph3-m ph0-l pt4-m pv0-l">
-    <div class="w-100 modal-dialog dtc v-mid ph0-l ph0-m ph2"
-         @click.prevent="$event.stopPropagation()">
+    <div class="w-100 modal-dialog dtc v-mid ph0-l ph0-m ph2">
       <div class="relative animation">
         <i class="bg-white h2 w2 absolute top-0 top--1-m top--1-l br-100 right-0 right--1-l right--1-m z-4 br5 pointer"
            @click.prevent="closeModal($event)"><img src="../../../assets/images/close-icon.png" class="v-tb"/></i>
@@ -94,7 +93,8 @@
                     CONNECT</a>
                 </div>-->
               </form>
-              <div class="terms">*By clicking sign up, I agree to Active Pathways <a href="/terms#privacy" target="_blank">Privacy Policy</a> and <a href="/terms#terms"  target="_blank">Terms of use</a>.</div>
+              <div class="terms">*By clicking sign up, I agree to Active Pathways <a href="/terms#privacy" target="_blank">Privacy Policy</a> and <a href="/terms#terms" target="_blank">Terms of use</a>.
+              </div>
             </div>
             <div class="fl w-100 w-50-l w-50-m blue-dark-color pa5 br--right br3 dn db-l db-m vh-100">
             </div>

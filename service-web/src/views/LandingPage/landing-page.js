@@ -1,6 +1,9 @@
 import SignIn from '@/components/login/signIn/signIn.vue'
 import SignUp from '@/components/login/signUp/signUp.vue'
 import ForgetPassword from '@/components/login/forgetPassword/forgetPassword.vue'
+import swal from 'sweetalert2'
+import {IsUserAcceptedTerms, acceptedTermsAndConditions} from "../../services/userAcceptedOrNotTerms";
+
 export default {
   name: 'LandingPage',
   data () {
@@ -46,6 +49,26 @@ export default {
       } else {
         this.open()
       }
+    }
+  },
+  created () {
+    if(!IsUserAcceptedTerms()){
+      swal({
+        type: 'info',
+        title: 'Disclaimer',
+        html: 'We use cookies for analytical purposes. <a href="/terms#terms" target="_blank"> Learn more </a>',
+        backdrop: false,
+        allowOutsideClick : false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        position: 'bottom-end',
+        toast: true,
+        confirmButtonText: 'ACCEPT',
+      }).then((result) => {
+        if(result && result.value) {
+          acceptedTermsAndConditions()
+        }
+      })
     }
   }
 }
