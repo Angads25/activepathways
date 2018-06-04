@@ -56,7 +56,7 @@ export default {
       swal({
         type: 'info',
         title: 'Disclaimer',
-        html: 'We use cookies for analytical purposes. <a href="/terms#terms" target="_blank"> Learn more </a>',
+        html: 'We use cookies for analytical purposes. <a href="/terms#privacy" target="_blank"> Learn more </a>',
         backdrop: false,
         allowOutsideClick : false,
         allowEscapeKey: false,
