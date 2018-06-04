@@ -55,7 +55,7 @@ export default {
     if(!getCookie()){
       swal({
         title: 'Disclaimer',
-        text: 'We use cookies for analytical purposes. Learn more',
+        html: 'We use cookies for analytical purposes. <a href="/terms#terms" target="_blank"> Learn more </a>',
         backdrop: true,
         allowOutsideClick : false,
         allowEscapeKey: false,
