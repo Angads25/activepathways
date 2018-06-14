@@ -39,9 +39,6 @@ export default {
     user() {
       return this.$store.state.auth.user
     },
-    getYoutubeId(url) {
-      return getIdFromURL(url)
-    },
     currentProgrammeData() {
       return this.userChallengeStateList.sort((c1, c2) => +new Date(c1.challengeDate) - +new Date(c2.challengeDate))
     }
