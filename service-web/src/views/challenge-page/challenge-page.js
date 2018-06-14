@@ -5,6 +5,8 @@ import Skipped from '@/components/challengeStates/skipped/skipped.vue'
 import Done from '@/components/challengeStates/done/done.vue'
 import NotDone from '@/components/challengeStates/notDone/notDone.vue'
 import NoCheckIn from '@/components/challengeStates/noCheckIn/noCheckIn.vue'
+import {getIdFromURL} from 'vue-youtube-embed'
+
 
 export default {
   name: 'ChallengePage',
@@ -19,6 +21,7 @@ export default {
   data() {
     return {
       type: 0,
+      videoId: '',
       challengeData: {},
       statusComponents: {
         PENDING: OnHold,
@@ -49,6 +52,7 @@ export default {
       UserService.userChallengeById(this.$route.params['id'])
         .then(resp => {
           this.challengeData = resp
+          this.videoId = getIdFromURL((this.challengeData['challenge'] || {})['youtube'] || '')
         })
     },
     logout() {

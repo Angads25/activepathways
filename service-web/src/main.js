@@ -16,12 +16,14 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import Raven from 'raven-js';
 import RavenVue from 'raven-js/plugins/vue';
+import VueYouTubeEmbed from 'vue-youtube-embed'
 
 Raven
   .config('https://c5a9b905c4bd46c5a271eb0c8e334480@sentry.io/1206277')
   .addPlugin(RavenVue, Vue)
   .install()
 
+Vue.use(VueYouTubeEmbed)
 Vue.use(Element)
 Vue.use(VeeValidate)
 Vue.use(VCalendar)
@@ -41,6 +43,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

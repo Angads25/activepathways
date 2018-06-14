@@ -59,7 +59,8 @@ export const UserService = {
             resource_type: 'resource_type',
             url: 'url',
             secure_url: 'secure_url'
-          }
+          },
+          youtube: 'youtube'
         },
         user: {
           id: 'id',
@@ -106,7 +107,8 @@ export const UserService = {
             resource_type: 'resource_type',
             url: 'url',
             secure_url: 'secure_url'
-          }
+          },
+          youtube: 'youtube'
         },
         user: {
           id: 'id',
