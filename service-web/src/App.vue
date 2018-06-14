@@ -2,6 +2,7 @@
   <div id="app">
     <Header></Header>
     <router-view/>
+    <!--<ProgramsCatalogue></ProgramsCatalogue>-->
     <Loader v-if="showLoader"></Loader>
   </div>
 </template>
@@ -10,6 +11,8 @@
   import swal from 'sweetalert2'
   import Header from '@/components/header/header.vue'
   import Loader from '@/components/loader/loader.vue'
+//  import ProgramsCatalogue from '@/views/programs-catalogue/programs-catalogue.vue'
+
   export default {
     name: 'App',
     components: {Header, Loader},

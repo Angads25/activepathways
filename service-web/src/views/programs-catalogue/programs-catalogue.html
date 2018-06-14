@@ -1,0 +1,239 @@
+<div class="wrapper">
+  <header class="avenir h-100 gradient-blue" v-if="!showHeader">
+    <div class=" header-baner">
+      <div class="ph3 ph3-m ph3-l relative">
+        <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt3-ns dt w-100 mw8 center bb nav-border-b">
+          <div class="w-100 w-30-m w-30-l fl ml3 ml0-ns tl pa2-ns">
+            <a href="" class="no-underline white f3 f3-m f2-l fw6 ml4 ml0-m ml0-l pl2 pl0-m pl0-l">
+              Active Pathways
+            </a>
+          </div>
+          <div class="fl w-70 pa3 pr0 tr menu-header desktop-menu">
+            <div class="">
+              <a href=""
+                 class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">Home
+              </a>
+              <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+                Challenges
+              </a>
+              <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+                Values
+              </a>
+              <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+                Approach
+              </a>
+              <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+                Contact
+              </a>
+            </div>
+          </div>
+          <div class="mobile-expanded">
+            <div class="mobile-expanded-nav"
+                 :class="{ isOpen: isOpen }">
+              <div class="hamburger-toggle" v-bind:class="{active: isOpen}"
+                   @click="toggle"><span class="top"></span><span class="middle"></span><span
+                class="bottom"></span></div>
+              <div class="ml3 pl1 mb5"><img src="../../assets/images/logo-icon.png" class="fl"/><span
+                class="f5 fw7 white dt-ca mt2">Active Pathways</span></div>
+              <a href="" class="w-1   00 f4 fw5 db white no-underline tl pb3">
+                Home
+              </a>
+              <a href="" @click.stop.prevent="toggle"
+                 class="w-100 f4 fw5 db white no-underline tl pb3"> Challenges
+              </a>
+              <a href=""
+                 class="w-100 f4 fw5 db pb3 white no-underline tl">
+                Values
+              </a>
+              <a class="w-100 f4 fw5 db white no-underline pb3 tl">
+                Approach
+              </a>
+              <a class="w-100 f4 fw5 db white no-underline pb2 tl">
+                Contact
+              </a>
+            </div>
+            <div class="bg-overlay"></div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <section class="cf center w-100 ph3 ph4-m ph6-l bg-navy black" id="">
+    <div class="mw8 center tl">
+      <div class="cf mt0 tc  pb5 pt5 mt2 mb2">
+        <div class="fl w-100 w-third-m w-third-l pa3">
+          <article class="br3 bg-white center shadow-default">
+            <img
+              src="../../assets/images/card-img-1.jpg" class="db w-100 br3 br--top"
+              alt="Photo of a kitten looking menacing.">
+            <div class="pa0 pb3">
+              <div class="dt w-100 mt1">
+                <div class="dtc">
+                  <h1 class="f3 f4-m f3-l mv0 tl fw2 navy ph4 ph3-m ph4-l pt3">Program title</h1>
+                </div>
+              </div>
+              <p class="lh-copy-l f5 fw5 avenir navy tl ph4 ph3-m ph4-l mt3 pb3 elips-text-lent">
+                If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
+                and touch water with paw then recoil in horror.
+              </p>
+              <div class="bb b--black-10"></div>
+              <a class="f4 f5-m f4-l fw6 db blue link dim pv2 mt3" href="#0"><img
+                src="../../assets/images/enroll-text.jpg" class="w-25"/></a>
+            </div>
+          </article>
+        </div>
+        <div class="fl w-100 w-third-m w-third-l pa3">
+          <article class="br3 bg-white center shadow-default">
+            <img
+              src="../../assets/images/card-img-2.jpg" class="db w-100 br3 br--top"
+              alt="Photo of a kitten looking menacing.">
+            <div class="pa0 pb3">
+              <div class="dt w-100 mt1">
+                <div class="dtc">
+                  <h1 class="f3 f4-m f3-l mv0 tl fw2 navy ph4 ph3-m ph4-l pt3">Program title</h1>
+                </div>
+              </div>
+              <p class="lh-copy-l f5 fw5 avenir navy tl ph4 ph3-m ph4-l mt3 pb3 elips-text-lent">
+                If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
+                and touch water with paw then recoil in horror.
+              </p>
+              <div class="bb b--black-10"></div>
+              <a class="f4 f5-m f4-l fw6 db blue link dim pv2 mt3" href="#0"><img
+                src="../../assets/images/enroll-text.jpg" class="w-25"/></a>
+            </div>
+          </article>
+        </div>
+        <div class="fl w-100 w-third-m w-third-l pa3">
+          <article class="br3 bg-white center shadow-default">
+            <img
+              src="../../assets/images/card-img-3.jpg" class="db w-100 br3 br--top"
+              alt="Photo of a kitten looking menacing.">
+            <div class="pa0 pb3">
+              <div class="dt w-100 mt1">
+                <div class="dtc">
+                  <h1 class="f3 f4-m f3-l mv0 tl fw2 navy ph4 ph3-m ph4-l pt3">Your Program here</h1>
+                </div>
+              </div>
+              <p class="lh-copy-l f5 fw5 avenir navy tl ph4 ph3-m ph4-l mt3 pb3 elips-text-lent">
+                If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
+                and touch water with paw then recoil in horror.
+              </p>
+              <div class="bb b--black-10"></div>
+              <a class="f4 f5-m f4-l fw6 db blue link dim pv2 mt3" href="#0"><img
+                src="../../assets/images/enroll-text.jpg" class="w-25"/></a>
+            </div>
+          </article>
+        </div>
+        <div class="fl w-100 w-third-m w-third-l pa3">
+          <article class="br3 bg-white center shadow-default">
+            <img
+              src="../../assets/images/card-img-3.jpg" class="db w-100 br3 br--top"
+              alt="Photo of a kitten looking menacing.">
+            <div class="pa0 pb3 relative">
+              <div class="partner-card-name absolute top--2 left-0 right-0 ml-auto mr-auto z-3 w-90">
+                <div class="partner-logo-description bg-white box-shadow pa1 br2 clearfix tl f6 fw4 navy"><img src="../../assets/images/patner-4.jpg" class="w2 mr2 dib v-mid"/>Name of the partner</div>
+              </div>
+              <div class="dt w-100 mt1">
+                <div class="dtc">
+                  <h1 class="f3 f4-m f3-l mv0 tl fw2 navy ph4 ph3-m ph4-l pt3">Your Program here</h1>
+                </div>
+              </div>
+              <p class="lh-copy-l f5 fw5 avenir navy tl ph4 ph3-m ph4-l mt3 pb3 elips-text-lent">
+                If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
+                and touch water with paw then recoil in horror.
+              </p>
+              <div class="bb b--black-10"></div>
+              <a class="f4 f5-m f4-l fw6 db blue link dim pv2 mt3" href="#0"><img
+                src="../../assets/images/enroll-text.jpg" class="w-25"/></a>
+            </div>
+          </article>
+        </div>
+        <div class="fl w-100 w-third-m w-third-l pa3">
+          <article class="br3 bg-white center shadow-default">
+            <img
+              src="../../assets/images/card-img-3.jpg" class="db w-100 br3 br--top"
+              alt="Photo of a kitten looking menacing.">
+            <div class="pa0 pb3">
+              <div class="dt w-100 mt1">
+                <div class="dtc">
+                  <h1 class="f3 f4-m f3-l mv0 tl fw2 navy ph4 ph3-m ph4-l pt3">Your Program here</h1>
+                </div>
+              </div>
+              <p class="lh-copy-l f5 fw5 avenir navy tl ph4 ph3-m ph4-l mt3 pb3 elips-text-lent">
+                If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
+                and touch water with paw then recoil in horror.
+              </p>
+              <div class="bb b--black-10"></div>
+              <a class="f4 f5-m f4-l fw6 db blue link dim pv2 mt3" href="#0"><img
+                src="../../assets/images/enroll-text.jpg" class="w-25"/></a>
+            </div>
+          </article>
+        </div>
+        <div class="fl w-100 w-third-m w-third-l pa3">
+          <article class="br3 bg-white center shadow-default">
+            <img
+              src="../../assets/images/card-img-3.jpg" class="db w-100 br3 br--top"
+              alt="Photo of a kitten looking menacing.">
+            <div class="pa0 pb3 relative">
+              <div class="partner-card-name absolute top--2 left-0 right-0 ml-auto mr-auto z-3 w-90">
+                <div class="partner-logo-description bg-white box-shadow pa1 br2 clearfix tl f6 fw4 navy"><img src="../../assets/images/patner-4.jpg" class="w2 mr2 dib v-mid"/>Name of the partner</div>
+              </div>
+              <div class="dt w-100 mt1">
+                <div class="dtc">
+                  <h1 class="f3 f4-m f3-l mv0 tl fw2 navy ph4 ph3-m ph4-l pt3">Your Program here</h1>
+                </div>
+              </div>
+              <p class="lh-copy-l f5 fw5 avenir navy tl ph4 ph3-m ph4-l mt3 pb3 elips-text-lent">
+                If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
+                and touch water with paw then recoil in horror.
+              </p>
+              <div class="bb b--black-10"></div>
+              <a class="f4 f5-m f4-l fw6 db blue link dim pv2 mt3" href="#0"><img
+                src="../../assets/images/enroll-text.jpg" class="w-25"/></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="cf w-100 pa1 pa1-m pa5-l ph6-ns bg-navy white" id="feafooter">
+    <div class="dt w-100 mw8 ph3 ph4-m ph4-l tl center">
+      <div class="cf">
+        <div class="fl w-100 w-50-l w-50-m avenir">
+          <h3 class="f4 fw6 w-90-l ma0-ns pa0-ns white">
+            <span class="mr2">Reach us</span> <a class="f5 fw5 white no-underline white"
+                                                 href="mailto:activepathways@smartplayds.com">activepathways@smartplayds.com</a>
+          </h3>
+          <h3 class="f4 fw6 w-90-l ma0-ns pa0-ns white mt4-ns">
+            Join our community on <a href="https://www.facebook.com/getwalkers/"
+                                     class=" white underline" target="_blank">Facebook</a>
+          </h3>
+          <div class="pt4">
+            <a href="/terms#privacy" target="_blank" class="f6 fw5 white mt1">Privacy Policy</a>
+          </div>
+          <div class="pt4">
+            <a href="/terms#terms" target="_blank" class="f6 fw5 white mt1">Terms Of Use</a>
+          </div>
+        </div>
+        <div class="fl w-100 w-50-l w-50-m">
+          <h3 class="f5 fw6 w-90-l ma0-ns pa0-ns white">Active Pathways is an initiative of:
+            SMARTplayds Limited</h3>
+          <p class="f6 fw5 white mt2">Collaborate Works - Steward House <span class="underline">14 Commercial Way</span>
+          </p>
+          <p class="f6 fw5 white mt1">Woking GU21 6ET</p>
+          <p class="f6 fw5 white mt1">+44 - 203 695 2189</p>
+          <p class="f6 fw5 white mt1">Registered in England and Wales 9462175</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <SignIn v-if="activeModal === 'signin'" @closeModal="closeModal()"
+          @openForgetPassword="activeModal = 'forgetPassword'; openModal()"
+          @openSignUp="activeModal = 'signup'; openModal()"
+          :activeStatus="activeModal === 'signin'"></SignIn>
+  <SignUp v-if="activeModal === 'signup'" @closeModal="closeModal()" @openSignIn="activeModal = 'signin'; openModal()"
+          :activeStatus="activeModal === 'signup'"></SignUp>
+  <ForgetPassword v-if="activeModal === 'forgetPassword'" @closeModal="closeModal()"
+                  @openSignIn="activeModal = 'signin'; openModal()"
+                  :activeStatus="activeModal === 'forgetPassword'"></ForgetPassword>
+</div>
