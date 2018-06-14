@@ -12,7 +12,8 @@ Challenge.add({
 	description: {type: Types.Textarea, initial: true, required: true},
 	shortDescription: {type: Types.Textarea, initial: true, required: true},
 	highlightedContent: {type: Types.Textarea, initial: true, required: false},
-	illustration: {type: Types.CloudinaryImage, initial: true, required: false}
+	illustration: {type: Types.CloudinaryImage, initial: true, required: false},
+	youtube: {type: Types.Text,initial:true, required: false}
 });
 
 /**
