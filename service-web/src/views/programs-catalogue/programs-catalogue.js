@@ -1,6 +1,6 @@
 export default {
-  name: 'LandingPage',
-  data () {
+  name: 'ProgramCatalogue',
+  data() {
     return {
       options: [
         {
@@ -9,22 +9,23 @@ export default {
         }
       ],
       activeModal: '',
+      showHeader: false,
       isOpen: false,
       openerText: 'Open'
     }
   },
   methods: {
-    open () {
+    open() {
       this.openerText = 'Close'
       this.isOpen = true
       document.body.classList.add('overlay-bg')
     },
-    close () {
+    close() {
       this.openerText = 'Open'
       this.isOpen = false
       document.body.classList.remove('overlay-bg')
     },
-    toggle () {
+    toggle() {
       if (this.isOpen) {
         this.close()
       } else {

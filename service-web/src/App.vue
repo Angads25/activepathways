@@ -2,7 +2,6 @@
   <div id="app">
     <Header></Header>
     <router-view/>
-    <!--<ProgramsCatalogue></ProgramsCatalogue>-->
     <Loader v-if="showLoader"></Loader>
   </div>
 </template>
