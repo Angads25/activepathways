@@ -3,8 +3,8 @@ import Router from 'vue-router'
 import LandingPage from '@/views/LandingPage/landing-page.vue'
 import Dashboard from '@/views/Dashboard/dashboard.vue'
 import ChallengeStates from '@/views/ChallengeStates/challenge-states.vue'
-import ChallengePage from '@/views/challenge-page/challenge-page.vue'
-import ProgramsCatalogue from '@/views/programs-catalogue/programs-catalogue.vue'
+import ChallengePage from '@/views/ChallengePage/challenge-page.vue'
+import ProgramsCatalogue from '@/views/ProgramsCatalogue/programs-catalogue.vue'
 import {LocalData} from '../services/localData'
 
 Vue.use(Router)
