@@ -51,7 +51,7 @@ export default {
   computed: {
     showHeader() {
       // return this.$route.name !== "dashboard ?? challengestates"
-      return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard') || (this.$route.name === 'challenge-detail')
+      return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard') || (this.$route.name === 'challenge-detail') || (this.$route.name === 'programs-catalogue')
     }
   },
   watch: {

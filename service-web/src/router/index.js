@@ -37,7 +37,7 @@ const router = new Router({
     },
     {
       path: '/programs-catalogue',
-      name: 'programscatalogue',
+      name: 'programs-catalogue',
       component: ProgramsCatalogue
     }
   ]
