@@ -60,7 +60,8 @@ export const UserService = {
             url: 'url',
             secure_url: 'secure_url'
           },
-          youtube: 'youtube'
+          youtube: 'youtube',
+          customVideoUrl:'customVideoUrl'
         },
         user: {
           id: 'id',
@@ -108,7 +109,8 @@ export const UserService = {
             url: 'url',
             secure_url: 'secure_url'
           },
-          youtube: 'youtube'
+          youtube: 'youtube',
+          customVideoUrl:'customVideoUrl'
         },
         user: {
           id: 'id',
