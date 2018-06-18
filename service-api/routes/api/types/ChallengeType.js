@@ -56,6 +56,9 @@ exports = module.exports = new graphql.GraphQLObjectType({
 		},
 		youtube: {
 			type: graphql.GraphQLString
+		},
+		customVideoUrl:{
+			type: graphql.GraphQLString
 		}
 	})
 });

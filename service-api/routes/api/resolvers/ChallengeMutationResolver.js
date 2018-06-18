@@ -62,6 +62,9 @@ module.exports = {
 			},
 			youtube: {
 				type: graphql.GraphQLString
+			},
+			customVideoUrl: {
+				type: graphql.GraphQLString
 			}
 		},
 		resolve: (parent, args, request) => (new Promise((resolve, reject) => {
@@ -98,6 +101,7 @@ module.exports = {
 						if (args.highlightedContent) challenge.highlightedContent = args.highlightedContent;
 						if (args.illustration) challenge.illustration = args.illustration;
 						if (args.youtube) challenge.youtube = args.youtube
+						if (args.customVideoUrl) challenge.customVideoUrl = args.customVideoUrl
 						challenge.save(function (err) {
 							if (err) callback(err);
 							else callback();
