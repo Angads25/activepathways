@@ -1,0 +1,23 @@
+.light-grey-blue {
+  color: #6e7d90;
+}
+.background-img {
+  background-image: url("../../assets/images/walk.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 580px) {
+  .back-white {
+    background-color: #fff;
+  }
+  .light-grey-blue {
+    color: #6e7d90;
+    opacity: 1;
+  }
+  .grey-black {
+    color: #021a44;
+    opacity: 1;
+  }
+}
