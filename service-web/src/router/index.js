@@ -5,6 +5,7 @@ import Dashboard from '@/views/Dashboard/dashboard.vue'
 import ChallengeStates from '@/views/ChallengeStates/challenge-states.vue'
 import ChallengePage from '@/views/ChallengePage/challenge-page.vue'
 import ProgramsCatalogue from '@/views/ProgramsCatalogue/programs-catalogue.vue'
+import ProgramPage from '@/views/ProgramPage/programPage.vue'
 import {LocalData} from '../services/localData'
 
 Vue.use(Router)
@@ -39,6 +40,11 @@ const router = new Router({
       path: '/programs-catalogue',
       name: 'programs-catalogue',
       component: ProgramsCatalogue
+    },
+    {
+      path: '/program-page',
+      name: 'program-page',
+      component: ProgramPage
     }
   ]
 })
