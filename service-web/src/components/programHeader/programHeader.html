@@ -1,0 +1,59 @@
+<header class="avenir h-100 gradient-blue" v-if="!showHeader">
+  <div class=" header-baner">
+    <div class="ph3 ph3-m ph3-l relative">
+      <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt3-ns dt w-100 mw8 center bb nav-border-b">
+        <div class="w-100 w-30-m w-30-l fl ml3 ml0-ns tl pa2-ns">
+          <a href="" class="no-underline white f3 f3-m f2-l fw6 ml4 ml0-m ml0-l pl2 pl0-m pl0-l">
+            Active Pathways
+          </a>
+        </div>
+        <div class="fl w-70 pa3 pr0 tr menu-header desktop-menu">
+          <div class="">
+            <a href=""
+               class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">Home
+            </a>
+            <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+              Challenges
+            </a>
+            <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+              Values
+            </a>
+            <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+              Approach
+            </a>
+            <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+              Contact
+            </a>
+          </div>
+        </div>
+        <div class="mobile-expanded">
+          <div class="mobile-expanded-nav"
+               :class="{ isOpen: isOpen }">
+            <div class="hamburger-toggle" v-bind:class="{active: isOpen}"
+                 @click="toggle"><span class="top"></span><span class="middle"></span><span
+              class="bottom"></span></div>
+            <div class="ml3 pl1 mb5"><img src="../../assets/images/logo-icon.png" class="fl"/><span
+              class="f5 fw7 white dt-ca mt2">Active Pathways</span></div>
+            <a href="" class="w-1   00 f4 fw5 db white no-underline tl pb3">
+              Home
+            </a>
+            <a href="" @click.stop.prevent="toggle"
+               class="w-100 f4 fw5 db white no-underline tl pb3"> Challenges
+            </a>
+            <a href=""
+               class="w-100 f4 fw5 db pb3 white no-underline tl">
+              Values
+            </a>
+            <a class="w-100 f4 fw5 db white no-underline pb3 tl">
+              Approach
+            </a>
+            <a class="w-100 f4 fw5 db white no-underline pb2 tl">
+              Contact
+            </a>
+          </div>
+          <div class="bg-overlay"></div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
