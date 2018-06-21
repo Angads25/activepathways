@@ -1,28 +1,28 @@
 <header class="avenir h-100 gradient-blue" v-if="!showHeader">
   <div class=" header-baner">
     <div class="ph3 ph3-m ph3-l relative">
-      <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt3-ns dt w-100 mw8 center bb nav-border-b">
-        <div class="w-100 w-30-m w-30-l fl ml3 ml0-ns tl pa2-ns">
-          <a href="" class="no-underline white f3 f3-m f2-l fw6 ml4 ml0-m ml0-l pl2 pl0-m pl0-l">
+      <nav class="fixed-header-mobile pt3 pb3 pb0-ns pt0-m pt3-l dt w-100 mw8 center bb nav-border-b">
+        <div class="w-100 w-30-m w-30-l fl ml3 ml0-ns tl pv3-m pa2-l space-logo">
+          <a href="" class="no-underline white f3 f4-m f2-l fw6 ml4 ml0-m ml0-l pl2 pl0-m pl0-l logo-program-page">
             Active Pathways
           </a>
         </div>
-        <div class="fl w-70 pa3 pr0 tr menu-header desktop-menu">
+        <div class="fl w-70 pa2-m pa3-l pr0 tr menu-header desktop-menu">
           <div class="">
             <a href=""
                class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">Home
             </a>
+            <router-link tag="div" :to="{name:'program-page'}" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+              How it works
+            </router-link>
             <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
-              Challenges
+              Programs
             </a>
             <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
-              Values
+              Sign up
             </a>
             <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
-              Approach
-            </a>
-            <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
-              Contact
+              Sign in
             </a>
           </div>
         </div>

@@ -89,7 +89,12 @@ body.overlay-bg .bg-overlay {
   transition: all .35s ease;
   cursor: pointer;
 }
-
+/*@media screen and (min-width: 589px) and (max-width: 591px) {
+  .logo-program-page {
+    font-size: 1.25rem;
+    margin-left: 50px;
+  }
+}*/
 @media (max-width: 588px) {
   .desktop-menu {
     display: none;
@@ -110,4 +115,8 @@ body.overlay-bg .bg-overlay {
     z-index: 66;
     background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
   }
+  .space-logo {
+    width: 100%;
+  }
 }
+
