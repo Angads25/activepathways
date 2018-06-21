@@ -5,7 +5,6 @@ import Skipped from '@/components/challengeStates/skipped/skipped.vue'
 import Done from '@/components/challengeStates/done/done.vue'
 import NotDone from '@/components/challengeStates/notDone/notDone.vue'
 import NoCheckIn from '@/components/challengeStates/noCheckIn/noCheckIn.vue'
-import {getIdFromURL} from 'vue-youtube-embed'
 import 'video.js/dist/video-js.css'
 
 import {videoPlayer} from 'vue-video-player'
@@ -25,7 +24,7 @@ export default {
   data() {
     return {
       type: 0,
-      videoId: '',
+      youtubeUrl: '',
       playerOptions: {
         // videojs options
         muted: true,
@@ -67,9 +66,19 @@ export default {
       UserService.userChallengeById(this.$route.params['id'])
         .then(resp => {
           this.challengeData = resp
-          this.videoId = getIdFromURL((this.challengeData['challenge'] || {})['youtube'] || '')
-          this.playerOptions.sources[0].src = getIdFromURL((this.challengeData['challenge'] || {})['customVideoUrl'] || '')
+          const videoId = this.getYoutubeIdFromUrl((this.challengeData['challenge'] || {})['youtube'] || '')
+          videoId ? this.youtubeUrl = `https://www.youtube.com/embed/${videoId}?enablejsapi=1` : '';
+          this.playerOptions.sources[0].src = ((this.challengeData['challenge'] || {})['customVideoUrl'] || '')
         })
+    },
+    getYoutubeIdFromUrl(url) {
+      let regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      let match = url.match(regExp);
+      if (match && match[2].length == 11) {
+        return match[2];
+      } else {
+        return '';
+      }
     },
     logout() {
       this.$loader.show()
