@@ -53,18 +53,16 @@
               <div>
               </div>
             </article>
-            <div v-if="youtubeUrl">
-            <iframe id="existing-iframe-example"
+            <iframe v-if="youtubeUrl" id="existing-iframe-example"
                     width="640" height="360"
-                    :src= youtubeUrl
+                    :src=youtubeUrl
                     frameborder="0"
                     style="border: solid 4px #37474F"
             ></iframe>
-            </div>
             <video v-if="customVideoUrl" width="640" height="360" controls>
               <source :src=customVideoUrl type="video/mp4">
               {{customVideoUrl}}
-              </video>
+            </video>
           </div>
         </div>
       </div>

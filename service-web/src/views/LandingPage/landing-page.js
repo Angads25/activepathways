@@ -6,7 +6,7 @@ import {IsUserAcceptedTerms, acceptedTermsAndConditions} from "../../services/us
 
 export default {
   name: 'LandingPage',
-  data () {
+  data() {
     return {
       options: [
         {
@@ -24,26 +24,29 @@ export default {
     SignUp,
     ForgetPassword
   },
+  mounted() {
+    if(this.$route.params.scrollTo)  this.$refs.howItWorks.scrollIntoView()
+  },
   methods: {
-    closeModal () {
+    closeModal() {
       document.body.classList.remove('modal-open')
       this.activeModal = ''
     },
-    openModal (loc, type) {
+    openModal(loc, type) {
       window._gtmCtxSignUp = {loc: loc, type: type}
       document.body.classList.add('modal-open')
     },
-    open () {
+    open() {
       this.openerText = 'Close'
       this.isOpen = true
       document.body.classList.add('overlay-bg')
     },
-    close () {
+    close() {
       this.openerText = 'Open'
       this.isOpen = false
       document.body.classList.remove('overlay-bg')
     },
-    toggle () {
+    toggle() {
       if (this.isOpen) {
         this.close()
       } else {
@@ -51,21 +54,21 @@ export default {
       }
     }
   },
-  created () {
-    if(!IsUserAcceptedTerms()){
+  created() {
+    if (!IsUserAcceptedTerms()) {
       swal({
         type: 'info',
         title: 'Disclaimer',
         html: 'We use cookies for analytical purposes. <a href="/terms#privacy" target="_blank"> Learn more </a>',
         backdrop: false,
-        allowOutsideClick : false,
+        allowOutsideClick: false,
         allowEscapeKey: false,
         allowEnterKey: false,
         position: 'bottom-end',
         toast: true,
         confirmButtonText: 'ACCEPT',
       }).then((result) => {
-        if(result && result.value) {
+        if (result && result.value) {
           acceptedTermsAndConditions()
         }
       })
