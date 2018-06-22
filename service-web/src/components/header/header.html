@@ -63,6 +63,9 @@
                @click.prevent="activeModal = 'signin'; openModal(); toggle()">
               Sign in
             </a>
+            <div v-if="authData" class="db tl f4 fw5 white">Moham Fakru (fakru@codalien.com)</div>
+            <div v-if="authData" class="db pointer tl f4 fw5 mt3 white v-mid" @click="logout()">Logout
+            </div>
           </div>
           <div class="bg-overlay"></div>
         </div>
