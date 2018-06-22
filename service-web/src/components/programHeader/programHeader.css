@@ -1,6 +1,7 @@
 
 .menu-header a {
   text-decoration: none;
+
 }
 
 .menu-header a:hover {
@@ -10,6 +11,17 @@
 
 .menu-header a.active {
   color: #fff;
+}
+.menu-header a.active:after {
+  color: #408BC9;
+  content: "";
+  display: block;
+  background-color: #408BC9;
+  width: 42px;
+  margin: 18px auto 0;
+  padding-bottom: 7px;
+  margin-bottom: -25px;
+  border-radius: 100px;
 }
 
 .header-baner {

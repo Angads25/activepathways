@@ -4,7 +4,6 @@ import ForgetPassword from '@/components/login/forgetPassword/forgetPassword.vue
 import ResetPassword from '@/components/login/resetPassword/resetPassword.vue'
 import VerifyEmailStatus from '@/components/login/verifyEmailStatus/verifyEmailStatus.vue'
 
-
 export default {
   name: 'Header',
   data() {
@@ -14,7 +13,9 @@ export default {
       isOpen: false,
       openerText: 'Open',
       verifyStatus: '',
-      verifyEmailMessage: ''
+      verifyEmailMessage: '',
+      showDrop: false
+
     }
   },
   components: {
@@ -52,6 +53,9 @@ export default {
     showHeader() {
       // return this.$route.name !== "dashboard ?? challengestates"
       return (this.$route.name === 'challengestates') || (this.$route.name === 'dashboard') || (this.$route.name === 'challenge-detail') || (this.$route.name === 'programs-catalogue')|| (this.$route.name === 'program-page')
+    },
+    authData () {
+      return  this.$store.state.auth.authToken
     }
   },
   watch: {

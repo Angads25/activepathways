@@ -49,7 +49,9 @@ const router = new Router({
   ]
 })
 router.beforeEach((to, from, next) => {
-  let authCheck = LocalData.fetch.authToken()
+  // checking auth
+  let authCheck = LocalData.fetch.authToken();
+  console.log('<L><<><><><><', to.name, from.name);
   if (['dashboard', 'challengestates', 'challenge-detail'].indexOf(to.name) > -1) {
     if (authCheck) {
       next()
@@ -62,13 +64,14 @@ router.beforeEach((to, from, next) => {
       })
     }
   }
-  if (['dashboard', 'challengestates', 'challenge-detail'].indexOf(to.name) === -1) {
-    if (!authCheck) {
-      next()
-    } else {
-      next({name: from.name})
-    }
-  }
+  next();
+  /* if (['dashboard', 'challengestates', 'challenge-detail'].indexOf(to.name) === -1) {
+     if (!authCheck) {
+       next()
+     } else {
+       next({name: from.name})
+     }
+   }*/
 })
 
 export default router

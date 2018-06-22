@@ -15,17 +15,27 @@
             <router-link tag="a" :to="{name:'programs-catalogue'}" class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer">
               Programs
             </router-link>
-            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer"
+            <a v-if="!authData" class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer"
                @click.prevent="activeModal = 'signup'; openModal('header', 'signup')">
               Sign up
             </a>
             <!--<a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer" @click.prevent="activeModal = 'resetPassword'; openModal()">-->
             <!--Reset Password-->
             <!--</a>-->
-            <a class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer"
+            <a v-if="!authData" class="f4 f4-m f3-ns b dib-ns pv2 ml3-m ml4-ns pointer"
                @click.prevent="activeModal = 'signin'; openModal()">
               Sign in
             </a>
+            <div v-if="authData" class="tr w2 h2 dib v-mid ml3-m ml4-ns relative"
+                 style="cursor: pointer" @click="showDrop = !showDrop"><img src="../../assets/images/logout-icon.png"/>
+            </div>
+            <div class=" absolute right-0 w-50 bg-white br2 pa3 shadow-default z-1 fa-mouse-pointer mt1"
+                 v-if="showDrop">
+              <div class="db tl f5 fw5 navy">Moham Fakru (fakru@codalien.com)</div>
+              <div class="db pointer tl f5 fw5 mt2 navy v-mid" @click="logout()"><img
+                src="https://png.icons8.com/small/18/000000/export.png" class="v-mid mr2">Logout
+              </div>
+            </div>
           </div>
         </div>
         <div class="mobile-expanded">
@@ -45,11 +55,11 @@
             <router-link tag="div" :to="{name:'programs-catalogue'}" class="w-100 f4 fw5 db white no-underline tl pb3 pointer">
               Programs
             </router-link>
-            <a class="w-100 f4 fw5 db white no-underline pb3 tl"
+            <a v-if="!authData" class="w-100 f4 fw5 db white no-underline pb3 tl"
                @click.prevent="activeModal = 'signup'; openModal(); toggle()">
               Sign up
             </a>
-            <a class="w-100 f4 fw5 db white no-underline pb2 tl"
+            <a v-if="!authData" class="w-100 f4 fw5 db white no-underline pb2 tl"
                @click.prevent="activeModal = 'signin'; openModal(); toggle()">
               Sign in
             </a>

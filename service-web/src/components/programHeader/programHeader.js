@@ -16,9 +16,8 @@ export default {
     }
   },
   computed: {
-    showSignup() {
-      // return this.$route.name !== "dashboard ?? challengestates"
-      return (this.$route.name === 'dashboard')
+    userData() {
+      return  this.$store.state.auth.authToken
     }
   },
   methods: {

@@ -26,12 +26,12 @@
         .then(resp => {
           console.log('in fetch from local')
           this.$loader.hide()
-          if (['landingpage'].indexOf(this.$route.name) > -1) {
-            this.$router.push({
-              name: 'dashboard'
-            })
-          }
-          console.log('after pushing to dashboard')
+          // if (['landingpage'].indexOf(this.$route.name) > -1) {
+          //   this.$router.push({
+          //     name: 'dashboard'
+          //   })
+          // }
+          // console.log('after pushing to dashboard')
         })
         .catch(err => {
           console.log('in error')

@@ -9,24 +9,24 @@
         </div>
         <div class="fl w-70 pa2-m pa3-l pr0 tr menu-header desktop-menu">
           <div class="relative">
-            <a href=""
+            <router-link tag="a" :to="{name : 'home-view'}"
                class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">Home
-            </a>
+            </router-link>
             <router-link tag="div" :to="{name:'home-view',  params: { scrollTo: 'features' }}" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
               How it works
             </router-link>
             <router-link  tag="a" :to="{name: 'programs-catalogue'}" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline" >
               Programs
             </router-link>
-            <a v-if="!showSignup" href=""
+            <a v-if="!userData" href=""
                class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
               Sign up
             </a>
-            <a v-if="!showSignup" href=""
+            <a v-if="!userData" href=""
                class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
               Sign in
             </a>
-            <div class="tr w2 h2 dib v-mid ml3-m ml4-ns relative"
+            <div v-if="userData" class="tr w2 h2 dib v-mid ml3-m ml4-ns relative"
                  style="cursor: pointer" @click="showDrop = !showDrop"><img src="../../assets/images/logout-icon.png"/>
             </div>
             <div class=" absolute right-0 w-50 bg-white br2 pa3 shadow-default z-1 fa-mouse-pointer mt1"
@@ -56,10 +56,10 @@
                class="w-100 f4 fw5 db pb3 white no-underline tl">
               Programs
             </a>
-            <a v-if="!showSignup" class="w-100 f4 fw5 db white no-underline pb3 tl">
+            <a v-if="!userData" class="w-100 f4 fw5 db white no-underline pb3 tl">
               Sign up
             </a>
-            <a v-if="!showSignup" class="w-100 f4 fw5 db white no-underline pb2 tl">
+            <a v-if="!userData" class="w-100 f4 fw5 db white no-underline pb2 tl">
               Sign in
             </a>
             <div class="db tl f4 fw5 white">Moham Fakru (fakru@codalien.com)</div>
