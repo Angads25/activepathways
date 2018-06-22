@@ -61,17 +61,10 @@
                     style="border: solid 4px #37474F"
             ></iframe>
             </div>
-            <!--<div v-if="videoId">
-              <youtube :video-id="videoId"></youtube>
-            </div>
-            <div v-if="playerOptions.sources[0].src">
-              <video-player class="video-player-box"
-                            ref="videoPlayer"
-                            :options="playerOptions"
-                            :playsinline="true"
-                            customEventName="customstatechangedeventname">
-              </video-player>
-            </div>-->
+            <video v-if="customVideoUrl" width="640" height="360" controls>
+              <source :src=customVideoUrl type="video/mp4">
+              {{customVideoUrl}}
+              </video>
           </div>
         </div>
       </div>

@@ -5,10 +5,6 @@ import Skipped from '@/components/challengeStates/skipped/skipped.vue'
 import Done from '@/components/challengeStates/done/done.vue'
 import NotDone from '@/components/challengeStates/notDone/notDone.vue'
 import NoCheckIn from '@/components/challengeStates/noCheckIn/noCheckIn.vue'
-import 'video.js/dist/video-js.css'
-
-import {videoPlayer} from 'vue-video-player'
-
 
 export default {
   name: 'ChallengePage',
@@ -19,23 +15,12 @@ export default {
     Done,
     NotDone,
     NoCheckIn,
-    videoPlayer
   },
   data() {
     return {
       type: 0,
       youtubeUrl: '',
-      playerOptions: {
-        // videojs options
-        muted: true,
-        language: 'en',
-        playbackRates: [0.7, 1.0, 1.5, 2.0],
-        sources: [{
-          type: "video/mp4",
-          src: ""
-        }],
-        poster: "/static/images/author.jpg",
-      },
+      customVideoUrl:'',
       challengeData: {},
       statusComponents: {
         PENDING: OnHold,
@@ -68,7 +53,7 @@ export default {
           this.challengeData = resp
           const videoId = this.getYoutubeIdFromUrl((this.challengeData['challenge'] || {})['youtube'] || '')
           videoId ? this.youtubeUrl = `https://www.youtube.com/embed/${videoId}?enablejsapi=1` : '';
-          this.playerOptions.sources[0].src = ((this.challengeData['challenge'] || {})['customVideoUrl'] || '')
+          this.customVideoUrl = ((this.challengeData['challenge'] || {})['customVideoUrl'] || '')
         })
     },
     getYoutubeIdFromUrl(url) {
