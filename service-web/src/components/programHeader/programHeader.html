@@ -8,7 +8,7 @@
           </a>
         </div>
         <div class="fl w-70 pa2-m pa3-l pr0 tr menu-header desktop-menu">
-          <div class="">
+          <div class="relative">
             <a href=""
                class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">Home
             </a>
@@ -18,12 +18,24 @@
             <router-link  tag="a" :to="{name: 'programs-catalogue'}" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline" >
               Programs
             </router-link>
-            <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+            <a v-if="!showSignup" href=""
+               class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
               Sign up
             </a>
-            <a href="" class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
+            <a v-if="!showSignup" href=""
+               class="f5 f5-m f4-ns fw5 dib-ns pv2 ml3-m ml4-ns mt1-m white pointer no-underline">
               Sign in
             </a>
+            <div class="tr w2 h2 dib v-mid ml3-m ml4-ns relative"
+                 style="cursor: pointer" @click="showDrop = !showDrop"><img src="../../assets/images/logout-icon.png"/>
+            </div>
+            <div class=" absolute right-0 w-50 bg-white br2 pa3 shadow-default z-1 fa-mouse-pointer mt1"
+                 v-if="showDrop">
+              <div class="db tl f5 fw5 navy">Moham Fakru (fakru@codalien.com)</div>
+              <div class="db pointer tl f5 fw5 mt2 navy v-mid" @click="logout()"><img
+                src="https://png.icons8.com/small/18/000000/export.png" class="v-mid mr2">Logout
+              </div>
+            </div>
           </div>
         </div>
         <div class="mobile-expanded">
@@ -42,14 +54,17 @@
             </a>
             <a href=""
                class="w-100 f4 fw5 db pb3 white no-underline tl">
-              Values
+              Programs
             </a>
-            <a class="w-100 f4 fw5 db white no-underline pb3 tl">
-              Approach
+            <a v-if="!showSignup" class="w-100 f4 fw5 db white no-underline pb3 tl">
+              Sign up
             </a>
-            <a class="w-100 f4 fw5 db white no-underline pb2 tl">
-              Contact
+            <a v-if="!showSignup" class="w-100 f4 fw5 db white no-underline pb2 tl">
+              Sign in
             </a>
+            <div class="db tl f4 fw5 white">Moham Fakru (fakru@codalien.com)</div>
+            <div class="db pointer tl f4 fw5 mt3 white v-mid" @click="logout()">Logout
+            </div>
           </div>
           <div class="bg-overlay"></div>
         </div>
