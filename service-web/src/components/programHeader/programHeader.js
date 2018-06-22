@@ -11,7 +11,14 @@ export default {
       activeModal: '',
       showHeader: false,
       isOpen: false,
-      openerText: 'Open'
+      openerText: 'Open',
+      showDrop: false
+    }
+  },
+  computed: {
+    showSignup() {
+      // return this.$route.name !== "dashboard ?? challengestates"
+      return (this.$route.name === 'dashboard')
     }
   },
   methods: {
@@ -31,6 +38,14 @@ export default {
       } else {
         this.open()
       }
+    },
+    logout() {
+      this.$loader.show()
+      this.$store.dispatch('logout')
+      this.$router.push({
+        name: 'landingpage'
+      })
+      this.$loader.hide()
     }
   }
 }

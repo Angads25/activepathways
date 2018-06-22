@@ -5,6 +5,7 @@ import Done from '@/components/challengeStates/done/done.vue'
 import NotDone from '@/components/challengeStates/notDone/notDone.vue'
 import NoCheckIn from '@/components/challengeStates/noCheckIn/noCheckIn.vue'
 import NotesModal from '@/components/notes-card-modal/notes-card-modal.vue'
+import ProgramHeader from '@/components/programHeader/programHeader.vue'
 
 export default {
   name: 'Dashboard',
@@ -15,7 +16,8 @@ export default {
     Done,
     NotDone,
     NoCheckIn,
-    NotesModal
+    NotesModal,
+    ProgramHeader
   },
   data() {
     return {
