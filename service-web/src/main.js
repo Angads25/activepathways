@@ -9,6 +9,7 @@ import './mixins'
 import 'sweetalert2/dist/sweetalert2.css'
 import VCalendar from 'v-calendar'
 import 'v-calendar/lib/v-calendar.min.css'
+// import 'vue-blu/dist/css/vue-blu.min.css'
 import moment from 'moment'
 import vueScrollto from 'vue-scrollto'
 import VmBackTop from 'vue-multiple-back-top'
@@ -16,6 +17,8 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import Raven from 'raven-js';
 import RavenVue from 'raven-js/plugins/vue';
+import VueBlu from 'vue-blu'
+
 
 Raven
   .config('https://c5a9b905c4bd46c5a271eb0c8e334480@sentry.io/1206277')
@@ -27,6 +30,7 @@ Vue.use(VeeValidate)
 Vue.use(VCalendar)
 Vue.use(vueScrollto)
 Vue.component(VmBackTop.name, VmBackTop)
+Vue.use(VueBlu)
 
 // CSS library
 require('../node_modules/tachyons/css/tachyons.css')

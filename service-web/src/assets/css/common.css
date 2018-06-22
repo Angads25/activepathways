@@ -511,3 +511,6 @@ label, input {
   }
 
 }
+.affix {
+  position: fixed;
+}
